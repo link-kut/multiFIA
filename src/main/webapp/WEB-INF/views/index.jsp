@@ -21,6 +21,8 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
     <link rel="stylesheet" href="../resources/assets/css/main.css" />
     <!--[if lte IE 8]><link rel="stylesheet" href="../resources/assets/css/ie8.css" /><![endif]-->
     <!--[if lte IE 9]><link rel="stylesheet" href="../resources/assets/css/ie9.css" /><![endif]-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
 </head>
 <body>
 
@@ -35,7 +37,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
             응용/서비스에 특화된 인프라 제공을 위한 소프트웨어 정의 인프라 및 테스트베드 구축<br />
         </p>
         <ul class="actions">
-            <li><a href="#one" class="button scrolly">Discover</a></li>
+            <li><a href="#one" class="button scrolly">자세한 설명</a></li>
         </ul>
     </div>
 </section>
@@ -95,36 +97,52 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
         <header class="major">
             <h2>참여 연구원</h2>
         </header>
-        <p>Ante nunc accumsan et aclacus nascetur ac ante amet sapien sed.</p>
+        <p>본 과제의 참여 연구원을 소개합니다.</p>
         <div class="row 150%">
-            <div class="4u 12u$(medium)">
+            <div class="col-md-2">
                 <span class="image fit"><img src="../resources/images/song_prof.png" alt="" /></span>
-                <h3>Wang-Cheol Song</h3>
+                <h4>Wang-Cheol Song</h4>
                 <p>제주대학교</p>
                 <ul class="actions">
                     <li><a href="#" class="button">More</a></li>
                 </ul>
             </div>
-            <div class="4u 12u$(medium)">
+            <div class="col-md-2">
                 <span class="image fit"><img src="../resources/images/choi_prof.jpg" alt="" /></span>
-                <h3>Deok-Jai Choi</h3>
+                <h4>Deok-Jai Choi</h4>
                 <p>전남대학교</p>
                 <ul class="actions">
                     <li><a href="#" class="button">More</a></li>
                 </ul>
             </div>
-            <div class="4u 12u$(medium)">
-                <span class="image fit"><img src="../resources/images/han_prof.png" alt="" /></span>
-                <h3>Youn-Hee Han</h3>
-                <p>한국기술교육대학교</p>
+            <div class="col-md-2">
+                <span class="image fit"><img src="../resources/images/seok_kisti.jpg" alt="" /></span>
+                <h4>Woo-Jin Seok</h4>
+                <p>한국과학기술정보연구원</p>
                 <ul class="actions">
                     <li><a href="#" class="button">More</a></li>
                 </ul>
             </div>
-            <div class="4u 12u$(medium)">
-                <span class="image fit"><img src="../resources/images/seok_kisti.jpg" alt="" /></span>
-                <h3>Woo-Jin Seok</h3>
-                <p>한국과학기술정보연구원</p>
+            <div class="col-md-2">
+                <span class="image fit"><img src="../resources/images/seok_prof.jpg" alt="" /></span>
+                <h4>Seung Jun Seok</h4>
+                <p>경남대학교</p>
+                <ul class="actions">
+                    <li><a href="#" class="button">More</a></li>
+                </ul>
+            </div>
+            <div class="col-md-2">
+                <span class="image fit"><img src="../resources/images/kim_prof.jpg" alt="" /></span>
+                <h4>Kyungbaek Kim</h4>
+                <p>전남대학교</p>
+                <ul class="actions">
+                    <li><a href="#" class="button">More</a></li>
+                </ul>
+            </div>
+            <div class="col-md-2">
+                <span class="image fit"><img src="../resources/images/han_prof.png" alt="" /></span>
+                <h4>Youn-Hee Han</h4>
+                <p>한국기술교육대학교</p>
                 <ul class="actions">
                     <li><a href="#" class="button">More</a></li>
                 </ul>
@@ -134,6 +152,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 </section>
 
 <!-- Four -->
+<!--
 <section id="four" class="main style2 special">
     <div class="container">
         <header class="major">
@@ -146,7 +165,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
         </ul>
     </div>
 </section>
-
+-->
 <!-- Five -->
 <!--
     <section id="five" class="main style1">
@@ -469,6 +488,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 
 <!-- Footer -->
 <section id="footer">
+    <!--
     <ul class="icons">
         <li><a href="#" class="icon alt fa-twitter"><span class="label">Twitter</span></a></li>
         <li><a href="#" class="icon alt fa-facebook"><span class="label">Facebook</span></a></li>
@@ -476,8 +496,9 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
         <li><a href="#" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
         <li><a href="#" class="icon alt fa-envelope"><span class="label">Email</span></a></li>
     </ul>
+    -->
     <ul class="copyright">
-        <li>&copy; Untitled</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+        <li>&copy; Copyright</li><li>IITP-multiFIA</li>
     </ul>
 </section>
 
@@ -487,6 +508,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 <script src="../resources/assets/js/skel.min.js"></script>
 <script src="../resources/assets/js/util.js"></script>
 <!--[if lte IE 8]><script src="../resources/assets/js/ie/respond.min.js"></script><![endif]-->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 <script src="../resources/assets/js/main.js"></script>
 
 </body>

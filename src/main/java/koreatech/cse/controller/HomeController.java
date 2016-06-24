@@ -11,8 +11,6 @@ import java.util.Map;
 @Controller
 @RequestMapping("/")
 public class HomeController {
-
-
     @ModelAttribute("name")
     private String getName() {
         return "IamHomeControllerModelAttribute";
