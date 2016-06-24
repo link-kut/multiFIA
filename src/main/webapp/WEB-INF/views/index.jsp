@@ -98,7 +98,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
         <p>Ante nunc accumsan et aclacus nascetur ac ante amet sapien sed.</p>
         <div class="row 150%">
             <div class="4u 12u$(medium)">
-                <span class="image fit"><img src="../resources/images/song_prof.png" alt="" /></span>
+                <span class="image fit"><img src="../resources/images/song_prof.jpg" alt="" /></span>
                 <h3>Wang-Cheol Song</h3>
                 <p>제주대학교</p>
                 <ul class="actions">
@@ -114,17 +114,33 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                 </ul>
             </div>
             <div class="4u 12u$(medium)">
-                <span class="image fit"><img src="../resources/images/han_prof.png" alt="" /></span>
-                <h3>Youn-Hee Han</h3>
-                <p>한국기술교육대학교</p>
+                <span class="image fit"><img src="../resources/images/seok_kisti.jpg" alt="" /></span>
+                <h3>Woo-Jin Seok</h3>
+                <p>한국과학기술정보연구원</p>
                 <ul class="actions">
                     <li><a href="#" class="button">More</a></li>
                 </ul>
             </div>
             <div class="4u 12u$(medium)">
-                <span class="image fit"><img src="../resources/images/seok_kisti.jpg" alt="" /></span>
-                <h3>Woo-Jin Seok</h3>
-                <p>한국과학기술정보연구원</p>
+                <span class="image fit"><img src="../resources/images/seok_prof.jpg" alt="" /></span>
+                <h3>Seung-Joon Seok</h3>
+                <p>경남대학교</p>
+                <ul class="actions">
+                    <li><a href="#" class="button">More</a></li>
+                </ul>
+            </div>
+            <div class="4u 12u$(medium)">
+                <span class="image fit"><img src="../resources/images/kim_prof.jpg" alt="" /></span>
+                <h3>Kyung-Baek Kim</h3>
+                <p>전남대학교</p>
+                <ul class="actions">
+                    <li><a href="#" class="button">More</a></li>
+                </ul>
+            </div>
+            <div class="4u 12u$(medium)">
+                <span class="image fit"><img src="../resources/images/han_prof.jpg" alt="" /></span>
+                <h3>Youn-Hee Han</h3>
+                <p>한국기술교육대학교</p>
                 <ul class="actions">
                     <li><a href="#" class="button">More</a></li>
                 </ul>
