@@ -101,48 +101,48 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
         <div class="row 150%">
             <div class="col-md-2">
                 <span class="image fit"><img src="../resources/images/song_prof.png" alt="" /></span>
-                <h4>Wang-Cheol Song</h4>
-                <p>제주대학교</p>
+                <h5>Prof. Wang-Cheol Song</h5>
+                <p>송왕철, 제주대학교</p>
                 <ul class="actions">
                     <li><a href="#" class="button">More</a></li>
                 </ul>
             </div>
             <div class="col-md-2">
                 <span class="image fit"><img src="../resources/images/choi_prof.jpg" alt="" /></span>
-                <h4>Deok-Jai Choi</h4>
-                <p>전남대학교</p>
+                <h5>Prof. Deok-Jai Choi</h5>
+                <p>최덕재, 전남대학교</p>
                 <ul class="actions">
                     <li><a href="#" class="button">More</a></li>
                 </ul>
             </div>
             <div class="col-md-2">
                 <span class="image fit"><img src="../resources/images/seok_kisti.jpg" alt="" /></span>
-                <h4>Woo-Jin Seok</h4>
-                <p>한국과학기술정보연구원</p>
+                <h5>Dr. Woojin Seok</h5>
+                <p>석우진, KISTI</p>
                 <ul class="actions">
                     <li><a href="#" class="button">More</a></li>
                 </ul>
             </div>
             <div class="col-md-2">
                 <span class="image fit"><img src="../resources/images/seok_prof.jpg" alt="" /></span>
-                <h4>Seung Jun Seok</h4>
-                <p>경남대학교</p>
+                <h5>Prof. Seung-Joon Seok</h5>
+                <p>석승준, 경남대학교</p>
                 <ul class="actions">
                     <li><a href="#" class="button">More</a></li>
                 </ul>
             </div>
             <div class="col-md-2">
                 <span class="image fit"><img src="../resources/images/kim_prof.jpg" alt="" /></span>
-                <h4>Kyungbaek Kim</h4>
-                <p>전남대학교</p>
+                <h5>Prof. Kyungbaek Kim</h5>
+                <p>김경백, 전남대학교</p>
                 <ul class="actions">
                     <li><a href="#" class="button">More</a></li>
                 </ul>
             </div>
             <div class="col-md-2">
-                <span class="image fit"><img src="../resources/images/han_prof.png" alt="" /></span>
-                <h4>Youn-Hee Han</h4>
-                <p>한국기술교육대학교</p>
+                <span class="image fit"><img src="../resources/images/han_prof.jpg" alt="" /></span>
+                <h5>Prof. Youn-Hee Han</h5>
+                <p>한연희, 한국기술교육대학교</p>
                 <ul class="actions">
                     <li><a href="#" class="button">More</a></li>
                 </ul>
