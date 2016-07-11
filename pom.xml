@@ -5,8 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
     <name>Web Service and Computing - Spring</name>
     <groupId>koreatech.cse</groupId>
-    <artifactId>wsc</artifactId>
-    <version>001</version>
+    <artifactId>multifia</artifactId>
+    <version>002</version>
     <packaging>war</packaging>
 
     <properties>

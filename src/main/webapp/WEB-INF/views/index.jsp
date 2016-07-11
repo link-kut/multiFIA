@@ -30,11 +30,12 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 <section id="header">
     <div class="inner">
         <span class="icon major fa-cloud"></span>
-        <h1><strong>IITP-multiFIA</strong>.</h1>
-        <p>QoS 자원매칭 기반 유형별 네트워킹 개체 ID 구조 및 확장성있는 ID 디렉토리 서비스 개발<br />
+        <h1><strong>IITP-multiFIA</strong></h1>
+        <h3><strong>Multi-dimensional Future Network System Architecture for Diversity of Services, Terminals and Networks</strong></h3>
+        <p>네트워크 QoS 자원 매칭을 고려한 유형별 네트워킹 개체 ID 구조 및 확장성 있는 ID 디렉토리 서비스 개발<br />
             다양한 응용/서비스를 위한 추상화 및 QoS 표현기법 연구 및 구현<br />
-            응용/서비스와 단말/네트워크 자원의 풀(Pool) 간 최적 매칭을 위한 Orchestration 제어 기술 구현<br />
-            응용/서비스에 특화된 인프라 제공을 위한 소프트웨어 정의 인프라 및 테스트베드 구축<br />
+            응용/서비스와 단말/네트워크 최적매칭을 위한 Orchestrating Control<br />
+            응용/서비스에 특화된 인프라 제공을 위한 Software-Defined Infra 및 테스트베드 구축<br />
         </p>
         <ul class="actions">
             <li><a href="#one" class="button scrolly">자세한 설명</a></li>
@@ -48,17 +49,43 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
         <div class="row 150%">
             <div class="6u 12u$(medium)">
                 <header class="major">
-                    <h3>Study on the multi-dimensional Future Network System
-                        Architecture for diversity of Services, Terminals and Networks</h3>
+                    <h3>다양한 네트워킹 개체 ID 처리</h3>
                 </header>
-                <p>다양한 응용 및 서비스 주도형 네트워크 시스템 아키텍쳐를 위하여 본 제안에서는 다양한 네트워킹
-                    개체 ID 처리, 통합화된 QoS 추상화 표현, 서비스별 최적화 Orchestration(조정), 단말/네트워크/
-                    클라우드 자원을 포함하는 프로그래머블 인프라를 기반으로 하는 End-to-End Software-Defined
-                    Control방식을 제안함.</p>
-             </div>
+                <p>
+                    다양한 응용/서비스등을 처리하기 위한 여러가지 네트워킹 ID 유형 지원과 확장 가능한(Scalable) 네트워킹 개체 ID 검색 기법.
+                    네트워크 QoS 자원 매칭을 고려한 유형별 네트워킹 개체 ID 구조 및 활용 연구를 통하여 확장성 있는 ID 디렉토리 서비스 개발
+                </p>
+                </br></br>
+                <header class="major">
+                    <h3>통합화된 QoS 추상화 표현</h3>
+                </header>
+                <p>
+                    다양한 ID 유형 기반의 여러가지 응용/서비스 요구사항을 처리하기 위하여 통합되고 추상화된 표현기법과 응용/서비스 주도형 요구사항 표현
+                    기법을 연구 및 구현
+                </p>
+            </div>
+            <div class="6u 12u$(medium)">
+                <header class="major">
+                    <h3>서비스별 최적화 Orchestration</h3>
+                </header>
+                <p>
+                    응용/서비스별 최적화된 네트워크 및 클라우드 자원 할당을 처리하기 위한 최적의 Orchestration 기법과 엣지컴퓨팅 등을 이용한
+                    유연하고 확장성 있는 최적화 처리 기법을 연구 및 구현
+                </p>
+                </br></br>
+                <header class="major">
+                    <h3>프로그래머블 인프라 기반 End-to-End Software-Defined Control 방식</h3>
+                </header>
+                <p>
+                    Software-Defined Orchestration Control이 가능한 단말/네트워크/클라우드의 통합적인 자원 표현 기법, 소프트웨어 기반의
+                    제어를 위한 API 기반의 프로그래머블 인프라 구현
+                </p>
+            </div>
+            <!--
             <div class="6u$ 12u$(medium) important(medium)">
                 <span class="image fit"><img src="../resources/images/structure.png" alt="" /></span>
             </div>
+            -->
         </div>
     </div>
 </section>
@@ -102,50 +129,88 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
             <div class="col-md-2">
                 <span class="image fit"><img src="../resources/images/song_prof.png" alt="" /></span>
                 <h5>Prof. Wang-Cheol Song</h5>
-                <p>송왕철, 제주대학교</p>
+                <p>송왕철 교수, 제주대학교</p>
+                <h5>참여 연구원</h5>
+                <p>
+                    아팍 무하마드 연구원</br>
+                    김혜원 연구원
+                </p>
+                <!--
                 <ul class="actions">
                     <li><a href="#" class="button">More</a></li>
                 </ul>
+                -->
             </div>
             <div class="col-md-2">
                 <span class="image fit"><img src="../resources/images/choi_prof.jpg" alt="" /></span>
                 <h5>Prof. Deok-Jai Choi</h5>
-                <p>최덕재, 전남대학교</p>
+                <p>최덕재 교수, 전남대학교</p>
+                <h5>참여 연구원</h5>
+                <p>
+                    Nguyen Van Quyet </br>박사과정</br>
+                    Nugraha I Gde Dharma </br>박사과정</br>
+                    Vu Duc Tiep 석사과정</br>
+                    Alvin Prayuda Juniarta </br>석사과정</br>
+                    유시선 학사과정
+                </p>
+                <!--
                 <ul class="actions">
                     <li><a href="#" class="button">More</a></li>
                 </ul>
+                -->
             </div>
             <div class="col-md-2">
                 <span class="image fit"><img src="../resources/images/seok_kisti.jpg" alt="" /></span>
                 <h5>Dr. Woojin Seok</h5>
-                <p>석우진, KISTI</p>
+                <p>석우진 책임연구원 (박사),<br/>KISTI</p>
+                <h5>참여 연구원</h5>
+                <p>
+                    문정훈 선임연구원</br>
+                    곽재승 책임연구원</br>
+                    홍원택 선임연구원</br>
+                    김동균 책임연구원</br>
+                    이민선 선임연구원
+                </p>
+                <!--
                 <ul class="actions">
                     <li><a href="#" class="button">More</a></li>
                 </ul>
+                -->
             </div>
             <div class="col-md-2">
                 <span class="image fit"><img src="../resources/images/seok_prof.jpg" alt="" /></span>
                 <h5>Prof. Seung-Joon Seok</h5>
-                <p>석승준, 경남대학교</p>
+                <p>석승준 교수, 경남대학교</p>
+                <!--
                 <ul class="actions">
                     <li><a href="#" class="button">More</a></li>
                 </ul>
+                -->
             </div>
             <div class="col-md-2">
                 <span class="image fit"><img src="../resources/images/kim_prof.jpg" alt="" /></span>
                 <h5>Prof. Kyungbaek Kim</h5>
-                <p>김경백, 전남대학교</p>
+                <p>김경백 교수, 전남대학교</p>
+                <!--
                 <ul class="actions">
                     <li><a href="#" class="button">More</a></li>
                 </ul>
+                -->
             </div>
             <div class="col-md-2">
                 <span class="image fit"><img src="../resources/images/han_prof.jpg" alt="" /></span>
                 <h5>Prof. Youn-Hee Han</h5>
-                <p>한연희, 한국기술교육대학교</p>
+                <p>한연희 교수,</br>한국기술교육대학교</p>
+                <h5>참여 연구원</h5>
+                <p>
+                    임현교 석사과정</br>
+                    김경한 석사과정
+                </p>
+                <!--
                 <ul class="actions">
                     <li><a href="#" class="button">More</a></li>
                 </ul>
+                -->
             </div>
         </div>
     </div>
