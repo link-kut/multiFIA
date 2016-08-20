@@ -8,7 +8,8 @@
        <mvc:annotation-driven />
        <mvc:resources location="/WEB-INF/resources/" mapping="/resources/**" />
 
-       <context:component-scan base-package="koreatech.cse" />
+       <context:component-scan base-package="koreatech.multifiaWeb" />
+       <context:component-scan base-package="koreatech.streaming" />
        <context:property-placeholder location="classpath:config.properties" />
 
        <bean id="contentNegotiatingViewResolver" class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
@@ -30,7 +31,7 @@
        </bean>
 
        <!-- MyBatis -->
-       <mybatis:scan base-package="koreatech.cse.repository" />
+       <mybatis:scan base-package="koreatech.multifiaWeb.repository" />
        <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
               <property name="dataSource" ref="dataSource" />
               <property name="configLocation" value="classpath:mybatis.xml" />
@@ -41,7 +42,7 @@
         <property name="dataSource" ref="dataSource" />
     </bean>
     <aop:aspectj-autoproxy />
-    <bean id="userServiceAspect" class="koreatech.cse.aop.AopTester" />
+    <bean id="userServiceAspect" class="koreatech.multifiaWeb.aop.AopTester" />
 
 
 </beans>

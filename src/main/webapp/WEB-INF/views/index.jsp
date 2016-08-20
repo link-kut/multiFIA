@@ -118,6 +118,19 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
     </div>
 </section>
 -->
+
+<section id="four" class="main style2 special">
+    <div class="container">
+        <header class="major">
+            <h2>What's the movie you want to watch?</h2>
+        </header>
+        <p>예고편</p>
+        <a href="movie?title=Spiderman.mp4"><img src="../resources/images/Spiderman.jpeg" alt="" width="186" height="269" /></a>
+        <a href="movie?title=Darkknight.mp4"><img src="../resources/images/darkknight.jpg" alt="" width="186" height="269" /></a>
+        <a href="movie?title=Punisher.mp4"><img src="../resources/images/Punisher.jpg" alt="" width="186" height="269" /></a>
+    </div>
+</section>
+
 <!-- Three -->
 <section id="three" class="main style2">
     <div class="container">
