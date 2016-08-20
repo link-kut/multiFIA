@@ -18,6 +18,9 @@
  */
 
 package koreatech.streaming.httpStream;
+
+import uk.co.caprica.vlcj.binding.LibC;
+
 /**
  * An example of how to stream a media file over HTTP.
  * <p>
@@ -28,6 +31,7 @@ public class StreamHttp extends VlcjTest {
     public static String mediaFolder = fileSeparator + "usr" + fileSeparator + "local" + fileSeparator + "share";
 
     public static void main(String[] args) throws Exception {
+        LibC.INSTANCE.setenv("VLC_PLUGIN_PATH", "/Applications/VLC.app/Contents/MacOS/plugins", 1);
         if(args.length != 3) {
             System.out.println("Specify a single MRL to stream");
             System.exit(1);
