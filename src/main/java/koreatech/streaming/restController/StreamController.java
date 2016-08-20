@@ -1,8 +1,6 @@
 package koreatech.streaming.restController;
 
-import com.sun.jna.NativeLibrary;
 import koreatech.streaming.domain.Target;
-import koreatech.streaming.httpStream.StreamHttp;
 import koreatech.streaming.httpStream.StreamHttpThread;
 import koreatech.streaming.service.OrchidService;
 import org.springframework.http.HttpHeaders;
@@ -10,8 +8,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/streaming")
@@ -38,7 +34,6 @@ public class StreamController {
         }
 
         if(compareId.equals(id)) {
-            System.setProperty("jna.library.path", "Applications/VLC.app/Contents/MacOS/lib");
             StreamHttpThread streamHttpThread = new StreamHttpThread(info, mediaFolder, fileSeparator);
             streamHttpThread.start();
             //streamHttpThread.join();

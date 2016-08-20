@@ -1,17 +1,10 @@
 package koreatech.streaming.httpStream;
 
-import com.sun.jna.Native;
-import com.sun.jna.NativeLibrary;
 import koreatech.streaming.service.OrchidService;
 import koreatech.streaming.service.VlcService;
-import uk.co.caprica.vlcj.binding.LibVlc;
 import uk.co.caprica.vlcj.player.MediaPlayerFactory;
 import uk.co.caprica.vlcj.player.headless.HeadlessMediaPlayer;
-import uk.co.caprica.vlcj.runtime.RuntimeUtil;
 
-/**
- * Created by Kyo on 2016. 8. 16..
- */
 public class StreamHttpThread extends Thread {
     private String[] args;
     private String mediaFolder;
@@ -23,6 +16,11 @@ public class StreamHttpThread extends Thread {
         this.args = args;
         this.mediaFolder = mediaFolder;
         this.fileSeparator = fileSeparator;
+        //System.setProperty("jna.library.path", "/Applications/VLC.app/Contents/MacOS/lib");
+
+        //LibC.INSTANCE.setenv("VLC_PLUGIN_PATH", "/Applications/VLC.app/Contents/MacOS/plugins", 1);
+        //NativeLibrary.addSearchPath(RuntimeUtil.getLibVlcLibraryName(), "/Applications/VLC.app/Contents/MacOS/lib");
+        //Native.loadLibrary(RuntimeUtil.getLibVlcLibraryName(), LibVlc.class);
     }
 
     public void run() {
@@ -31,8 +29,6 @@ public class StreamHttpThread extends Thread {
             String options = vlcService.formatHttpStream(args[1], Integer.parseInt(args[2]));
 
             System.out.println("Streaming '" + media + "' to '" + options + "'");
-
-            //NativeLibrary.addSearchPath(RuntimeUtil.getLibVlcLibraryName(), "/Applications/VLC.app/Contents/MacOS/lib");
 
             MediaPlayerFactory mediaPlayerFactory = new MediaPlayerFactory(args);
             HeadlessMediaPlayer mediaPlayer = mediaPlayerFactory.newHeadlessMediaPlayer();

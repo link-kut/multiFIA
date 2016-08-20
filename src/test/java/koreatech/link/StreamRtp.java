@@ -21,6 +21,7 @@ package koreatech.link;
 
 import koreatech.streaming.service.OrchidService;
 import koreatech.streaming.service.VlcService;
+import uk.co.caprica.vlcj.binding.LibC;
 import uk.co.caprica.vlcj.player.MediaPlayerFactory;
 import uk.co.caprica.vlcj.player.headless.HeadlessMediaPlayer;
 
@@ -37,6 +38,8 @@ public class StreamRtp extends VlcjTest {
     static VlcService vlcService = new VlcService();
 
     public static void main(String[] args) throws Exception {
+        LibC.INSTANCE.setenv("VLC_PLUGIN_PATH", "/Applications/VLC.app/Contents/MacOS/plugins", 1);
+
         if(args.length != 3) {
             System.out.println("Specify a single MRL to stream");
             System.exit(1);
