@@ -30,7 +30,11 @@ public class StreamHttpThread extends Thread {
 
             System.out.println("Streaming '" + media + "' to '" + options + "'");
 
+            System.out.println("Start!");
             MediaPlayerFactory mediaPlayerFactory = new MediaPlayerFactory(args);
+
+            System.out.println(mediaPlayerFactory);
+
             HeadlessMediaPlayer mediaPlayer = mediaPlayerFactory.newHeadlessMediaPlayer();
             mediaPlayer.playMedia(media, options);
 
