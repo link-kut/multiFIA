@@ -1,1 +1,2 @@
-mvn exec:java -Dexec.mainClass=koreatech.streaming.httpStream.StreamHttp -Djna.library.path=/Applications/VLC.app/Contents/MacOS/lib -DfailIfNoTests=false -Dexec.classpathScope=test -Dexec.args="$1 $2 $3"
+#!/usr/bin/env bash
+(cd /Users/yhhan/git/multiFIA; mvn exec:java -Dexec.mainClass=koreatech.streaming.stream.StreamHttp -Djna.library.path=/Applications/VLC.app/Contents/MacOS/lib -DfailIfNoTests=false -Dexec.classpathScope=test -Dexec.args="$1 $2 $3")

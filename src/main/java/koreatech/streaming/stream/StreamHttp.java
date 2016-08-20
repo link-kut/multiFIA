@@ -17,7 +17,7 @@
  * Copyright 2009-2016 Caprica Software Limited.
  */
 
-package koreatech.streaming.httpStream;
+package koreatech.streaming.stream;
 
 import uk.co.caprica.vlcj.binding.LibC;
 

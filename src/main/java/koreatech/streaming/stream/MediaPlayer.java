@@ -1,6 +1,7 @@
-package koreatech.streaming.httpStream;
+package koreatech.streaming.stream;
 
 import koreatech.streaming.service.OrchidService;
+import uk.co.caprica.vlcj.binding.LibC;
 import uk.co.caprica.vlcj.player.MediaPlayerFactory;
 import uk.co.caprica.vlcj.player.direct.BufferFormat;
 import uk.co.caprica.vlcj.player.direct.BufferFormatCallback;
@@ -94,6 +95,7 @@ public class MediaPlayer extends VlcjTest {
     }
 
     public static void main(String[] args) throws Exception {
+        LibC.INSTANCE.setenv("VLC_PLUGIN_PATH", "/Applications/VLC.app/Contents/MacOS/plugins", 1);
 
         if(args.length < 3) {
             System.out.println("Specify a single media URL");

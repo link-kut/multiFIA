@@ -17,7 +17,7 @@
  * Copyright 2009, 2010, 2011, 2012, 2013, 2014 Caprica Software Limited.
  */
 
-package koreatech.streaming.httpStream;
+package koreatech.streaming.stream;
 
 import com.sun.jna.NativeLibrary;
 import org.apache.log4j.BasicConfigurator;

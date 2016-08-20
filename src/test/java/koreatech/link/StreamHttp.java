@@ -19,7 +19,7 @@
 
 package koreatech.link;
 
-import koreatech.streaming.httpStream.StreamHttpThread;
+import koreatech.streaming.stream.StreamHttpThread;
 import uk.co.caprica.vlcj.binding.LibC;
 
 /**
