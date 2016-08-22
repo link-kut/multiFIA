@@ -13,7 +13,18 @@ public class CommandExecuter extends Thread {
 
     public CommandExecuter(String name, String targetAddress, String targetPort) {
         StringBuffer sb = new StringBuffer();
+
+        /*
         sb.append("/Users/yhhan/git/multiFIA/run2.server.sh");
+        sb.append(" ");
+        sb.append(name);
+        sb.append(" ");
+        sb.append(targetAddress);
+        sb.append(" ");
+        sb.append(targetPort);
+        */
+
+        sb.append("java -Djna.library.path=/Applications/VLC.app/Contents/MacOS/lib -jar /Users/yhhan/git/multiFIA/out/artifacts/wsc_jar/wsc.jar");
         sb.append(" ");
         sb.append(name);
         sb.append(" ");
@@ -28,11 +39,11 @@ public class CommandExecuter extends Thread {
             Process p = Runtime.getRuntime().exec(command);
             this.process = p;
             copy(p.getInputStream(), System.out);
+            System.out.println(process.toString() + " has started!");
             p.waitFor();
         } catch (IOException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
-            e.printStackTrace();
         }
     }
 
@@ -41,6 +52,13 @@ public class CommandExecuter extends Thread {
         int n = 0;
         while ((n = input.read(buffer)) != -1) {
             output.write(buffer, 0, n);
+        }
+    }
+
+    public void killCurrentProcess() {
+        if (process != null && process.isAlive()) {
+            process.destroy();
+            System.out.println(process.toString() + " has beep destoyed!");
         }
     }
 

@@ -18,3 +18,5 @@ Thumbs.db
 *.iml
 .tern-project
 rebel.xml
+*.jar
+out/*

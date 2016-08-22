@@ -30,8 +30,10 @@ public class StreamController {
         // 관리중인 컨텐츠 ID인지 판단
         String compareId = orchidService.getOrchidContentName("Spiderman.mp4");
         if(compareId.equals(id)) {
-            commandExecuter = new CommandExecuter("Spiderman.mp4", address, port);
-            commandExecuter.start();
+            if (commandExecuter == null) {
+                commandExecuter = new CommandExecuter("Spiderman.mp4", address, port);
+                commandExecuter.start();
+            }
         }
 
         return new ResponseEntity<String>(id, HttpStatus.OK);
@@ -42,12 +44,16 @@ public class StreamController {
                                          @RequestParam(required=false, defaultValue = "127.0.0.1") String address,
                                          @RequestParam(required=false, defaultValue = "5555") String port) throws Exception {
 
-        if (commandExecuter != null) {
+        if (commandExecuter != null && commandExecuter.isAlive()) {
+            commandExecuter.killCurrentProcess();
             commandExecuter.interrupt();
+            commandExecuter = null;
         }
 
+        commandExecuter = null;
+
         return new ResponseEntity<String>("No streaming process exists", HttpStatus.OK);
-        
+
         /*
         String pid = null;
         Process p1 = Runtime.getRuntime().exec("lsof -t -i:" + port);

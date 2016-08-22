@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Class-Path: jstl-1.2.jar spring-web-4.2.0.RELEASE.jar jna-platform-4.1
+ .0.jar aspectjrt-1.8.0.jar spring-core-4.2.0.RELEASE.jar spring-expre
+ ssion-4.2.0.RELEASE.jar spring-aop-4.2.0.RELEASE.jar spring-tx-4.2.0.
+ RELEASE.jar vlcj-3.10.1.jar log4j-1.2.17.jar commons-logging-1.2.jar 
+ spring-beans-4.2.0.RELEASE.jar spring-jdbc-4.2.0.RELEASE.jar spring-s
+ ecurity-taglibs-3.2.5.RELEASE.jar slf4j-api-1.7.10.jar mybatis-3.2.8.
+ jar spring-webmvc-4.2.0.RELEASE.jar spring-security-config-3.2.5.RELE
+ ASE.jar spring-security-core-3.2.5.RELEASE.jar jna-4.1.0.jar mysql-co
+ nnector-java-5.1.34.jar spring-security-web-3.2.5.RELEASE.jar aspectj
+ weaver-1.8.6.jar spring-context-4.2.0.RELEASE.jar commons-dbcp-1.4.ja
+ r mybatis-spring-1.2.2.jar commons-pool-1.5.4.jar aopalliance-1.0.jar
+  javax.inject-1.jar spring-security-acl-3.2.5.RELEASE.jar
+Main-Class: koreatech.streaming.stream.StreamHttp
+

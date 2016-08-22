@@ -6,7 +6,7 @@
     <name>Web Service and Computing - Spring</name>
     <groupId>koreatech.cse</groupId>
     <artifactId>multifia</artifactId>
-    <version>002</version>
+    <version>003</version>
     <packaging>war</packaging>
 
     <properties>
@@ -173,9 +173,15 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.5</version>
                 <configuration>
-                    <source>1.7</source>
-                    <target>1.7</target>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <archive>
+                        <manifest>
+                            <mainClass>koreatech.streaming.stream.StreamHttp</mainClass>
+                        </manifest>
+                    </archive>
                 </configuration>
             </plugin>
         </plugins>
