@@ -16,6 +16,8 @@ public class StreamController {
     private OrchidService orchidService = new OrchidService();
     public static String fileSeparator = System.getProperty("file.separator");
 
+    CommandExecuter commandExecuter = null;
+
     @RequestMapping(value="/start/{id}", method= RequestMethod.GET, produces = "application/json")
     public ResponseEntity<String> start(@PathVariable("id") String id,
                                          @RequestParam(required=false, defaultValue = "127.0.0.1") String address,
@@ -28,19 +30,8 @@ public class StreamController {
         // 관리중인 컨텐츠 ID인지 판단
         String compareId = orchidService.getOrchidContentName("Spiderman.mp4");
         if(compareId.equals(id)) {
-            CommandExecuter commandExecuter = new CommandExecuter("Spiderman.mp4", address, port);
+            commandExecuter = new CommandExecuter("Spiderman.mp4", address, port);
             commandExecuter.start();
-            /*
-            while(true) {
-                process = commandExecuter.getProcess();
-                if (process == null) {
-                    Thread.sleep(200);
-                } else {
-                    System.out.println(process.toString() + "is created!");
-                    break;
-                }
-            }
-            */
         }
 
         return new ResponseEntity<String>(id, HttpStatus.OK);
@@ -50,13 +41,14 @@ public class StreamController {
     public ResponseEntity<String> stop(@PathVariable("id") String id,
                                          @RequestParam(required=false, defaultValue = "127.0.0.1") String address,
                                          @RequestParam(required=false, defaultValue = "5555") String port) throws Exception {
-        /*
-        if (process != null) {
-            process.destroy();
-            System.out.println(process + "is deployed!");
-        }
-        */
 
+        if (commandExecuter != null) {
+            commandExecuter.interrupt();
+        }
+
+        return new ResponseEntity<String>("No streaming process exists", HttpStatus.OK);
+        
+        /*
         String pid = null;
         Process p1 = Runtime.getRuntime().exec("lsof -t -i:" + port);
         BufferedReader br = new BufferedReader(new InputStreamReader(p1.getInputStream()));
@@ -70,6 +62,7 @@ public class StreamController {
         } else {
             return new ResponseEntity<String>("No streaming process exists", HttpStatus.OK);
         }
+        */
     }
 
     @RequestMapping(value="/stop/all", method= RequestMethod.GET, produces = "application/json")
