@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-(cd /Users/yhhan/git/multiFIA; mvn exec:java -Dexec.mainClass=koreatech.streaming.httpStream.MediaPlayer -Djna.library.path=/Applications/VLC.app/Contents/MacOS/lib -DfailIfNoTests=false -Dexec.classpathScope=test -Dexec.args="$1 $2 $3")
+(cd /Users/yhhan/git/multiFIA; mvn exec:java -Dexec.mainClass=koreatech.streaming.stream.client.StreamClient -Djna.library.path=/Applications/VLC.app/Contents/MacOS/lib -DfailIfNoTests=false -Dexec.classpathScope=test -Dexec.args="$1 $2 $3 $4")

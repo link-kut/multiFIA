@@ -1,4 +1,4 @@
-package koreatech.streaming.restController;
+package koreatech.streaming.stream.server;
 
 import koreatech.streaming.service.OrchidService;
 import koreatech.streaming.stream.server.CommandExecuter;
@@ -11,7 +11,7 @@ import java.io.InputStreamReader;
 
 @RestController
 @RequestMapping("/streaming")
-public class StreamController {
+public class StreamServerRestController {
 
     private OrchidService orchidService = new OrchidService();
     public static String fileSeparator = System.getProperty("file.separator");
@@ -52,8 +52,8 @@ public class StreamController {
         }
 
         commandExecuter = null;
-
-        return new ResponseEntity<String>("No streaming process exists", HttpStatus.OK);
+        String compareId = orchidService.getOrchidContentName("Spiderman.mp4");
+        return new ResponseEntity<String>(id, HttpStatus.OK);
 
         /*
         String pid = null;

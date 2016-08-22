@@ -51,7 +51,30 @@ public class StreamClient extends VlcjCommon {
 
     private ImagePane imagePane;
 
-    private OrchidService orchidService = new OrchidService();
+    private static StreamClientRestController streamClientRestController = new StreamClientRestController();
+
+    public static void main(String[] args) throws Exception {
+        LibC.INSTANCE.setenv("VLC_PLUGIN_PATH", "/Applications/VLC.app/Contents/MacOS/plugins", 1);
+
+        if (args.length < 4) {
+            System.out.println("Specify a single media URL");
+            System.exit(1);
+        }
+
+        //Rest Start!
+        String contentName = args[0];
+        streamClientRestController.startStream(contentName);
+
+        String streamUrl = args[1] + "://" + args[2] + ":" + args[3];
+
+        String[] libvlcArgs = new String[3];
+        libvlcArgs[0] = args[1];
+        libvlcArgs[1] = args[2];
+        libvlcArgs[2] = args[3];
+
+        new StreamClient(streamUrl, libvlcArgs);
+        // Application will not exit since the UI thread is running
+    }
 
     public StreamClient(String media, String[] args) throws InterruptedException, InvocationTargetException, Exception {
         image = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice().getDefaultConfiguration().createCompatibleImage(width, height);
@@ -87,34 +110,12 @@ public class StreamClient extends VlcjCommon {
         mediaPlayer = factory.newDirectMediaPlayer(new TestBufferFormatCallback(), new TestRenderCallback());
         mediaPlayer.playMedia(media);
 
-        //Orchid 식별자
-        System.out.println(orchidService.getOrchidContentName("Spiderman.mp4"));
-
         // Just to show regular media player functions still work...
         Thread.sleep(5000);
         mediaPlayer.nextChapter();
     }
 
-    public static void main(String[] args) throws Exception {
-        LibC.INSTANCE.setenv("VLC_PLUGIN_PATH", "/Applications/VLC.app/Contents/MacOS/plugins", 1);
 
-        if(args.length < 3) {
-            System.out.println("Specify a single media URL");
-            System.exit(1);
-        }
-
-        String streamUrl = args[0] + "://" + args[1] + ":" + args[2];
-
-        //List<Target> target = args;
-
-        String[] vlcArgs = (args.length == 3) ? new String[] {} : Arrays.copyOfRange(args, 3, args.length);
-
-        new StreamClient(streamUrl, vlcArgs);
-        // Application will not exit since the UI thread is running
-
-    }
-
-    @SuppressWarnings("serial")
     private final class ImagePane extends JPanel {
 
         private final BufferedImage image;
