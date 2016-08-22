@@ -1,4 +1,4 @@
-package koreatech.streaming.stream;
+package koreatech.streaming.stream.server;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -11,22 +11,14 @@ public class CommandExecuter extends Thread {
     private String command;
     private Process process;
 
-    public CommandExecuter(String name, String targetAddress, String targetPort) {
+    public CommandExecuter(String contentName, String protocol, String targetAddress, String targetPort) {
         StringBuffer sb = new StringBuffer();
-
-        /*
-        sb.append("/Users/yhhan/git/multiFIA/run2.server.sh");
-        sb.append(" ");
-        sb.append(name);
-        sb.append(" ");
-        sb.append(targetAddress);
-        sb.append(" ");
-        sb.append(targetPort);
-        */
 
         sb.append("java -Djna.library.path=/Applications/VLC.app/Contents/MacOS/lib -jar /Users/yhhan/git/multiFIA/out/artifacts/wsc_jar/wsc.jar");
         sb.append(" ");
-        sb.append(name);
+        sb.append(contentName);
+        sb.append(" ");
+        sb.append(protocol);
         sb.append(" ");
         sb.append(targetAddress);
         sb.append(" ");
@@ -36,6 +28,7 @@ public class CommandExecuter extends Thread {
 
     public void run() {
         try {
+            System.out.println("Execution: " + command);
             Process p = Runtime.getRuntime().exec(command);
             this.process = p;
             copy(p.getInputStream(), System.out);

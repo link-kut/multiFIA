@@ -179,7 +179,7 @@
                     <target>1.8</target>
                     <archive>
                         <manifest>
-                            <mainClass>koreatech.streaming.stream.StreamHttp</mainClass>
+                            <mainClass>koreatech.streaming.stream.server.StreamServer</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

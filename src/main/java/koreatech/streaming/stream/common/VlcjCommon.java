@@ -17,7 +17,7 @@
  * Copyright 2009, 2010, 2011, 2012, 2013, 2014 Caprica Software Limited.
  */
 
-package koreatech.streaming.stream;
+package koreatech.streaming.stream.common;
 
 import com.sun.jna.NativeLibrary;
 import org.apache.log4j.BasicConfigurator;
@@ -43,12 +43,12 @@ import javax.swing.UIManager.LookAndFeelInfo;
  * <p>
  * You can also set the log level here.
  */
-public abstract class VlcjTest {
+public abstract class VlcjCommon {
 
     /**
      * Log.
      */
-    private static final Logger logger = LoggerFactory.getLogger(VlcjTest.class);
+    private static final Logger logger = LoggerFactory.getLogger(VlcjCommon.class);
 
     /**
      * Change this to point to your own vlc installation, or comment out the code if you want to use

@@ -1,6 +1,7 @@
-package koreatech.streaming.stream;
+package koreatech.streaming.stream.client;
 
 import koreatech.streaming.service.OrchidService;
+import koreatech.streaming.stream.common.VlcjCommon;
 import uk.co.caprica.vlcj.binding.LibC;
 import uk.co.caprica.vlcj.player.MediaPlayerFactory;
 import uk.co.caprica.vlcj.player.direct.BufferFormat;
@@ -28,7 +29,7 @@ import java.util.Arrays;
  * <p>
  * The frame data may also be rendered into components such as an OpenGL texture.
  */
-public class MediaPlayer extends VlcjTest {
+public class StreamClient extends VlcjCommon {
     // The size does NOT need to match the mediaPlayer size - it's the size that
     // the media will be scaled to
     // Matching the native size will be faster of course
@@ -52,7 +53,7 @@ public class MediaPlayer extends VlcjTest {
 
     private OrchidService orchidService = new OrchidService();
 
-    public MediaPlayer(String media, String[] args) throws InterruptedException, InvocationTargetException, Exception {
+    public StreamClient(String media, String[] args) throws InterruptedException, InvocationTargetException, Exception {
         image = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice().getDefaultConfiguration().createCompatibleImage(width, height);
         image.setAccelerationPriority(1.0f);
 
@@ -108,7 +109,7 @@ public class MediaPlayer extends VlcjTest {
 
         String[] vlcArgs = (args.length == 3) ? new String[] {} : Arrays.copyOfRange(args, 3, args.length);
 
-        new MediaPlayer(streamUrl, vlcArgs);
+        new StreamClient(streamUrl, vlcArgs);
         // Application will not exit since the UI thread is running
 
     }

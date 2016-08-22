@@ -20,3 +20,5 @@ Thumbs.db
 rebel.xml
 *.jar
 out/*
+out/
+src/main/resources/dev/

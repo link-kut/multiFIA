@@ -11,5 +11,5 @@ Class-Path: jstl-1.2.jar spring-web-4.2.0.RELEASE.jar jna-platform-4.1
  weaver-1.8.6.jar spring-context-4.2.0.RELEASE.jar commons-dbcp-1.4.ja
  r mybatis-spring-1.2.2.jar commons-pool-1.5.4.jar aopalliance-1.0.jar
   javax.inject-1.jar spring-security-acl-3.2.5.RELEASE.jar
-Main-Class: koreatech.streaming.stream.StreamHttp
+Main-Class: koreatech.streaming.stream.server.StreamServer
 

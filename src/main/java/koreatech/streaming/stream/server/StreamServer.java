@@ -17,9 +17,9 @@
  * Copyright 2009-2016 Caprica Software Limited.
  */
 
-package koreatech.link;
+package koreatech.streaming.stream.server;
 
-import koreatech.streaming.stream.StreamHttpThread;
+import koreatech.streaming.stream.common.VlcjCommon;
 import uk.co.caprica.vlcj.binding.LibC;
 
 /**
@@ -27,24 +27,19 @@ import uk.co.caprica.vlcj.binding.LibC;
  * <p>
  * The client specifies an MRL of <code>http://127.0.0.1:5555</code>
  */
-public class StreamHttp extends VlcjTest {
+public class StreamServer extends VlcjCommon {
     public static String fileSeparator = System.getProperty("file.separator");
     public static String mediaFolder = fileSeparator + "usr" + fileSeparator + "local" + fileSeparator + "share";
 
     public static void main(String[] args) throws Exception {
         LibC.INSTANCE.setenv("VLC_PLUGIN_PATH", "/Applications/VLC.app/Contents/MacOS/plugins", 1);
-
-        if(args.length != 3) {
+        if(args.length != 4) {
             System.out.println("Specify a single MRL to stream");
             System.exit(1);
         }
 
-        StreamHttpThread streamHttpThread = new StreamHttpThread(args, mediaFolder, fileSeparator);
-
-        // 조건!!!!!!!!
+        StreamThread streamHttpThread = new StreamThread(mediaFolder, fileSeparator, args[0], args[1], args[2], args[3]);
         streamHttpThread.start();
-
-        // Don't exit
         Thread.currentThread().join();
     }
 }

@@ -1,7 +1,7 @@
 package koreatech.streaming.restController;
 
 import koreatech.streaming.service.OrchidService;
-import koreatech.streaming.stream.CommandExecuter;
+import koreatech.streaming.stream.server.CommandExecuter;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,8 +20,9 @@ public class StreamController {
 
     @RequestMapping(value="/start/{id}", method= RequestMethod.GET, produces = "application/json")
     public ResponseEntity<String> start(@PathVariable("id") String id,
-                                         @RequestParam(required=false, defaultValue = "127.0.0.1") String address,
-                                         @RequestParam(required=false, defaultValue = "5555") String port) throws Exception{
+                                         @RequestParam(required=false, defaultValue = "rtp") String protocol,
+                                         @RequestParam(required=false, defaultValue = "127.0.0.1") String targetAddress,
+                                         @RequestParam(required=false, defaultValue = "5555") String targetPort) throws Exception{
         if (id == null) {
             System.out.println("Content id (" + id + ") is not found");
             return new ResponseEntity<String>(HttpStatus.NOT_FOUND);
@@ -31,7 +32,7 @@ public class StreamController {
         String compareId = orchidService.getOrchidContentName("Spiderman.mp4");
         if(compareId.equals(id)) {
             if (commandExecuter == null) {
-                commandExecuter = new CommandExecuter("Spiderman.mp4", address, port);
+                commandExecuter = new CommandExecuter("Spiderman.mp4", protocol, targetAddress, targetPort);
                 commandExecuter.start();
             }
         }
