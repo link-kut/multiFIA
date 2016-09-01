@@ -14,7 +14,7 @@ public class CommandExecuter extends Thread {
     public CommandExecuter(String contentName, String protocol, String targetAddress, String targetPort) {
         StringBuffer sb = new StringBuffer();
 
-        sb.append("java -Djna.library.path=/Applications/VLC.app/Contents/MacOS/lib -jar /Users/yhhan/git/multiFIA/out/artifacts/wsc_jar/wsc.jar");
+        sb.append("java -Djna.library.path=C:\\Users\\asif\\VLC -jar C:\\Users\\asif\\multiFIA\\out\\artifacts\\multifia_jar\\multifia.jar");
         sb.append(" ");
         sb.append(contentName);
         sb.append(" ");
@@ -32,8 +32,9 @@ public class CommandExecuter extends Thread {
             Process p = Runtime.getRuntime().exec(command);
             this.process = p;
             copy(p.getInputStream(), System.out);
+            copy(p.getErrorStream(), System.out);
             System.out.println(process.toString() + " has started!");
-            p.waitFor();
+            int i = p.waitFor();
         } catch (IOException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {

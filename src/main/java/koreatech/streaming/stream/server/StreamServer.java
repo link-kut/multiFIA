@@ -20,7 +20,6 @@
 package koreatech.streaming.stream.server;
 
 import koreatech.streaming.stream.common.VlcjCommon;
-import uk.co.caprica.vlcj.binding.LibC;
 
 /**
  * An example of how to stream a media file over HTTP.
@@ -29,17 +28,71 @@ import uk.co.caprica.vlcj.binding.LibC;
  */
 public class StreamServer extends VlcjCommon {
     public static String fileSeparator = System.getProperty("file.separator");
-    public static String mediaFolder = fileSeparator + "usr" + fileSeparator + "local" + fileSeparator + "share";
+    public static String mediaFolder = "C:\\Users\\asif";
+
 
     public static void main(String[] args) throws Exception {
-        LibC.INSTANCE.setenv("VLC_PLUGIN_PATH", "/Applications/VLC.app/Contents/MacOS/plugins", 1);
+        //LibC.INSTANCE.setenv("VLC_PLUGIN_PATH", "C:\\Program Files\\VideoLAN\\VLC\\plugins", 1);
         if(args.length != 4) {
             System.out.println("Specify a single MRL to stream");
             System.exit(1);
         }
 
-        StreamThread streamHttpThread = new StreamThread(mediaFolder, fileSeparator, args[0], args[1], args[2], args[3]);
-        streamHttpThread.start();
+        StreamPlayer streamHttpThread = new StreamPlayer(mediaFolder, fileSeparator, args[0], args[1], args[2], args[3]);
+        //streamHttpThread.start();
         Thread.currentThread().join();
     }
+
+    /*
+    public static void main(String[] args) throws Exception {
+        if(args.length != 4) {
+            System.out.println("Specify a single MRL to stream");
+            System.exit(1);
+        }
+
+        for(int i=0; i<args.length; i++) {
+            System.out.println(args[i]);
+        }
+        OrchidService orchidService = new OrchidService();
+        VlcService vlcService = new VlcService();
+
+        String contentName = args[0];
+        String protocol = args[1];
+        String targetAddress = args[2];
+        String targetPort = args[3];
+
+        String media = mediaFolder + "\\" + contentName;
+        String options = null;
+        String[] libvlcArgs = new String[3];
+        libvlcArgs[0] = contentName;
+        libvlcArgs[1] = targetAddress;
+        libvlcArgs[2] = targetPort;
+
+        MediaPlayerFactory mediaPlayerFactory = new MediaPlayerFactory(libvlcArgs);
+        HeadlessMediaPlayer mediaPlayer = mediaPlayerFactory.newHeadlessMediaPlayer();
+
+        if (protocol.equals("http")) {
+            options = vlcService.formatHttpStream(targetAddress, Integer.parseInt(targetPort));
+            mediaPlayer.playMedia(media, options);
+        } else if (protocol.equals("rtp")) {
+            options = vlcService.formatRtpStream(targetAddress, Integer.parseInt(targetPort));
+            mediaPlayer.playMedia(media,
+                    options,
+                    ":no-sout-rtp-sap",
+                    ":no-sout-standard-sap",
+                    ":sout-all",
+                    ":sout-keep"
+            );
+        }
+
+        if (options != null) {
+            System.out.println("***************************");
+            System.out.println("ContentName: " + contentName + "(ID: " + orchidService.getOrchidContentName(contentName) + ")");
+            System.out.println("Protocol: " + protocol);
+            System.out.println("Streaming '" + media + "' to '" + options + "'");
+        }
+
+        while(true);
+    }
+    */
 }

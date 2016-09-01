@@ -1,7 +1,6 @@
 package koreatech.streaming.stream.server;
 
 import koreatech.streaming.service.OrchidService;
-import koreatech.streaming.stream.server.CommandExecuter;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,6 +16,7 @@ public class StreamServerRestController {
     public static String fileSeparator = System.getProperty("file.separator");
 
     CommandExecuter commandExecuter = null;
+    StreamPlayer streamPlayer = null;
 
     @RequestMapping(value="/start/{id}", method= RequestMethod.GET, produces = "application/json")
     public ResponseEntity<String> start(@PathVariable("id") String id,
@@ -31,9 +31,10 @@ public class StreamServerRestController {
         // 관리중인 컨텐츠 ID인지 판단
         String compareId = orchidService.getOrchidContentName("Spiderman.mp4");
         if(compareId.equals(id)) {
-            if (commandExecuter == null) {
-                commandExecuter = new CommandExecuter("Spiderman.mp4", protocol, targetAddress, targetPort);
-                commandExecuter.start();
+            String mediaFolder = "C:\\Users\\asif";
+            if (streamPlayer == null) {
+                streamPlayer = new StreamPlayer(mediaFolder, fileSeparator, "Spiderman.mp4", protocol, targetAddress, targetPort);
+                streamPlayer.play();
             }
         }
 
@@ -45,15 +46,11 @@ public class StreamServerRestController {
                                          @RequestParam(required=false, defaultValue = "127.0.0.1") String address,
                                          @RequestParam(required=false, defaultValue = "5555") String port) throws Exception {
 
-        if (commandExecuter != null && commandExecuter.isAlive()) {
-            commandExecuter.killCurrentProcess();
-            commandExecuter.interrupt();
-            commandExecuter = null;
-        }
+        streamPlayer.stopPlay();
+        streamPlayer = null;
 
-        commandExecuter = null;
         String compareId = orchidService.getOrchidContentName("Spiderman.mp4");
-        return new ResponseEntity<String>(id, HttpStatus.OK);
+        return new ResponseEntity<String>("Cotent (ID [" + id + "]) has been stopped!", HttpStatus.OK);
 
         /*
         String pid = null;

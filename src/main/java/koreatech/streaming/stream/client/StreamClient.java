@@ -12,6 +12,8 @@ import uk.co.caprica.vlcj.player.direct.format.RV32BufferFormat;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.image.BufferedImage;
@@ -54,7 +56,7 @@ public class StreamClient extends VlcjCommon {
     private static StreamClientRestController streamClientRestController = new StreamClientRestController();
 
     public static void main(String[] args) throws Exception {
-        LibC.INSTANCE.setenv("VLC_PLUGIN_PATH", "/Applications/VLC.app/Contents/MacOS/plugins", 1);
+        LibC.INSTANCE.setenv("VLC_PLUGIN_PATH", "/Program Files/VideoLAN/VLC/plugins", 1);
 
         if (args.length < 4) {
             System.out.println("Specify a single media URL");
@@ -62,34 +64,66 @@ public class StreamClient extends VlcjCommon {
         }
 
         //Rest Start!
-        String contentName = args[0];
-        streamClientRestController.startStream(contentName);
+        //String contentName = args[0];
+        //streamClientRestController.startStream(contentName);
 
         String streamUrl = args[1] + "://" + args[2] + ":" + args[3];
 
+        String contentName = args[0];
         String[] libvlcArgs = new String[3];
         libvlcArgs[0] = args[1];
         libvlcArgs[1] = args[2];
         libvlcArgs[2] = args[3];
 
-        new StreamClient(streamUrl, libvlcArgs);
+        new StreamClient(streamUrl, libvlcArgs, contentName);
         // Application will not exit since the UI thread is running
     }
 
-    public StreamClient(String media, String[] args) throws InterruptedException, InvocationTargetException, Exception {
+    public StreamClient(String media, String[] args, String contentName) throws InterruptedException, InvocationTargetException, Exception {
         image = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice().getDefaultConfiguration().createCompatibleImage(width, height);
         image.setAccelerationPriority(1.0f);
 
         SwingUtilities.invokeAndWait(new Runnable() {
             public void run() {
-                JFrame frame = new JFrame("VLCJ Direct Video Test");
+                JFrame frame = new JFrame("VLCJ Direct Video Player");
                 //frame.setIconImage(new ImageIcon(getClass().getResource("/icons/vlcj-logo.png")).getImage());
+                //버튼 추가
+                JPanel panel = new JPanel();
+                panel.setBackground(Color.BLACK);
+                JButton startButton = new JButton("Start");
+                JButton stopButton = new JButton("Stop");
+
+                startButton.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        try {
+                            streamClientRestController.startStream(contentName);
+                        } catch (Exception x) {
+                        }
+                    }
+                });
+
+                stopButton.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        try {
+                            streamClientRestController.stopStream(contentName);
+                        } catch (Exception x) {
+                        }
+                    }
+                });
+
                 imagePane = new ImagePane(image);
                 imagePane.setSize(width, height);
                 imagePane.setMinimumSize(new Dimension(width, height));
                 imagePane.setPreferredSize(new Dimension(width, height));
                 frame.getContentPane().setLayout(new BorderLayout());
                 frame.getContentPane().add(imagePane, BorderLayout.CENTER);
+
+                panel.add(startButton);
+                panel.add(stopButton);
+                frame.add(panel, BorderLayout.SOUTH);
+
                 frame.pack();
                 frame.setResizable(false);
                 frame.setVisible(true);
