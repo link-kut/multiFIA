@@ -14,8 +14,6 @@ public class StreamServerRestController {
 
     private OrchidService orchidService = new OrchidService();
     public static String fileSeparator = System.getProperty("file.separator");
-
-    CommandExecuter commandExecuter = null;
     StreamPlayer streamPlayer = null;
 
     @RequestMapping(value="/start/{id}", method= RequestMethod.GET, produces = "application/json")
@@ -34,6 +32,7 @@ public class StreamServerRestController {
             String mediaFolder = "C:\\Users\\asif";
             if (streamPlayer == null) {
                 streamPlayer = new StreamPlayer(mediaFolder, fileSeparator, "Spiderman.mp4", protocol, targetAddress, targetPort);
+                System.out.println(">>> START Streaming " + streamPlayer.getContentName() + " (ID: " + id + ")");
                 streamPlayer.play();
             }
         }
@@ -47,48 +46,10 @@ public class StreamServerRestController {
                                          @RequestParam(required=false, defaultValue = "5555") String port) throws Exception {
 
         streamPlayer.stopPlay();
+        System.out.println(">>> STOP Streaming " + streamPlayer.getContentName() + " (ID: " + id + ")");
         streamPlayer = null;
 
         String compareId = orchidService.getOrchidContentName("Spiderman.mp4");
         return new ResponseEntity<String>("Cotent (ID [" + id + "]) has been stopped!", HttpStatus.OK);
-
-        /*
-        String pid = null;
-        Process p1 = Runtime.getRuntime().exec("lsof -t -i:" + port);
-        BufferedReader br = new BufferedReader(new InputStreamReader(p1.getInputStream()));
-        pid = br.readLine();
-        p1.waitFor();
-
-        if (pid != null) {
-            Process p2 = Runtime.getRuntime().exec("kill -9 " + pid);
-            p2.waitFor();
-            return new ResponseEntity<String>("Process " + pid + " id is killed.", HttpStatus.OK);
-        } else {
-            return new ResponseEntity<String>("No streaming process exists", HttpStatus.OK);
-        }
-        */
-    }
-
-    @RequestMapping(value="/stop/all", method= RequestMethod.GET, produces = "application/json")
-    public ResponseEntity<String> stopall(@RequestParam(required=false, defaultValue = "5555") String port) throws Exception {
-
-        String command = "jps";
-        System.out.println(command);
-        Process p = Runtime.getRuntime().exec(command);
-
-        BufferedReader br = new BufferedReader(new InputStreamReader(p.getInputStream()));
-        String pid = br.readLine();
-        System.out.println(pid + " - !!!");
-        int numKilledProcess = 0;
-        while (pid != null) {
-            Process p2 = Runtime.getRuntime().exec("kill -9 " + pid);
-            p2.waitFor();
-            numKilledProcess++;
-            pid = br.readLine();
-        }
-
-        p.waitFor();
-
-        return new ResponseEntity<String>(numKilledProcess + " process(es) are killed.", HttpStatus.OK);
     }
 }

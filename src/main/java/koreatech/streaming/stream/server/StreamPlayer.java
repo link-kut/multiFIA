@@ -31,10 +31,6 @@ public class StreamPlayer {
         libvlcArgs[2] = targetPort;
         mediaPlayerFactory = new MediaPlayerFactory(libvlcArgs);
         mediaPlayer = mediaPlayerFactory.newHeadlessMediaPlayer();
-        //System.setProperty("jna.library.path", "/Applications/VLC.app/Contents/MacOS/lib");
-        //LibC.INSTANCE.setenv("VLC_PLUGIN_PATH", "/Applications/VLC.app/Contents/MacOS/plugins", 1);
-        //NativeLibrary.addSearchPath(RuntimeUtil.getLibVlcLibraryName(), "/Applications/VLC.app/Contents/MacOS/lib");
-        //Native.loadLibrary(RuntimeUtil.getLibVlcLibraryName(), LibVlc.class);
     }
 
     public void play() {
@@ -56,9 +52,7 @@ public class StreamPlayer {
             }
 
             if (options != null) {
-                System.out.println("ContentName: " + contentName + "(ID: " + orchidService.getOrchidContentName(contentName) + ")");
-                System.out.println("Protocol: " + protocol);
-                System.out.println("Streaming '" + media + "' to '" + options + "'");
+                System.out.println("--- Streaming '" + media + "' to '" + options + "'");
             }
         } catch(Exception e) {
             e.printStackTrace();
@@ -69,5 +63,85 @@ public class StreamPlayer {
         if (mediaPlayer.isPlaying()) {
             mediaPlayer.stop();
         }
+    }
+
+    public String getContentName() {
+        return contentName;
+    }
+
+    public void setContentName(String contentName) {
+        this.contentName = contentName;
+    }
+
+    public String getProtocol() {
+        return protocol;
+    }
+
+    public void setProtocol(String protocol) {
+        this.protocol = protocol;
+    }
+
+    public String getTargetAddress() {
+        return targetAddress;
+    }
+
+    public void setTargetAddress(String targetAddress) {
+        this.targetAddress = targetAddress;
+    }
+
+    public String getTargetPort() {
+        return targetPort;
+    }
+
+    public void setTargetPort(String targetPort) {
+        this.targetPort = targetPort;
+    }
+
+    public String getMediaFolder() {
+        return mediaFolder;
+    }
+
+    public void setMediaFolder(String mediaFolder) {
+        this.mediaFolder = mediaFolder;
+    }
+
+    public String getFileSeparator() {
+        return fileSeparator;
+    }
+
+    public void setFileSeparator(String fileSeparator) {
+        this.fileSeparator = fileSeparator;
+    }
+
+    public OrchidService getOrchidService() {
+        return orchidService;
+    }
+
+    public void setOrchidService(OrchidService orchidService) {
+        this.orchidService = orchidService;
+    }
+
+    public VlcService getVlcService() {
+        return vlcService;
+    }
+
+    public void setVlcService(VlcService vlcService) {
+        this.vlcService = vlcService;
+    }
+
+    public MediaPlayerFactory getMediaPlayerFactory() {
+        return mediaPlayerFactory;
+    }
+
+    public void setMediaPlayerFactory(MediaPlayerFactory mediaPlayerFactory) {
+        this.mediaPlayerFactory = mediaPlayerFactory;
+    }
+
+    public HeadlessMediaPlayer getMediaPlayer() {
+        return mediaPlayer;
+    }
+
+    public void setMediaPlayer(HeadlessMediaPlayer mediaPlayer) {
+        this.mediaPlayer = mediaPlayer;
     }
 }
