@@ -92,6 +92,9 @@ public class StreamClient extends VlcjCommon {
                 panel.setBackground(Color.BLACK);
                 JButton startButton = new JButton("Start");
                 JButton stopButton = new JButton("Stop");
+                JButton pauseButton = new JButton("pause");
+                JButton resumeButton = new JButton("resume");
+                JButton qualityButton = new JButton("High Quality");
 
                 startButton.addActionListener(new ActionListener() {
                     @Override
@@ -108,6 +111,36 @@ public class StreamClient extends VlcjCommon {
                     public void actionPerformed(ActionEvent e) {
                         try {
                             streamClientRestController.stopStream(contentName);
+                        } catch (Exception x) {
+                        }
+                    }
+                });
+
+                pauseButton.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        try {
+                            streamClientRestController.pauseStream(contentName);
+                        } catch (Exception x) {
+                        }
+                    }
+                });
+
+                resumeButton.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        try {
+                            streamClientRestController.resumeStream(contentName);
+                        } catch (Exception x) {
+                        }
+                    }
+                });
+
+                qualityButton.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        try {
+                            streamClientRestController.qualityStream(contentName);
                         } catch (Exception x) {
                         }
                     }

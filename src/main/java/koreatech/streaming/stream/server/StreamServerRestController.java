@@ -20,7 +20,8 @@ public class StreamServerRestController {
     public ResponseEntity<String> start(@PathVariable("id") String id,
                                          @RequestParam(required=false, defaultValue = "rtp") String protocol,
                                          @RequestParam(required=false, defaultValue = "127.0.0.1") String targetAddress,
-                                         @RequestParam(required=false, defaultValue = "5555") String targetPort) throws Exception{
+                                         @RequestParam(required=false, defaultValue = "5555") String targetPort,
+                                         @RequestParam(required=false, defaultValue = "normal") String quality) throws Exception{
         if (id == null) {
             System.out.println("Content id (" + id + ") is not found");
             return new ResponseEntity<String>(HttpStatus.NOT_FOUND);
@@ -31,7 +32,7 @@ public class StreamServerRestController {
         if(compareId.equals(id)) {
             String mediaFolder = "C:\\Users\\asif";
             if (streamPlayer == null) {
-                streamPlayer = new StreamPlayer(mediaFolder, fileSeparator, "Spiderman.mp4", protocol, targetAddress, targetPort);
+                streamPlayer = new StreamPlayer(mediaFolder, fileSeparator, "Spiderman.mp4", protocol, targetAddress, targetPort, quality);
                 System.out.println(">>> START Streaming " + streamPlayer.getContentName() + " (ID: " + id + ")");
                 streamPlayer.play();
             }
@@ -42,8 +43,8 @@ public class StreamServerRestController {
 
     @RequestMapping(value="/stop/{id}", method= RequestMethod.GET, produces = "application/json")
     public ResponseEntity<String> stop(@PathVariable("id") String id,
-                                         @RequestParam(required=false, defaultValue = "127.0.0.1") String address,
-                                         @RequestParam(required=false, defaultValue = "5555") String port) throws Exception {
+                                       @RequestParam(required=false, defaultValue = "127.0.0.1") String address,
+                                       @RequestParam(required=false, defaultValue = "5555") String port) throws Exception {
 
         streamPlayer.stopPlay();
         System.out.println(">>> STOP Streaming " + streamPlayer.getContentName() + " (ID: " + id + ")");
@@ -51,5 +52,29 @@ public class StreamServerRestController {
 
         String compareId = orchidService.getOrchidContentName("Spiderman.mp4");
         return new ResponseEntity<String>("Cotent (ID [" + id + "]) has been stopped!", HttpStatus.OK);
+    }
+
+    @RequestMapping(value="/pause/{id}", method= RequestMethod.GET, produces = "application/json")
+    public ResponseEntity<String> pause(@PathVariable("id") String id,
+                                        @RequestParam(required=false, defaultValue = "127.0.0.1") String address,
+                                        @RequestParam(required=false, defaultValue = "5555") String port) throws Exception {
+
+        streamPlayer.pausePlay();
+        System.out.println(">>> PAUSE Streaming " + streamPlayer.getContentName() + " (ID: " + id + ")");
+
+        String compareId = orchidService.getOrchidContentName("Spiderman.mp4");
+        return new ResponseEntity<String>(id, HttpStatus.OK);
+    }
+
+    @RequestMapping(value="/resume/{id}", method= RequestMethod.GET, produces = "application/json")
+    public ResponseEntity<String> resume(@PathVariable("id") String id,
+                                        @RequestParam(required=false, defaultValue = "127.0.0.1") String address,
+                                        @RequestParam(required=false, defaultValue = "5555") String port) throws Exception {
+
+        streamPlayer.resumeplay();
+        System.out.println(">>> RESUME Streaming " + streamPlayer.getContentName() + " (ID: " + id + ")");
+
+        String compareId = orchidService.getOrchidContentName("Spiderman.mp4");
+        return new ResponseEntity<String>(id, HttpStatus.OK);
     }
 }

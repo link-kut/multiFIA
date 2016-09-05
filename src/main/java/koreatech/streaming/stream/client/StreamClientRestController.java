@@ -36,4 +36,46 @@ public class StreamClientRestController {
             System.out.println(e.getStatusCode() + ": " + e.getStatusText());
         }
     }
+
+    public void pauseStream(String contentName) throws Exception {
+        RestTemplate restTemplate = new RestTemplate();
+        String orchid = orchidService.getOrchidContentName(contentName);
+        try {
+            ResponseEntity<String> responseEntity = restTemplate.getForEntity(REST_SERVICE_URI + "/pause/" + orchid, String.class);
+            String receivedOrchid = responseEntity.getBody();
+            if (receivedOrchid.equals(orchid)) {
+                System.out.println("Success");
+            }
+        } catch (HttpClientErrorException e) {
+            System.out.println(e.getStatusCode() + ": " + e.getStatusText());
+        }
+    }
+
+    public void resumeStream(String contentName) throws Exception {
+        RestTemplate restTemplate = new RestTemplate();
+        String orchid = orchidService.getOrchidContentName(contentName);
+        try {
+            ResponseEntity<String> responseEntity = restTemplate.getForEntity(REST_SERVICE_URI + "/resume/" + orchid, String.class);
+            String receivedOrchid = responseEntity.getBody();
+            if (receivedOrchid.equals(orchid)) {
+                System.out.println("Success");
+            }
+        } catch (HttpClientErrorException e) {
+            System.out.println(e.getStatusCode() + ": " + e.getStatusText());
+        }
+    }
+
+    public void qualityStream(String contentName) throws Exception {
+        RestTemplate restTemplate = new RestTemplate();
+        String orchid = orchidService.getOrchidContentName(contentName);
+        try {
+            ResponseEntity<String> responseEntity = restTemplate.getForEntity(REST_SERVICE_URI + "/start/" + orchid + "?quality=high", String.class);
+            String receivedOrchid = responseEntity.getBody();
+            if (receivedOrchid.equals(orchid)) {
+                System.out.println("Success");
+            }
+        } catch (HttpClientErrorException e) {
+            System.out.println(e.getStatusCode() + ": " + e.getStatusText());
+        }
+    }
 }

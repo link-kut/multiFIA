@@ -10,6 +10,7 @@ public class StreamPlayer {
     private String protocol;
     private String targetAddress;
     private String targetPort;
+    private String quality;
     private String mediaFolder;
     private String fileSeparator;
     private OrchidService orchidService = new OrchidService();
@@ -17,13 +18,14 @@ public class StreamPlayer {
     private MediaPlayerFactory mediaPlayerFactory = null;
     private HeadlessMediaPlayer mediaPlayer = null;
 
-    public StreamPlayer(String mediaFolder, String fileSeparator, String contentName, String protocol, String targetAddress, String targetPort) {
+    public StreamPlayer(String mediaFolder, String fileSeparator, String contentName, String protocol, String targetAddress, String targetPort, String quality) {
         this.mediaFolder = mediaFolder;
         this.fileSeparator = fileSeparator;
         this.contentName = contentName;
         this.protocol = protocol;
         this.targetAddress = targetAddress;
         this.targetPort = targetPort;
+        this.quality = quality;
 
         String[] libvlcArgs = new String[3];
         libvlcArgs[0] = contentName;
@@ -41,7 +43,7 @@ public class StreamPlayer {
                 options = vlcService.formatHttpStream(targetAddress, Integer.parseInt(targetPort));
                 mediaPlayer.playMedia(media, options);
             } else if (protocol.equals("rtp")) {
-                options = vlcService.formatRtpStream(targetAddress, Integer.parseInt(targetPort));
+                options = vlcService.formatRtpStream(targetAddress, Integer.parseInt(targetPort), quality);
                 mediaPlayer.playMedia(media,
                         options,
                         ":no-sout-rtp-sap",
@@ -62,6 +64,18 @@ public class StreamPlayer {
     public void stopPlay() {
         if (mediaPlayer.isPlaying()) {
             mediaPlayer.stop();
+        }
+    }
+
+    public void pausePlay() {
+        if (mediaPlayer.isPlaying()) {
+            mediaPlayer.pause();
+        }
+    }
+
+    public void resumeplay() {
+        if (!mediaPlayer.isPlaying()) {
+            mediaPlayer.play();
         }
     }
 
