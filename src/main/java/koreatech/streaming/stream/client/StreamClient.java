@@ -56,8 +56,6 @@ public class StreamClient extends VlcjCommon {
     private static StreamClientRestController streamClientRestController = new StreamClientRestController();
 
     public static void main(String[] args) throws Exception {
-        LibC.INSTANCE.setenv("VLC_PLUGIN_PATH", "/Program Files/VideoLAN/VLC/plugins", 1);
-
         if (args.length < 4) {
             System.out.println("Specify a single media URL");
             System.exit(1);
@@ -155,6 +153,9 @@ public class StreamClient extends VlcjCommon {
 
                 panel.add(startButton);
                 panel.add(stopButton);
+                panel.add(pauseButton);
+                panel.add(resumeButton);
+                panel.add(qualityButton);
                 frame.add(panel, BorderLayout.SOUTH);
 
                 frame.pack();

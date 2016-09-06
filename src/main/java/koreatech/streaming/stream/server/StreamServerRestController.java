@@ -18,10 +18,10 @@ public class StreamServerRestController {
 
     @RequestMapping(value="/start/{id}", method= RequestMethod.GET, produces = "application/json")
     public ResponseEntity<String> start(@PathVariable("id") String id,
-                                         @RequestParam(required=false, defaultValue = "rtp") String protocol,
-                                         @RequestParam(required=false, defaultValue = "127.0.0.1") String targetAddress,
-                                         @RequestParam(required=false, defaultValue = "5555") String targetPort,
-                                         @RequestParam(required=false, defaultValue = "normal") String quality) throws Exception{
+                                        @RequestParam(required=false, defaultValue = "rtp") String protocol,
+                                        @RequestParam(required=false, defaultValue = "127.0.0.1") String targetAddress,
+                                        @RequestParam(required=false, defaultValue = "5555") String targetPort,
+                                        @RequestParam(required=false, defaultValue = "normal") String quality) throws Exception{
         if (id == null) {
             System.out.println("Content id (" + id + ") is not found");
             return new ResponseEntity<String>(HttpStatus.NOT_FOUND);
@@ -30,7 +30,7 @@ public class StreamServerRestController {
         // 관리중인 컨텐츠 ID인지 판단
         String compareId = orchidService.getOrchidContentName("Spiderman.mp4");
         if(compareId.equals(id)) {
-            String mediaFolder = "C:\\Users\\asif";
+            String mediaFolder = "/usr/local/share";
             if (streamPlayer == null) {
                 streamPlayer = new StreamPlayer(mediaFolder, fileSeparator, "Spiderman.mp4", protocol, targetAddress, targetPort, quality);
                 System.out.println(">>> START Streaming " + streamPlayer.getContentName() + " (ID: " + id + ")");
@@ -68,8 +68,8 @@ public class StreamServerRestController {
 
     @RequestMapping(value="/resume/{id}", method= RequestMethod.GET, produces = "application/json")
     public ResponseEntity<String> resume(@PathVariable("id") String id,
-                                        @RequestParam(required=false, defaultValue = "127.0.0.1") String address,
-                                        @RequestParam(required=false, defaultValue = "5555") String port) throws Exception {
+                                         @RequestParam(required=false, defaultValue = "127.0.0.1") String address,
+                                         @RequestParam(required=false, defaultValue = "5555") String port) throws Exception {
 
         streamPlayer.resumeplay();
         System.out.println(">>> RESUME Streaming " + streamPlayer.getContentName() + " (ID: " + id + ")");

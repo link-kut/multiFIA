@@ -37,7 +37,7 @@ public class StreamPlayer {
 
     public void play() {
         try {
-            String media = mediaFolder + "\\" + contentName;
+            String media = mediaFolder + fileSeparator + contentName;
             String options = null;
             if (protocol.equals("http")) {
                 options = vlcService.formatHttpStream(targetAddress, Integer.parseInt(targetPort));
