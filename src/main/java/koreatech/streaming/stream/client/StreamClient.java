@@ -92,7 +92,9 @@ public class StreamClient extends VlcjCommon {
                 JButton stopButton = new JButton("Stop");
                 JButton pauseButton = new JButton("pause");
                 JButton resumeButton = new JButton("resume");
-                JButton qualityButton = new JButton("High Quality");
+                JButton highButton = new JButton("High");
+                JButton lowButton = new JButton("Low");
+                JButton mediumButton = new JButton("Medium");
 
                 startButton.addActionListener(new ActionListener() {
                     @Override
@@ -134,11 +136,31 @@ public class StreamClient extends VlcjCommon {
                     }
                 });
 
-                qualityButton.addActionListener(new ActionListener() {
+                highButton.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         try {
-                            streamClientRestController.qualityStream(contentName);
+                            streamClientRestController.highStream(contentName);
+                        } catch (Exception x) {
+                        }
+                    }
+                });
+
+                lowButton.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        try {
+                            streamClientRestController.lowStream(contentName);
+                        } catch (Exception x) {
+                        }
+                    }
+                });
+
+                mediumButton.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        try {
+                            streamClientRestController.mediumStream(contentName);
                         } catch (Exception x) {
                         }
                     }
@@ -155,7 +177,9 @@ public class StreamClient extends VlcjCommon {
                 panel.add(stopButton);
                 panel.add(pauseButton);
                 panel.add(resumeButton);
-                panel.add(qualityButton);
+                panel.add(highButton);
+                panel.add(lowButton);
+                panel.add(mediumButton);
                 frame.add(panel, BorderLayout.SOUTH);
 
                 frame.pack();

@@ -21,7 +21,7 @@ public class StreamServerRestController {
                                         @RequestParam(required=false, defaultValue = "rtp") String protocol,
                                         @RequestParam(required=false, defaultValue = "127.0.0.1") String targetAddress,
                                         @RequestParam(required=false, defaultValue = "5555") String targetPort,
-                                        @RequestParam(required=false, defaultValue = "normal") String quality) throws Exception{
+                                        @RequestParam(required=false, defaultValue = "160") String quality) throws Exception{
         if (id == null) {
             System.out.println("Content id (" + id + ") is not found");
             return new ResponseEntity<String>(HttpStatus.NOT_FOUND);
