@@ -23,7 +23,9 @@ public class VlcService {
             return sb.toString();
         }
         else{
-            sb.append(":sout=#transcode{vcodec=h264,acodec=mp4a,vb=1600,ab=128,channels=2,samplerate=44100}:duplicate{dst=rtp{dst=");
+            sb.append(":sout=#transcode{vcodec=h264,acodec=mp4a,vb=");
+            sb.append(quality);
+            sb.append(",ab=128,channels=2,samplerate=44100}:duplicate{dst=rtp{dst=");
             sb.append(targetAddress);
             sb.append(",port=");
             sb.append(targetPort);
