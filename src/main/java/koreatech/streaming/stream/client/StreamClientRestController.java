@@ -69,7 +69,7 @@ public class StreamClientRestController {
         RestTemplate restTemplate = new RestTemplate();
         String orchid = orchidService.getOrchidContentName(contentName);
         try {
-            ResponseEntity<String> responseEntity = restTemplate.getForEntity(REST_SERVICE_URI + "/start/" + orchid + "?targetAddress=218.150.181.113,quality=4096", String.class);
+            ResponseEntity<String> responseEntity = restTemplate.getForEntity(REST_SERVICE_URI + "/start/" + orchid + "?targetAddress=218.150.181.113&quality=4096", String.class);
             String receivedOrchid = responseEntity.getBody();
             if (receivedOrchid.equals(orchid)) {
                 System.out.println("Success");
@@ -83,7 +83,7 @@ public class StreamClientRestController {
         RestTemplate restTemplate = new RestTemplate();
         String orchid = orchidService.getOrchidContentName(contentName);
         try {
-            ResponseEntity<String> responseEntity = restTemplate.getForEntity(REST_SERVICE_URI + "/start/" + orchid + "?targetAddress=218.150.181.113,quality=16", String.class);
+            ResponseEntity<String> responseEntity = restTemplate.getForEntity(REST_SERVICE_URI + "/start/" + orchid + "?targetAddress=218.150.181.113&quality=16", String.class);
             String receivedOrchid = responseEntity.getBody();
             if (receivedOrchid.equals(orchid)) {
                 System.out.println("Success");
@@ -97,7 +97,7 @@ public class StreamClientRestController {
         RestTemplate restTemplate = new RestTemplate();
         String orchid = orchidService.getOrchidContentName(contentName);
         try {
-            ResponseEntity<String> responseEntity = restTemplate.getForEntity(REST_SERVICE_URI + "/start/" + orchid + "?targetAddress=218.150.181.113,quality=1600", String.class);
+            ResponseEntity<String> responseEntity = restTemplate.getForEntity(REST_SERVICE_URI + "/start/" + orchid + "?targetAddress=218.150.181.113&quality=1600", String.class);
             String receivedOrchid = responseEntity.getBody();
             if (receivedOrchid.equals(orchid)) {
                 System.out.println("Success");

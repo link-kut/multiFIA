@@ -166,12 +166,12 @@ public class StreamClient extends VlcjCommon {
                     }
                 });
 
-                imagePane = new ImagePane(image);
-                imagePane.setSize(width, height);
-                imagePane.setMinimumSize(new Dimension(width, height));
-                imagePane.setPreferredSize(new Dimension(width, height));
-                frame.getContentPane().setLayout(new BorderLayout());
-                frame.getContentPane().add(imagePane, BorderLayout.CENTER);
+                //imagePane = new ImagePane(image);
+                //imagePane.setSize(width, height);
+                //imagePane.setMinimumSize(new Dimension(width, height));
+                //imagePane.setPreferredSize(new Dimension(width, height));
+                //frame.getContentPane().setLayout(new BorderLayout());
+                //frame.getContentPane().add(imagePane, BorderLayout.CENTER);
 
                 panel.add(startButton);
                 panel.add(stopButton);
