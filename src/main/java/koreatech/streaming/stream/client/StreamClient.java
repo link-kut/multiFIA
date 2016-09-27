@@ -56,8 +56,6 @@ public class StreamClient extends VlcjCommon {
     private static StreamClientRestController streamClientRestController = new StreamClientRestController();
 
     public static void main(String[] args) throws Exception {
-        LibC.INSTANCE.setenv("VLC_PLUGIN_PATH", "/Program Files/VideoLAN/VLC/plugins", 1);
-
         if (args.length < 4) {
             System.out.println("Specify a single media URL");
             System.exit(1);
@@ -92,6 +90,11 @@ public class StreamClient extends VlcjCommon {
                 panel.setBackground(Color.BLACK);
                 JButton startButton = new JButton("Start");
                 JButton stopButton = new JButton("Stop");
+                JButton pauseButton = new JButton("pause");
+                JButton resumeButton = new JButton("resume");
+                JButton highButton = new JButton("High");
+                JButton lowButton = new JButton("Low");
+                JButton mediumButton = new JButton("Medium");
 
                 startButton.addActionListener(new ActionListener() {
                     @Override
@@ -113,15 +116,70 @@ public class StreamClient extends VlcjCommon {
                     }
                 });
 
-                imagePane = new ImagePane(image);
-                imagePane.setSize(width, height);
-                imagePane.setMinimumSize(new Dimension(width, height));
-                imagePane.setPreferredSize(new Dimension(width, height));
-                frame.getContentPane().setLayout(new BorderLayout());
-                frame.getContentPane().add(imagePane, BorderLayout.CENTER);
+                pauseButton.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        try {
+                            streamClientRestController.pauseStream(contentName);
+                        } catch (Exception x) {
+                        }
+                    }
+                });
+
+                resumeButton.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        try {
+                            streamClientRestController.resumeStream(contentName);
+                        } catch (Exception x) {
+                        }
+                    }
+                });
+
+                highButton.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        try {
+                            streamClientRestController.highStream(contentName);
+                        } catch (Exception x) {
+                        }
+                    }
+                });
+
+                lowButton.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        try {
+                            streamClientRestController.lowStream(contentName);
+                        } catch (Exception x) {
+                        }
+                    }
+                });
+
+                mediumButton.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        try {
+                            streamClientRestController.mediumStream(contentName);
+                        } catch (Exception x) {
+                        }
+                    }
+                });
+
+                //imagePane = new ImagePane(image);
+                //imagePane.setSize(width, height);
+                //imagePane.setMinimumSize(new Dimension(width, height));
+                //imagePane.setPreferredSize(new Dimension(width, height));
+                //frame.getContentPane().setLayout(new BorderLayout());
+                //frame.getContentPane().add(imagePane, BorderLayout.CENTER);
 
                 panel.add(startButton);
                 panel.add(stopButton);
+                panel.add(pauseButton);
+                panel.add(resumeButton);
+                panel.add(highButton);
+                panel.add(lowButton);
+                panel.add(mediumButton);
                 frame.add(panel, BorderLayout.SOUTH);
 
                 frame.pack();

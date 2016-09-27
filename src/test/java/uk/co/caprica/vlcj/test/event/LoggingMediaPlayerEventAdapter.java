@@ -192,10 +192,10 @@ public class LoggingMediaPlayerEventAdapter implements MediaPlayerEventListener 
         logger.debug("mediaParsedChanged(mediaPlayer={},newStatus={})", mediaPlayer, newStatus);
     }
 
-    @Override
+    /*@Override
     public void mediaParsedStatus(MediaPlayer mediaPlayer, int newStatus) {
         logger.debug("mediaParsedStatus(mediaPlayer={},newStatus={})", mediaPlayer, newStatus);
-    }
+    }*/
 
     @Override
     public void mediaFreed(MediaPlayer mediaPlayer) {
