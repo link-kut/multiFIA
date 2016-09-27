@@ -9,8 +9,11 @@ import java.util.Arrays;
  * Created by Kyo on 2016. 8. 16..
  */
 public class OrchidService {
-    final static byte[] contextIdForContentName
+    final public static byte[] contextIdForContentName
             = DatatypeConverter.parseHexBinary("292D05A61D8C335FA3411EBB5BAABE77");
+
+    final public static byte[] contextIdForHostName
+            = DatatypeConverter.parseHexBinary("1AF52BA93BA24026CAF34D783DC12A09");
 
     public String getOrchidContentName(String ContentName) throws Exception {
         MessageDigest md = MessageDigest.getInstance("SHA-256");

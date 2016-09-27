@@ -11,10 +11,18 @@ import java.io.InputStreamReader;
 @RestController
 @RequestMapping("/streaming")
 public class StreamServerRestController {
-
     private OrchidService orchidService = new OrchidService();
     public static String fileSeparator = System.getProperty("file.separator");
     StreamPlayer streamPlayer = null;
+
+    @RequestMapping(value="/init", method= RequestMethod.GET, produces = "application/json")
+    public ResponseEntity<String> init(@PathVariable("name") String name) {
+        //Registrar에게 Identifier - Context ID, Name, Scheme, Locator 정보를 POST 형식으로 등록
+        //OrchidService.contextIdForContentName - 'multifia/spiderman.mp4' - 'RTP'
+        //OrchidService.contextIdForHostName - 'Jack's Desktop' - 'FTP'
+
+        return new ResponseEntity<String>("", HttpStatus.OK);
+    }
 
     @RequestMapping(value="/start/{id}", method= RequestMethod.GET, produces = "application/json")
     public ResponseEntity<String> start(@PathVariable("id") String id,
