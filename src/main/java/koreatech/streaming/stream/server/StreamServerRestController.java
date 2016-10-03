@@ -4,24 +4,71 @@ import koreatech.streaming.service.OrchidService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping("/streaming")
 public class StreamServerRestController {
+    public static final String REST_SERVICE_URI = "http://localhost:8080/registrar";
     private OrchidService orchidService = new OrchidService();
     public static String fileSeparator = System.getProperty("file.separator");
     StreamPlayer streamPlayer = null;
 
     @RequestMapping(value="/init", method= RequestMethod.GET, produces = "application/json")
-    public ResponseEntity<String> init(@PathVariable("name") String name) {
+    public ResponseEntity<String> init() throws Exception{
         //Registrar에게 Identifier - Context ID, Name, Scheme, Locator 정보를 POST 형식으로 등록
         //OrchidService.contextIdForContentName - 'multifia/spiderman.mp4' - 'RTP'
         //OrchidService.contextIdForHostName - 'Jack's Desktop' - 'FTP'
 
-        return new ResponseEntity<String>("", HttpStatus.OK);
+        RestTemplate restTemplate = new RestTemplate();
+        String contentName = "multifia/Spiderman.mp4";
+        String orchid = orchidService.getOrchidContentName(contentName);
+        System.out.println(OrchidService.contextIdForContentName);
+
+        ResponseEntity<String> responseEntity = restTemplate.getForEntity(REST_SERVICE_URI + "/registration?contextId=" + OrchidService.contextIdForContentName + "&name=" + contentName + "&orchidId=" + orchid + "&locator=localhost" + "&scheme=rtp", String.class);
+        String receivedOrchid = responseEntity.getBody();
+        System.out.println(orchid);
+
+        return new ResponseEntity<String>(orchid, HttpStatus.OK);
+    }
+
+    @RequestMapping(value="/update/{registrar}", method= RequestMethod.GET, produces = "application/json")
+    public ResponseEntity<String> update(@PathVariable("registrar") String registrar) throws Exception{
+        RestTemplate restTemplate = new RestTemplate();
+        String contentName = "multifia/Spiderman.mp4";
+        String orchid = orchidService.getOrchidContentName(contentName);
+
+        if(registrar.equals("identifier")) {
+            ResponseEntity<String> responseEntity = restTemplate.getForEntity(REST_SERVICE_URI + "/update/" + registrar + "?contextId=" + OrchidService.contextIdForContentName + "&name=" + contentName + "&orchidId=" + orchid + "&scheme=rtp", String.class);
+            String receivedOrchid = responseEntity.getBody();
+            System.out.println(receivedOrchid);
+
+        }
+        else if(registrar.equals("locator")) {
+            ResponseEntity<String> responseEntity = restTemplate.getForEntity(REST_SERVICE_URI + "/update/" + registrar + "?orchidId=" + orchid + "&locator=127.0.0.1", String.class);
+            String receivedOrchid = responseEntity.getBody();
+            System.out.println(receivedOrchid);
+        }
+
+        return new ResponseEntity<String>(orchid, HttpStatus.OK);
+    }
+
+    @RequestMapping(value="/lookup/{id}", method= RequestMethod.GET, produces = "application/json")
+    public ResponseEntity<String> lookup(@PathVariable("id") String id) throws Exception{
+        RestTemplate restTemplate = new RestTemplate();
+        String contentName = "multifia/Spiderman.mp4";
+        String orchid = orchidService.getOrchidContentName(contentName);
+
+        ResponseEntity<String> responseEntity = restTemplate.getForEntity(REST_SERVICE_URI + "/lookup/" + orchid, String.class);
+        String receivedOrchid = responseEntity.getBody();
+        System.out.println(receivedOrchid);
+
+        return new ResponseEntity<String>(id, HttpStatus.OK);
     }
 
     @RequestMapping(value="/start/{id}", method= RequestMethod.GET, produces = "application/json")
