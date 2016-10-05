@@ -32,8 +32,8 @@ public class StreamServerRestController {
 
         ResponseEntity<String> responseEntity = restTemplate.getForEntity(REST_SERVICE_URI + "/registration?contextId=" + OrchidService.contextIdForContentName
                                                                                             + "&name=" + contentName
-                                                                                            + "&orchidId=" + orchid
-                                                                                            + "&locator=localhost"
+                                                                                            + "&orchid=" + orchid
+                                                                                            + "&locator=127.0.0.1:8080"
                                                                                             + "&scheme=rtp", String.class);
         String receivedOrchid = responseEntity.getBody();
 
@@ -54,7 +54,7 @@ public class StreamServerRestController {
             ResponseEntity<String> responseEntity = restTemplate.getForEntity(REST_SERVICE_URI + "/update/" + registrar
                                                                                                 + "?contextId=" + OrchidService.contextIdForContentName
                                                                                                 + "&name=" + contentName
-                                                                                                + "&orchidId=" + orchid
+                                                                                                + "&orchid=" + orchid
                                                                                                 + "&scheme=rtp", String.class);
             String receivedOrchid = responseEntity.getBody();
             if (responseEntity.getStatusCode() == HttpStatus.OK) {
@@ -63,8 +63,8 @@ public class StreamServerRestController {
         }
         else if(registrar.equals("locator")) {
             ResponseEntity<String> responseEntity = restTemplate.getForEntity(REST_SERVICE_URI + "/update/" + registrar
-                                                                                                + "?orchidId=" + orchid
-                                                                                                + "&locator=127.0.0.1", String.class);
+                                                                                                + "?orchid=" + orchid
+                                                                                                + "&locator=218.150.181.113:8080", String.class);
             String receivedOrchid = responseEntity.getBody();
             if (responseEntity.getStatusCode() == HttpStatus.OK) {
                 System.out.println("Successful update (orchid): " + receivedOrchid);
@@ -82,7 +82,11 @@ public class StreamServerRestController {
 
         ResponseEntity<String> responseEntity = restTemplate.getForEntity(REST_SERVICE_URI + "/lookup/" + orchid, String.class);
         String lookupResult = responseEntity.getBody();
-        System.out.println(lookupResult);
+        String[] result;
+        result = lookupResult.split("#");
+        for(int i=0; i<result.length; i++) {
+            System.out.println(result[i]);
+        }
 
         return new ResponseEntity<String>(id, HttpStatus.OK);
     }
@@ -98,8 +102,10 @@ public class StreamServerRestController {
             return new ResponseEntity<String>(HttpStatus.NOT_FOUND);
         }
 
+        String contentName = "multifia/Spiderman.mp4";
+
         // 관리중인 컨텐츠 ID인지 판단
-        String compareId = orchidService.getOrchidContentName("Spiderman.mp4");
+        String compareId = orchidService.getOrchidContentName(contentName);
         if(compareId.equals(id)) {
             String mediaFolder = "/usr/local/share";
             if (streamPlayer == null) {
@@ -121,7 +127,7 @@ public class StreamServerRestController {
         System.out.println(">>> STOP Streaming " + streamPlayer.getContentName() + " (ID: " + id + ")");
         streamPlayer = null;
 
-        String compareId = orchidService.getOrchidContentName("Spiderman.mp4");
+        String compareId = orchidService.getOrchidContentName("multifia/Spiderman.mp4");
         return new ResponseEntity<String>("Cotent (ID [" + id + "]) has been stopped!", HttpStatus.OK);
     }
 
@@ -133,7 +139,7 @@ public class StreamServerRestController {
         streamPlayer.pausePlay();
         System.out.println(">>> PAUSE Streaming " + streamPlayer.getContentName() + " (ID: " + id + ")");
 
-        String compareId = orchidService.getOrchidContentName("Spiderman.mp4");
+        String compareId = orchidService.getOrchidContentName("multifia/Spiderman.mp4");
         return new ResponseEntity<String>(id, HttpStatus.OK);
     }
 
@@ -145,7 +151,7 @@ public class StreamServerRestController {
         streamPlayer.resumeplay();
         System.out.println(">>> RESUME Streaming " + streamPlayer.getContentName() + " (ID: " + id + ")");
 
-        String compareId = orchidService.getOrchidContentName("Spiderman.mp4");
+        String compareId = orchidService.getOrchidContentName("multifia/Spiderman.mp4");
         return new ResponseEntity<String>(id, HttpStatus.OK);
     }
 }

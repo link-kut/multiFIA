@@ -71,9 +71,9 @@ public class RegistrarRestController {
     public ResponseEntity<String> lookup(@PathVariable("id") String id) throws Exception {
 
         StringBuffer lookupResult = new StringBuffer();
-        lookupResult.append(locatorRegistrar.get(id).get(1).toString()); // locator
-        lookupResult.append("#");
         lookupResult.append(identifierRegistrar.get(id).get(2).toString()); // scheme
+        lookupResult.append("#");
+        lookupResult.append(locatorRegistrar.get(id).get(1).toString()); // locator
 
         String result = lookupResult.toString();
         System.out.println(result);

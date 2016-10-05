@@ -2,6 +2,8 @@ package koreatech.streaming.stream.client;
 
 import koreatech.streaming.service.OrchidService;
 import koreatech.streaming.stream.common.VlcjCommon;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.client.RestTemplate;
 import uk.co.caprica.vlcj.binding.LibC;
 import uk.co.caprica.vlcj.player.MediaPlayerFactory;
 import uk.co.caprica.vlcj.player.direct.BufferFormat;
@@ -54,24 +56,35 @@ public class StreamClient extends VlcjCommon {
     private ImagePane imagePane;
 
     private static StreamClientRestController streamClientRestController = new StreamClientRestController();
+    private static OrchidService orchidService = new OrchidService();
+    public static final String REST_REGISTRAR_URI = "http://localhost:8080/registrar";
 
     public static void main(String[] args) throws Exception {
-        if (args.length < 4) {
+        if (args.length < 0) {
             System.out.println("Specify a single media URL");
             System.exit(1);
         }
 
-        //Rest Start!
-        //String contentName = args[0];
-        //streamClientRestController.startStream(contentName);
+        //프로그램 실행시 기본정보를 registrar에서 불러옴
+        RestTemplate restTemplate = new RestTemplate();
+        String contentName = "multifia/Spiderman.mp4";
+        String orchid = orchidService.getOrchidContentName(contentName);
 
-        String streamUrl = args[1] + "://" + args[2] + ":" + args[3];
+        ResponseEntity<String> responseEntity = restTemplate.getForEntity(REST_REGISTRAR_URI + "/lookup/" + orchid, String.class);
+        String lookupResult = responseEntity.getBody();
+        String[] result;
+        result = lookupResult.split("#");
+        String[] target;
+        target = result[1].split(":"); //target address & port
 
-        String contentName = args[0];
+        String streamUrl = result[0] + "://" + result[1];
+
         String[] libvlcArgs = new String[3];
-        libvlcArgs[0] = args[1];
-        libvlcArgs[1] = args[2];
-        libvlcArgs[2] = args[3];
+        libvlcArgs[0] = result[0];
+        libvlcArgs[1] = target[0];
+        libvlcArgs[2] = target[1];
+        System.out.println(contentName);
+        System.out.println(streamUrl);
 
         new StreamClient(streamUrl, libvlcArgs, contentName);
         // Application will not exit since the UI thread is running
