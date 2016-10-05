@@ -36,7 +36,10 @@ public class StreamServerRestController {
                                                                                             + "&locator=localhost"
                                                                                             + "&scheme=rtp", String.class);
         String receivedOrchid = responseEntity.getBody();
-        System.out.println(orchid);
+
+        if (responseEntity.getStatusCode() == HttpStatus.OK) {
+            System.out.println("Successful registration (orchid): " + receivedOrchid);
+        }
 
         return new ResponseEntity<String>(orchid, HttpStatus.OK);
     }
@@ -48,15 +51,24 @@ public class StreamServerRestController {
         String orchid = orchidService.getOrchidContentName(contentName);
 
         if(registrar.equals("identifier")) {
-            ResponseEntity<String> responseEntity = restTemplate.getForEntity(REST_SERVICE_URI + "/update/" + registrar + "?contextId=" + OrchidService.contextIdForContentName + "&name=" + contentName + "&orchidId=" + orchid + "&scheme=rtp", String.class);
+            ResponseEntity<String> responseEntity = restTemplate.getForEntity(REST_SERVICE_URI + "/update/" + registrar
+                                                                                                + "?contextId=" + OrchidService.contextIdForContentName
+                                                                                                + "&name=" + contentName
+                                                                                                + "&orchidId=" + orchid
+                                                                                                + "&scheme=rtp", String.class);
             String receivedOrchid = responseEntity.getBody();
-            System.out.println(receivedOrchid);
-
+            if (responseEntity.getStatusCode() == HttpStatus.OK) {
+                System.out.println("Successful update (orchid): " + receivedOrchid);
+            }
         }
         else if(registrar.equals("locator")) {
-            ResponseEntity<String> responseEntity = restTemplate.getForEntity(REST_SERVICE_URI + "/update/" + registrar + "?orchidId=" + orchid + "&locator=127.0.0.1", String.class);
+            ResponseEntity<String> responseEntity = restTemplate.getForEntity(REST_SERVICE_URI + "/update/" + registrar
+                                                                                                + "?orchidId=" + orchid
+                                                                                                + "&locator=127.0.0.1", String.class);
             String receivedOrchid = responseEntity.getBody();
-            System.out.println(receivedOrchid);
+            if (responseEntity.getStatusCode() == HttpStatus.OK) {
+                System.out.println("Successful update (orchid): " + receivedOrchid);
+            }
         }
 
         return new ResponseEntity<String>(orchid, HttpStatus.OK);
@@ -69,8 +81,8 @@ public class StreamServerRestController {
         String orchid = orchidService.getOrchidContentName(contentName);
 
         ResponseEntity<String> responseEntity = restTemplate.getForEntity(REST_SERVICE_URI + "/lookup/" + orchid, String.class);
-        String receivedOrchid = responseEntity.getBody();
-        System.out.println(receivedOrchid);
+        String lookupResult = responseEntity.getBody();
+        System.out.println(lookupResult);
 
         return new ResponseEntity<String>(id, HttpStatus.OK);
     }
