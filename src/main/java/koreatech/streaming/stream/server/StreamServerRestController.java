@@ -30,7 +30,11 @@ public class StreamServerRestController {
         String orchid = orchidService.getOrchidContentName(contentName);
         System.out.println(OrchidService.contextIdForContentName);
 
-        ResponseEntity<String> responseEntity = restTemplate.getForEntity(REST_SERVICE_URI + "/registration?contextId=" + OrchidService.contextIdForContentName + "&name=" + contentName + "&orchidId=" + orchid + "&locator=localhost" + "&scheme=rtp", String.class);
+        ResponseEntity<String> responseEntity = restTemplate.getForEntity(REST_SERVICE_URI + "/registration?contextId=" + OrchidService.contextIdForContentName
+                                                                                            + "&name=" + contentName
+                                                                                            + "&orchidId=" + orchid
+                                                                                            + "&locator=localhost"
+                                                                                            + "&scheme=rtp", String.class);
         String receivedOrchid = responseEntity.getBody();
         System.out.println(orchid);
 
