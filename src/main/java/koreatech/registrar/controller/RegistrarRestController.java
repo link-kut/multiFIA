@@ -28,14 +28,12 @@ public class RegistrarRestController {
         contentList.add(name);
         contentList.add(scheme);
         identifierRegistrar.put(orchidId, contentList);
-        contentList = new ArrayList<String>();
         System.out.println(identifierRegistrar.get(orchidId));
 
         List<String> locatorList = new ArrayList<String>();
         locatorList.add(orchidId);
         locatorList.add(locator);
         locatorRegistrar.put(orchidId, locatorList);
-        locatorList = new ArrayList<String>();
         System.out.println(locatorRegistrar.get(orchidId));
 
         return new ResponseEntity<String>(orchidId, HttpStatus.OK);
@@ -55,7 +53,6 @@ public class RegistrarRestController {
             contentList.add(name);
             contentList.add(scheme);
             identifierRegistrar.replace(orchidId, contentList);
-            contentList = new ArrayList<String>();
             System.out.println(identifierRegistrar.values());
         }
 
@@ -64,7 +61,6 @@ public class RegistrarRestController {
             locatorList.add(orchidId);
             locatorList.add(locator);
             locatorRegistrar.replace(orchidId, locatorList);
-            locatorList = new ArrayList<String>();
             System.out.println(locatorRegistrar.values());
         }
 
