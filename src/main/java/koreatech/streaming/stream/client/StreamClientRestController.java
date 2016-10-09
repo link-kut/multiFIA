@@ -88,7 +88,7 @@ public class StreamClientRestController {
         target = result[1].split(":");
 
         try {
-            ResponseEntity<String> responseEntity = restTemplate.getForEntity(REST_SERVICE_URI + "/resume/" + orchid + "?targetAddress=" + target[0], String.class);
+            ResponseEntity<String> responseEntity = restTemplate.getForEntity(REST_SERVICE_URI + "/resume/" + orchid + "?tagetAddress=" + target[0], String.class);
             String receivedOrchid = responseEntity.getBody();
             if (receivedOrchid.equals(orchid)) {
                 System.out.println("Success");
