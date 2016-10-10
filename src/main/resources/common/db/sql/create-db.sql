@@ -1,3 +1,6 @@
+create schema fia AUTHORIZATION DBA;
+set schema fia;
+
 CREATE TABLE USERS (
   id        INTEGER PRIMARY KEY,
   name      VARCHAR(30),
