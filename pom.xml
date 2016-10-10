@@ -64,7 +64,7 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-jdbc</artifactId>
-            <version>4.2.0.RELEASE</version>
+            <version>${spring.version}</version>
         </dependency>
         <!-- Apache Commons -->
         <dependency>
@@ -78,16 +78,22 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>5.1.34</version>
         </dependency>
+        <!-- H2 DB -->
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>1.4.192</version>
+        </dependency>
         <!-- MyBatis -->
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis</artifactId>
-            <version>3.2.8</version>
+            <version>3.3.0</version>
         </dependency>
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis-spring</artifactId>
-            <version>1.2.2</version>
+            <version>1.3.0</version>
         </dependency>
         <!-- Spring AOP + AspectJ -->
         <dependency>
@@ -177,11 +183,13 @@
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
+                    <!--
                     <archive>
                         <manifest>
                             <mainClass>koreatech.streaming.stream.server.StreamServer</mainClass>
                         </manifest>
                     </archive>
+                    -->
                 </configuration>
             </plugin>
         </plugins>

@@ -132,7 +132,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 </section>
 
 <!-- Three -->
-<section id="three" class="main style2">
+<section id="three" class="main style1">
     <div class="container">
         <header class="major">
             <h2>참여 연구원</h2>
