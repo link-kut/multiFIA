@@ -11,8 +11,7 @@ import java.util.List;
 
 @Repository
 public interface UserMapper {
-    @Insert("INSERT INTO fia.USERS (NAME, EMAIL, PASSWORD, AGE) VALUES (#{name}, #{email}, #{password}, #{age})")
-    @SelectKey(statement = "SELECT LAST_INSERT_ID()", keyProperty = "id", before = false, resultType = int.class)
+    @Insert("INSERT INTO fia.USERS (ID, NAME, EMAIL, PASSWORD, AGE) VALUES (#{id}, #{name}, #{email}, #{password}, #{age})")
     void insert(User user);
 
     @Update("UPDATE fia.USERS SET NAME = #{name}, EMAIL = #{email}, PASSWORD = #{password}, AGE = #{age} WHERE ID = #{id}")
@@ -23,6 +22,9 @@ public interface UserMapper {
 
     @Select("SELECT * FROM fia.USERS WHERE EMAIL = #{email}")
     User findByEmail(@Param("email") String email);
+
+    @Select("SELECT max(id) FROM fia.USERS")
+    Integer findMaxId();
 
     @Delete("DELETE FROM fia.USERS WHERE ID = #{id}")
     void delete(@Param("id") int id);

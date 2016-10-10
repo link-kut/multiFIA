@@ -1,3 +1,4 @@
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: Kyo
@@ -26,6 +27,12 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 </head>
 <body>
 
+<section id="headerBar">
+    <div class="inner">
+        <%@ include file="headerBar.jsp" %>
+    </div>
+</section>
+
 <!-- Header -->
 <section id="header">
     <div class="inner">
@@ -38,7 +45,12 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
             응용/서비스에 특화된 인프라 제공을 위한 Software-Defined Infra 및 테스트베드 구축<br />
         </p>
         <ul class="actions">
-            <li><a href="#one" class="button scrolly">자세한 설명</a></li>
+            <sec:authorize access="isAnonymous()">
+                <li><a href="#one" class="button scrolly">프로젝트 설명</a></li>
+            </sec:authorize>
+            <sec:authorize access="isAuthenticated()">
+                <li><a href="#serviceCreation" class="button scrolly">서비스 생성</a></li>
+            </sec:authorize>
         </ul>
     </div>
 </section>
@@ -229,6 +241,23 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
     </div>
 </section>
 
+<!-- ServiceCreation -->
+<sec:authorize access="isAuthenticated()">
+<section id="serviceCreation" class="main style2">
+    <div class="container">
+        <header class="major special">
+            <h2>서비스 생성</h2>
+        </header>
+
+        <section>
+            <h4>Text</h4>
+            <p>This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i> and this is <em>emphasized</em>.
+                This is <sup>superscript</sup> text and this is <sub>subscript</sub> text.
+                This is <u>underlined</u> and this is code: <code>for (;;) { ... }</code>. Finally, <a href="#">this is a link</a>.</p>
+            <hr />
+    </div>
+</section>
+</sec:authorize>
 <!-- Four -->
 <!--
 <section id="four" class="main style2 special">

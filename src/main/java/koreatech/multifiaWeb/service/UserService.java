@@ -29,6 +29,8 @@ public class UserService implements UserDetailsService {
             return false;
 
         user.setPassword(passwordEncoder.encode(user.getPassword()));
+        int maxId = userMapper.findMaxId();
+        user.setId(maxId + 1);
         userMapper.insert(user);
 
         Authority authority = new Authority();

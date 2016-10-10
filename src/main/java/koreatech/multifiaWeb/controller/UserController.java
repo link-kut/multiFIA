@@ -85,7 +85,7 @@ public class UserController {
     @RequestMapping(value="/signinFailed")
     public String signinFailed() {
         System.out.println("signin Failed");
-        return "redirect:/";
+        return "redirect:/user/signin";
     }
 
 
