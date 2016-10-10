@@ -1,4 +1,4 @@
-create schema fia AUTHORIZATION DBA;
+create schema fia;
 set schema fia;
 
 CREATE TABLE USERS (
