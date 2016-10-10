@@ -11,27 +11,27 @@ import java.util.List;
 
 @Repository
 public interface UserMapper {
-    @Insert("INSERT INTO USERS (NAME, EMAIL, PASSWORD, AGE) VALUES (#{name}, #{email}, #{password}, #{age})")
+    @Insert("INSERT INTO fia.USERS (NAME, EMAIL, PASSWORD, AGE) VALUES (#{name}, #{email}, #{password}, #{age})")
     @SelectKey(statement = "SELECT LAST_INSERT_ID()", keyProperty = "id", before = false, resultType = int.class)
     void insert(User user);
 
-    @Update("UPDATE USERS SET NAME = #{name}, EMAIL = #{email}, PASSWORD = #{password}, AGE = #{age} WHERE ID = #{id}")
+    @Update("UPDATE fia.USERS SET NAME = #{name}, EMAIL = #{email}, PASSWORD = #{password}, AGE = #{age} WHERE ID = #{id}")
     void update(User user);
 
-    @Select("SELECT * FROM USERS WHERE ID = #{id}")
+    @Select("SELECT * FROM fia.USERS WHERE ID = #{id}")
     User findOne(@Param("id") int id);
 
-    @Select("SELECT * FROM USERS WHERE EMAIL = #{email}")
+    @Select("SELECT * FROM fia.USERS WHERE EMAIL = #{email}")
     User findByEmail(@Param("email") String email);
 
-    @Delete("DELETE FROM USERS WHERE ID = #{id}")
+    @Delete("DELETE FROM fia.USERS WHERE ID = #{id}")
     void delete(@Param("id") int id);
 
     @SelectProvider(type = UserSqlProvider.class, method = "findAllByProvider")
     List<User> findByProvider(Searchable searchable);
 
     @Select("<script>"
-            + "SELECT * FROM USERS"
+            + "SELECT * FROM fia.USERS"
             + "<if test='name != null'> WHERE NAME = #{name}</if>"
             + "<if test='name != null and email != null'> OR EMAIL = #{email}</if>"
             + "<if test='orderParam != null'>ORDER BY ${orderParam} DESC</if>"
