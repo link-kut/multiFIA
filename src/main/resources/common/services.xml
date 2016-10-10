@@ -8,9 +8,11 @@
        <mvc:annotation-driven />
        <mvc:resources location="/WEB-INF/resources/" mapping="/resources/**" />
 
-       <context:component-scan base-package="koreatech.multifiaWeb" />
+       <context:component-scan base-package="koreatech" />
+       <!--<context:component-scan base-package="koreatech.multifiaWeb" />
        <context:component-scan base-package="koreatech.streaming" />
        <context:component-scan base-package="koreatech.registrar" />
+       <context:component-scan base-package="koreatech.transferring" />-->
        <context:property-placeholder location="classpath:config.properties" />
 
        <bean id="contentNegotiatingViewResolver" class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
