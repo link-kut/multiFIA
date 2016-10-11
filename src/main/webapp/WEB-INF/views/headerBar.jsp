@@ -10,7 +10,8 @@
     </sec:authorize>
 
     <sec:authorize access="isAuthenticated()">
-        ${user.name}님 로그인하셨습니다. &nbsp;
+        <span style="color: #ffffff">로그인 계정: ${user.email}</span> <span style="color: #ffffff">&nbsp;|&nbsp;</span>
+        <a href="http://<%=request.getServerName()%>:8082/login.jsp" target="_blank">Im-memory 데이터베이스(H2) 관리</a> <span style="color: #ffffff">&nbsp;|&nbsp;</span>
         <a href="/user/signout">로그아웃</a>
     </sec:authorize>
 </div>
