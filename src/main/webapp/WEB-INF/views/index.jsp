@@ -24,6 +24,14 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
     <!--[if lte IE 9]><link rel="stylesheet" href="../resources/assets/css/ie9.css" /><![endif]-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+    <script src="../resources/assets/js/jquery.min.js"></script>
+    <script src="../resources/assets/js/jquery.scrolly.min.js"></script>
+    <script src="../resources/assets/js/skel.min.js"></script>
+    <script src="../resources/assets/js/util.js"></script>
+    <!--[if lte IE 8]><script src="../resources/assets/js/ie/respond.min.js"></script><![endif]-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="../resources/assets/js/main.js"></script>
 </head>
 <body>
 
@@ -250,11 +258,25 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
         </header>
 
         <section>
-            <h4>Text</h4>
-            <p>This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i> and this is <em>emphasized</em>.
-                This is <sup>superscript</sup> text and this is <sub>subscript</sub> text.
-                This is <u>underlined</u> and this is code: <code>for (;;) { ... }</code>. Finally, <a href="#">this is a link</a>.</p>
-            <hr />
+            <h4>1. 서비스 유형 (네트워크에서 제공하려는 서비스 유형을 선택하세요.)</h4>
+            <div class="btn-group" data-toggle="buttons" id="serviceType">
+                <label class="btn btn-success active btn-lg">
+                    <input type="radio" name="options" id="vod" autocomplete="off" checked> Video on Demand
+                </label>
+                &nbsp;
+                <label class="btn btn-success btn-lg">
+                    <input type="radio" name="options" id="ft" autocomplete="off"> File Transfer
+                </label>
+            </div>
+            <script>
+                jQuery(document).ready(function() {
+                    $("#serviceType :input").change(function() {
+                        var serviceType = this.id
+                        console.log(serviceType); // points to the clicked input button
+                    });
+                });
+            </script>
+        </section>
     </div>
 </section>
 </sec:authorize>
@@ -610,13 +632,5 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 </section>
 
 <!-- Scripts -->
-<script src="../resources/assets/js/jquery.min.js"></script>
-<script src="../resources/assets/js/jquery.scrolly.min.js"></script>
-<script src="../resources/assets/js/skel.min.js"></script>
-<script src="../resources/assets/js/util.js"></script>
-<!--[if lte IE 8]><script src="../resources/assets/js/ie/respond.min.js"></script><![endif]-->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-<script src="../resources/assets/js/main.js"></script>
-
 </body>
 </html>
