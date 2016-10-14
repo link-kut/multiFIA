@@ -310,7 +310,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                     $("#serviceType :input").change(function() {
                         var serviceType = this.id;
                         a[1] = serviceType;
-                        console.log(serviceType); // points to the clicked input button
+                        console.log(a[1]); // points to the clicked input button
                     });
                 });
             </script>
@@ -340,7 +340,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                     $("#qualityType :input").change(function() {
                         var qualityType = this.id;
                         a[2] = qualityType;
-                        console.log(qualityType); // points to the clicked input button
+                        console.log(a[2]); // points to the clicked input button
                     });
                 });
             </script>
@@ -373,7 +373,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                     $("#capacityType :input").change(function() {
                         var capacityType = this.id;
                         a[3] = capacityType;
-                        console.log(capacityType); // points to the clicked input button
+                        console.log(a[3]); // points to the clicked input button
                     });
                 });
             </script>
@@ -434,9 +434,9 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                     $("#planType :input").change(function() {
                         var planType = this.id;
                         a[4] = planType;
-                        console.log(planType); // points to the clicked input button
+                        console.log(a[4]); // points to the clicked input button
                         $.ajax({
-                            url : "<c:url value='http://localhost:8080/networkService'/>",
+                            url : "/networkService",
                             data : {userId : a[0], type : a[1], quality : a[2], capacity : a[3], plan : a[4]}
                         });
                     });

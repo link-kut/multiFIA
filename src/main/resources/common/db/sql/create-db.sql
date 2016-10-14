@@ -19,6 +19,6 @@ CREATE TABLE IF NOT EXISTS SERVICE_PROVIDERS (
   user_id           INTEGER,
   service_type      VARCHAR(100),
   network_quality   VARCHAR(100),
-  service_capacity  VARCHAR (100),
-  plan              VARCHAR (100)
+  service_capacity  VARCHAR(100),
+  plan              VARCHAR(100)
 );
