@@ -17,6 +17,9 @@ public interface ServiceMapper {
     void insert(@Param("userId") int userId, @Param("type") String type, @Param("quality") String quality,
                 @Param("capacity") String capacity, @Param("plan") String plan);
 
+    @Select("SELECT max(USER_ID) FROM fia.SERVICE_PROVIDERS")
+    Integer findMaxuserId();
+
     @Update("UPDATE fia.USERS SET NAME = #{name}, EMAIL = #{email}, PASSWORD = #{password}, AGE = #{age} WHERE ID = #{id}")
     void update(ServiceProvider serviceProvider);
 

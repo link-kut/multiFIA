@@ -26,6 +26,7 @@ public class HomeController {
     public String home(Model model) {
         ServiceProvider serviceProvider = new ServiceProvider();
         model.addAttribute("network", serviceProvider);
+        model.addAttribute("maxId", serviceMapper.findMaxuserId());
         return "index";
     }
 

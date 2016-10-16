@@ -251,27 +251,6 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 </section>
 
 <!-- ServiceCreation -->
-
-<script>
-    function openCity(evt, cityName) {
-        // Declare all variables
-        var i, tabcontent, tablinks;
-        // Get all elements with class="tabcontent" and hide them
-        tabcontent = document.getElementsByClassName("tabcontent");
-        for (i = 0; i < tabcontent.length; i++) {
-            tabcontent[i].style.display = "none";
-        }
-        // Get all elements with class="tablinks" and remove the class "active"
-        tablinks = document.getElementsByClassName("tablinks");
-        for (i = 0; i < tablinks.length; i++) {
-            tablinks[i].className = tablinks[i].className.replace(" active", "");
-        }
-        // Show the current tab, and add an "active" class to the link that opened the tab
-        document.getElementById(cityName).style.display = "block";
-        evt.currentTarget.className += " active";
-    }
-</script>
-
 <sec:authorize access="isAuthenticated()">
 <section id="serviceCreation" class="main style2">
     <div class="container">
@@ -280,11 +259,11 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
         </header>
         <script>
             var a = new Array();
-            a[0] = 0;
+            a[0] = ${maxId + 1};
         </script>
 
         <ul class="tab">
-            <li><a href="#type" class="tablinks" onclick="openCity(event, 'type')">Service Type</a></li>
+            <li><a href="#type" class="tablinks" onclick="openCity(event, 'type')" id="defaultOpen">Service Type</a></li>
             <li><a href="#quality" class="tablinks" onclick="openCity(event, 'quality')">Quality</a></li>
             <li><a href="#capacity" class="tablinks" onclick="openCity(event, 'capacity')">Capacity</a></li>
             <li><a href="#plan" class="tablinks" onclick="openCity(event, 'plan')">Plan</a></li>
@@ -302,7 +281,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                 </label>
             </div>
             <div align="right">
-                <button href="#quality" onclick="openCity(event, 'quality')">Next</button>
+                <button href="#quality" class="tablinks" onclick="openCity(event, 'quality')">Next</button>
             </div>
 
             <script>
@@ -310,7 +289,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                     $("#serviceType :input").change(function() {
                         var serviceType = this.id;
                         a[1] = serviceType;
-                        console.log(serviceType); // points to the clicked input button
+                        console.log(a[1]); // points to the clicked input button
                     });
                 });
             </script>
@@ -332,15 +311,15 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                 </label>
             </div>
             <div data-role="main" class="ui-content" align="right">
-                <button href="#type" onclick="openCity(event, 'type')">Prev</button>
-                <button href="#capacity" onclick="openCity(event, 'capacity')">Next</button>
+                <button href="#type" class="tablinks" onclick="openCity(event, 'type')">Prev</button>
+                <button href="#capacity" class="tablinks" onclick="openCity(event, 'capacity')">Next</button>
             </div>
             <script>
                 jQuery(document).ready(function() {
                     $("#qualityType :input").change(function() {
                         var qualityType = this.id;
                         a[2] = qualityType;
-                        console.log(qualityType); // points to the clicked input button
+                        console.log(a[2]); // points to the clicked input button
                     });
                 });
             </script>
@@ -365,15 +344,15 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                 </label>
             </div>
             <div data-role="main" class="ui-content" align="right">
-                <button href="#quality" onclick="openCity(event, 'quality')">Prev</button>
-                <button href="#plan" onclick="openCity(event, 'plan')">Next</button>
+                <button href="#quality" class="tablinks" onclick="openCity(event, 'quality')">Prev</button>
+                <button href="#plan" class="tablinks" onclick="openCity(event, 'plan')">Next</button>
             </div>
             <script>
                 jQuery(document).ready(function() {
                     $("#capacityType :input").change(function() {
                         var capacityType = this.id;
                         a[3] = capacityType;
-                        console.log(capacityType); // points to the clicked input button
+                        console.log(a[3]); // points to the clicked input button
                     });
                 });
             </script>
@@ -390,8 +369,8 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                         <li>10 Domains</li>
                         <li>1GB Bandwidth</li>
                         <li class="grey">
-                            <label class="btn btn-success active btn-lg">
-                                <input type="radio" name="options" id="basic" autocomplete="off"> Select
+                            <label class="btn btn-success btn-lg">
+                                <input type="radio" name="options" id="basic" autocomplete="off">Select
                             </label>
                         </li>
                     </ul>
@@ -405,7 +384,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                         <li>2GB Bandwidth</li>
                         <li class="grey">
                             <label class="btn btn-success btn-lg">
-                                <input type="radio" name="options" id="pro" autocomplete="off"> Select
+                                <input type="radio" name="options" id="pro" autocomplete="off">Select
                             </label>
                         </li>
                     </ul>
@@ -419,13 +398,18 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                         <li>5GB Bandwidth</li>
                         <li class="grey">
                             <label class="btn btn-success btn-lg">
-                                <input type="radio" name="options" id="premium" autocomplete="off"> Select
+                                <input type="radio" name="options" id="premium" autocomplete="off" >Select
                             </label>
                         </li>
                     </ul>
                 </div>
+                <div data-role="main" class="ui-content" align="center" data-toggle="buttons" id="creation">
+                    <label class="btn btn-primary btn-lg">
+                        <input type="radio" name="options" id="create" autocomplete="off">Create
+                    </label>
+                </div>
                 <div data-role="main" class="ui-content" align="right">
-                    <button href="#capacity" onclick="openCity(event, 'capacity')">Prev</button>
+                    <button href="#capacity" class="tablinks" onclick="openCity(event, 'capacity')">Prev</button>
                 </div>
             </div>
 
@@ -434,40 +418,46 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                     $("#planType :input").change(function() {
                         var planType = this.id;
                         a[4] = planType;
-                        console.log(planType); // points to the clicked input button
+                        console.log(a[4]); // points to the clicked input button
+                    });
+                });
+            </script>
+            <script>
+                jQuery(document).ready(function() {
+                    $("#creation :input").change(function() {
+                        console.log(a); // points to the clicked input button
                         $.ajax({
-                            url : "<c:url value='http://localhost:8080/networkService'/>",
+                            url : "/networkService",
                             data : {userId : a[0], type : a[1], quality : a[2], capacity : a[3], plan : a[4]}
                         });
+                        alert("네트워크 서비스가 생성 되어습니다.");
                     });
                 });
             </script>
         </div>
 
-        <!--
-        <section>
-            <h4>1. 서비스 유형 (네트워크에서 제공하려는 서비스 유형을 선택하세요.)</h4>
-            <div class="btn-group" data-toggle="buttons" id="serviceType">
-                <label class="btn btn-success active btn-lg">
-                    <input type="radio" name="options" id="vod" autocomplete="off" checked> Video on Demand
-                </label>
-                &nbsp;
-                <label class="btn btn-success btn-lg">
-                    <input type="radio" name="options" id="ft" autocomplete="off"> File Transfer
-                </label>
-            </div>
-            <script>
-                jQuery(document).ready(function() {
-                    $("#serviceType :input").change(function() {
-                        var serviceType = this.id
-                        console.log(serviceType); // points to the clicked input button
-                    });
-                });
-            </script>
-        </section>
-        -->
     </div>
 </section>
+    <script>
+        function openCity(evt, cityName) {
+            // Declare all variables
+            var i, tabcontent, tablinks;
+            // Get all elements with class="tabcontent" and hide them
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            // Get all elements with class="tablinks" and remove the class "active"
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            // Show the current tab, and add an "active" class to the link that opened the tab
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+        document.getElementById("defaultOpen").click();
+    </script>
 </sec:authorize>
 <!-- Four -->
 <!--
