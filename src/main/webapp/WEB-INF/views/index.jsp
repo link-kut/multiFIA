@@ -434,7 +434,11 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                     });
                 });
             </script>
+            <div data-role="main" class="ui-content" align="right">
+                <button href="#capacity" class="tablinks" onclick="openCity(event, 'capacity')">Prev</button>
+            </div>
         </div>
+
 
     </div>
 </section>
