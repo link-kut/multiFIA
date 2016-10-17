@@ -314,22 +314,21 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                             </li>
                         </ul>
                     </div>
-                    <div data-role="main" class="ui-content" align="center" data-toggle="buttons" id="creation">
-                        <label class="btn btn-primary btn-lg">
-                            <input type="radio" name="options" id="create" autocomplete="off">Create
-                        </label>
-                    </div>
-                </div>
-
-                <script>
-                    jQuery(document).ready(function() {
-                        $("#planType :input").change(function() {
-                            var planType = this.id;
-                            a[4] = planType;
-                            console.log(a[4]); // points to the clicked input button
+                    <script>
+                        jQuery(document).ready(function() {
+                            $("#planType :input").change(function() {
+                                var planType = this.id;
+                                a[4] = planType;
+                                console.log(a[4]); // points to the clicked input button
+                            });
                         });
-                    });
-                </script>
+                    </script>
+                </div>
+                <div data-role="main" class="ui-content" align="center" data-toggle="buttons" id="creation">
+                    <label class="btn btn-primary btn-lg">
+                        <input type="radio" name="options" id="create" autocomplete="off">Create
+                    </label>
+                </div>
                 <script>
                     jQuery(document).ready(function() {
                         $("#creation :input").change(function() {
@@ -338,16 +337,58 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                                 url : "/networkService",
                                 data : {userId : a[0], type : a[1], quality : a[2], capacity : a[3], plan : a[4]}
                             });
-                            alert("네트워크 서비스가 생성 되어습니다.");
+                            if(a[1] == "vod") {
+                                alert("네트워크 서비스가 생성 되어습니다.\n" + "ContextID : 292D05A61D8C335FA3411EBB5BAABE77");
+                                $("#init").show();
+                            }
+                            else {
+                                alert("네트워크 서비스가 생성 되어습니다.\n" + "ContextID : 1AF52BA93BA24026CAF34D783DC12A09");
+                                $("#init").show();
+                            }
                         });
+                    });
+
+                    jQuery(document).ready(function() {
+                        $("#init").hide();
                     });
                 </script>
                 <div data-role="main" class="ui-content" align="left">
                     <button href="#capacity" class="tablinks" onclick="openCity(event, 'capacity')">Prev</button>
                 </div>
             </div>
-
-
+            <div id="init" style="margin-top: 2.0em" data-toggle="buttons">
+                <div class="col-md-6 align-center">
+                    <a href="movie?title=Spiderman.mp4"><img src="../resources/images/Spiderman.jpeg" alt="" width="186" height="269" /></a>
+                    <p style="margin-top: 2.0em">ContentName : multifia/Spiderman.mp4</p>
+                    <p>ORCHIDv2 : 5BEE0F5007E6915B32B4EF55</p>
+                    <p>ContextID : 292D05A61D8C335FA3411EBB5BAABE77</p>
+                    <p>Scheme : rtp</p>
+                    <label class="btn btn-warning btn-lg">
+                        <input type="radio" name="options" id="spiderman" autocomplete="off" style="margin-left: -2.0em">Registration
+                    </label>
+                </div>
+                <div class="col-md-6 align-center">
+                    <a href="movie?title=Darkknight.mp4"><img src="../resources/images/darkknight.jpg" alt="" width="186" height="269" /></a>
+                    <p style="margin-top: 2.0em">ContentName : multifia/Batman.mp4</p>
+                    <p>ORCHIDv2 : 4754D4627C1E8A7BDFB1F67E</p>
+                    <p>ContextID : 292D05A61D8C335FA3411EBB5BAABE77</p>
+                    <p>Scheme : rtp</p>
+                    <label class="btn btn-warning btn-lg">
+                        <input type="radio" name="options" id="batman" autocomplete="off" style="margin-left: -2.0em">Registration
+                    </label>
+                </div>
+                <script>
+                    jQuery(document).ready(function() {
+                        $("#init :input").change(function() {
+                            var regit = this.id;
+                            console.log(regit); // points to the clicked input button
+                            $.ajax({
+                                url : "/streaming/init"
+                            });
+                        });
+                    });
+                </script>
+            </div>
         </div>
     </section>
     <script>

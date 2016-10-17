@@ -11,8 +11,8 @@ import java.io.IOException;
 @RestController
 @RequestMapping("/transferring")
 public class TransferServerRestController {
-    public static final String REST_SERVICE_URI = "http://localhost:8080/registrar";
-    public static final String REST_REGISTRAR_URI = "http://localhost:8080/registrar";
+    public static final String REST_SERVICE_URI = "http://localhost:8100/registrar";
+    public static final String REST_REGISTRAR_URI = "http://localhost:8100/registrar";
     private OrchidService orchidService = new OrchidService();
     public String fileSeparator = System.getProperty("file.separator");
     TransferServer transferServer = null;
@@ -26,7 +26,7 @@ public class TransferServerRestController {
         ResponseEntity<String> responseEntity = restTemplate.getForEntity(REST_SERVICE_URI + "/registration?contextId=" + OrchidService.contextIdForHostName
                                                                                                                         + "&name=" + hostName
                                                                                                                         + "&orchid=" + orchid
-                                                                                                                        + "&locator=127.0.0.1:6666"
+                                                                                                                        + "&locator=127.0.0.1:8100"
                                                                                                                         + "&scheme=ftp", String.class);
         String receivedOrchid = responseEntity.getBody();
 

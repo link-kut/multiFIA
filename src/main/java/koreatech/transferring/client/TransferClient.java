@@ -20,7 +20,7 @@ public class TransferClient extends Thread {
     public final static String FILE_PATH = "/usr/local/share";
     private ServerSocket serverSocket;
     private static OrchidService orchidService = new OrchidService();
-    public static final String REST_REGISTRAR_URI = "http://localhost:8080/registrar";
+    public static final String REST_REGISTRAR_URI = "http://localhost:8100/registrar";
     private static TransferClientRestController transferClientRestController = new TransferClientRestController();
 
     private Socket socket = null;

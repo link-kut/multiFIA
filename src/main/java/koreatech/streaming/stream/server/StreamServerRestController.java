@@ -20,7 +20,7 @@ public class StreamServerRestController {
     StreamPlayer streamPlayer = null;
 
     @RequestMapping(value="/init", method= RequestMethod.GET, produces = "application/json")
-    public ResponseEntity<String> init() throws Exception{
+    public ResponseEntity<String> init(@RequestParam(required=false, defaultValue = "rtp") String content) throws Exception{
         //Registrar에게 Identifier - Context ID, Name, Scheme, Locator 정보를 POST 형식으로 등록
         //OrchidService.contextIdForContentName - 'multifia/spiderman.mp4' - 'RTP'
         //OrchidService.contextIdForHostName - 'Jack's Desktop' - 'FTP'

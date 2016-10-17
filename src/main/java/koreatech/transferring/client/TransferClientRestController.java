@@ -7,8 +7,8 @@ import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
 public class TransferClientRestController {
-    public static final String REST_SERVICE_URI = "http://218.150.181.113:8080/transferring";
-    public static final String REST_REGISTRAR_URI = "http://localhost:8080/registrar";
+    public static final String REST_SERVICE_URI = "http://218.150.181.113:8100/transferring";
+    public static final String REST_REGISTRAR_URI = "http://localhost:8100/registrar";
     private OrchidService orchidService = new OrchidService();
 
     public void startTrnasfer(String hostName) throws Exception {
