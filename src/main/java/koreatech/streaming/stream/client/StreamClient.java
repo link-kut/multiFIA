@@ -57,7 +57,7 @@ public class StreamClient extends VlcjCommon {
 
     private static StreamClientRestController streamClientRestController = new StreamClientRestController();
     private static OrchidService orchidService = new OrchidService();
-    public static final String REST_REGISTRAR_URI = "http://localhost:8080/registrar";
+    public static final String REST_REGISTRAR_URI = "http://localhost:8100/registrar";
 
     public static void main(String[] args) throws Exception {
         if (args.length < 0) {

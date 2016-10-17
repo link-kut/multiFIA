@@ -6,8 +6,8 @@ import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
 public class StreamClientRestController {
-    public static final String REST_SERVICE_URI = "http://218.150.181.113:8080/streaming";
-    public static final String REST_REGISTRAR_URI = "http://localhost:8080/registrar";
+    public static final String REST_SERVICE_URI = "http://218.150.181.113:8100/streaming";
+    public static final String REST_REGISTRAR_URI = "http://localhost:8100/registrar";
     private OrchidService orchidService = new OrchidService();
 
     public void startStream(String contentName) throws Exception {

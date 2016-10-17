@@ -139,8 +139,8 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
     </div>
 </section>
 -->
-
-<section id="four" class="main style2 special">
+<!--
+<section id="four" class="main style1 special">
     <div class="container">
         <header class="major">
             <h2>What's the movie you want to watch?</h2>
@@ -151,6 +151,226 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
         <a href="movie?title=Punisher.mp4"><img src="../resources/images/Punisher.jpg" alt="" width="186" height="269" /></a>
     </div>
 </section>
+-->
+<!-- ServiceCreation -->
+<sec:authorize access="isAuthenticated()">
+    <section id="serviceCreation" class="main style2">
+        <div class="container">
+            <header class="major special">
+                <h2>서비스 생성</h2>
+            </header>
+            <script>
+                var a = new Array();
+                a[0] = ${maxId + 1};
+            </script>
+
+            <ul class="tab">
+                <li><a href="#type" class="tablinks" onclick="openCity(event, 'type')" id="defaultOpen">Service Type</a></li>
+                <li><a href="#quality" class="tablinks" onclick="openCity(event, 'quality')">Quality</a></li>
+                <li><a href="#capacity" class="tablinks" onclick="openCity(event, 'capacity')">Capacity</a></li>
+                <li><a href="#plan" class="tablinks" onclick="openCity(event, 'plan')">Plan</a></li>
+            </ul>
+
+            <div id="type" class="tabcontent">
+                <h3>서비스 유형 (네트워크에서 제공하려는 서비스 유형을 선택하세요.)</h3>
+                <div class="btn-group" data-toggle="buttons" id="serviceType">
+                    <label class="btn btn-success btn-lg">
+                        <input type="radio" name="options" id="vod" autocomplete="off" checked> Video on Demand
+                    </label>
+                    &nbsp;
+                    <label class="btn btn-success btn-lg">
+                        <input type="radio" name="options" id="ft" autocomplete="off"> File Transfer
+                    </label>
+                </div>
+                <br/><br/>
+                <div align="right">
+                    <button href="#quality" class="tablinks" onclick="openCity(event, 'quality')">Next</button>
+                </div>
+
+                <script>
+                    jQuery(document).ready(function() {
+                        $("#serviceType :input").change(function() {
+                            var serviceType = this.id;
+                            a[1] = serviceType;
+                            console.log(a[1]); // points to the clicked input button
+                        });
+                    });
+                </script>
+            </div>
+
+            <div id="quality" class="tabcontent">
+                <h3>네트워크 품질 (제공할 네트워크 서비스의 품질을 선택하세요.)</h3>
+                <div class="btn-group" data-toggle="buttons" id="qualityType">
+                    <label class="btn btn-success btn-lg">
+                        <input type="radio" name="options" id="high" autocomplete="off" checked> High
+                    </label>
+                    &nbsp;
+                    <label class="btn btn-success btn-lg">
+                        <input type="radio" name="options" id="medium" autocomplete="off"> Medium
+                    </label>
+                    &nbsp;
+                    <label class="btn btn-success btn-lg">
+                        <input type="radio" name="options" id="low" autocomplete="off"> Low
+                    </label>
+                </div>
+                <br/>
+                <br/>
+                <div data-role="main" class="ui-content row">
+                    <div class="col-md-6 align-left">
+                        <button href="#type" class="tablinks" onclick="openCity(event, 'type')">Prev</button>
+                    </div>
+                    <div class="col-md-6 align-right">
+                        <button href="#capacity" class="tablinks" onclick="openCity(event, 'capacity')">Next</button>
+                    </div>
+                </div>
+                <script>
+                    jQuery(document).ready(function() {
+                        $("#qualityType :input").change(function() {
+                            var qualityType = this.id;
+                            a[2] = qualityType;
+                            console.log(a[2]); // points to the clicked input button
+                        });
+                    });
+                </script>
+            </div>
+
+            <div id="capacity" class="tabcontent">
+                <h3>서비스 수용량 (제공할 서비스 네트워크의 수용량을 선택하세요.)</h3>
+                <div class="btn-group" data-toggle="buttons" id="capacityType">
+                    <label class="btn btn-success btn-lg">
+                        <input type="radio" name="options" id="100" autocomplete="off" checked> 100
+                    </label>
+                    &nbsp;
+                    <label class="btn btn-success btn-lg">
+                        <input type="radio" name="options" id="500" autocomplete="off"> 500
+                    </label>
+                    &nbsp;
+                    <label class="btn btn-success btn-lg">
+                        <input type="radio" name="options" id="1000" autocomplete="off"> 1000
+                    </label>
+                    <label class="btn btn-success btn-lg">
+                        <input type="radio" name="options" id="1111" autocomplete="off"> Over 1000
+                    </label>
+                </div>
+                <br/><br/>
+                <div data-role="main" class="ui-content row" align="right">
+                    <div class="col-md-6 align-left">
+                        <button href="#quality" class="tablinks" onclick="openCity(event, 'quality')">Prev</button>
+                    </div>
+                    <div class="col-md-6 align-right">
+                        <button href="#plan" class="tablinks" onclick="openCity(event, 'plan')">Next</button>
+                    </div>
+                </div>
+                <script>
+                    jQuery(document).ready(function() {
+                        $("#capacityType :input").change(function() {
+                            var capacityType = this.id;
+                            a[3] = capacityType;
+                            console.log(a[3]); // points to the clicked input button
+                        });
+                    });
+                </script>
+            </div>
+
+            <div id="plan" class="tabcontent">
+                <h3>가입 정책 (네트워크 서비스에 가입할 정책을 선택하세요.)</h3>
+                <div data-toggle="buttons" id="planType">
+                    <div class="columns">
+                        <ul class="price">
+                            <li class="header" style="background-color:#333333">Basic</li>
+                            <li class="grey" style="color:#000000">$ 499.99 / year</li>
+                            <li>500GB Storage</li>
+                            <li>-</li>
+                            <li class="grey">
+                                <label class="btn btn-success btn-lg align-center">
+                                    <input type="radio" name="options" id="basic" autocomplete="off" style="margin-left: -2.0em">Select</input>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="columns">
+                        <ul class="price">
+                            <li class="header" style="background-color:#4CAF50">Pro</li>
+                            <li class="grey" style="color:#000000">$ 999.99 / year</li>
+                            <li>1TB Storage</li>
+                            <li>Backup Support</li>
+                            <li class="grey">
+                                <label class="btn btn-success btn-lg">
+                                    <input type="radio" name="options" id="pro" autocomplete="off" style="margin-left: -2.0em">Select</input>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="columns">
+                        <ul class="price">
+                            <li class="header" style="background-color:#aa0921">Premium</li>
+                            <li class="grey" style="color:#000000">$ 1499.99 / year</li>
+                            <li>4TB Storage</li>
+                            <li>Backup Support</li>
+                            <li class="grey">
+                                <label class="btn btn-success btn-lg">
+                                    <input type="radio" name="options" id="premium" autocomplete="off" style="margin-left: -2.0em">Select</input>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div data-role="main" class="ui-content" align="center" data-toggle="buttons" id="creation">
+                        <label class="btn btn-primary btn-lg">
+                            <input type="radio" name="options" id="create" autocomplete="off">Create
+                        </label>
+                    </div>
+                </div>
+
+                <script>
+                    jQuery(document).ready(function() {
+                        $("#planType :input").change(function() {
+                            var planType = this.id;
+                            a[4] = planType;
+                            console.log(a[4]); // points to the clicked input button
+                        });
+                    });
+                </script>
+                <script>
+                    jQuery(document).ready(function() {
+                        $("#creation :input").change(function() {
+                            console.log(a); // points to the clicked input button
+                            $.ajax({
+                                url : "/networkService",
+                                data : {userId : a[0], type : a[1], quality : a[2], capacity : a[3], plan : a[4]}
+                            });
+                            alert("네트워크 서비스가 생성 되어습니다.");
+                        });
+                    });
+                </script>
+                <div data-role="main" class="ui-content" align="left">
+                    <button href="#capacity" class="tablinks" onclick="openCity(event, 'capacity')">Prev</button>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+    <script>
+        function openCity(evt, cityName) {
+            // Declare all variables
+            var i, tabcontent, tablinks;
+            // Get all elements with class="tabcontent" and hide them
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            // Get all elements with class="tablinks" and remove the class "active"
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            // Show the current tab, and add an "active" class to the link that opened the tab
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+        document.getElementById("defaultOpen").click();
+    </script>
+</sec:authorize>
 
 <!-- Three -->
 <section id="three" class="main style1">
@@ -250,219 +470,6 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
     </div>
 </section>
 
-<!-- ServiceCreation -->
-<sec:authorize access="isAuthenticated()">
-<section id="serviceCreation" class="main style2">
-    <div class="container">
-        <header class="major special">
-            <h2>서비스 생성</h2>
-        </header>
-        <script>
-            var a = new Array();
-            a[0] = ${maxId + 1};
-        </script>
-
-        <ul class="tab">
-            <li><a href="#type" class="tablinks" onclick="openCity(event, 'type')" id="defaultOpen">Service Type</a></li>
-            <li><a href="#quality" class="tablinks" onclick="openCity(event, 'quality')">Quality</a></li>
-            <li><a href="#capacity" class="tablinks" onclick="openCity(event, 'capacity')">Capacity</a></li>
-            <li><a href="#plan" class="tablinks" onclick="openCity(event, 'plan')">Plan</a></li>
-        </ul>
-
-        <div id="type" class="tabcontent">
-            <h3>서비스 유형 (네트워크에서 제공하려는 서비스 유형을 선택하세요.)</h3>
-            <div class="btn-group" data-toggle="buttons" id="serviceType">
-                <label class="btn btn-success btn-lg">
-                    <input type="radio" name="options" id="vod" autocomplete="off" checked> Video on Demand
-                </label>
-                &nbsp;
-                <label class="btn btn-success btn-lg">
-                    <input type="radio" name="options" id="ft" autocomplete="off"> File Transfer
-                </label>
-            </div>
-            <div align="right">
-                <button href="#quality" class="tablinks" onclick="openCity(event, 'quality')">Next</button>
-            </div>
-
-            <script>
-                jQuery(document).ready(function() {
-                    $("#serviceType :input").change(function() {
-                        var serviceType = this.id;
-                        a[1] = serviceType;
-                        console.log(a[1]); // points to the clicked input button
-                    });
-                });
-            </script>
-        </div>
-
-        <div id="quality" class="tabcontent">
-            <h3>네트워크 품질 (제공할 네트워크 서비스의 품질을 선택하세요.)</h3>
-            <div class="btn-group" data-toggle="buttons" id="qualityType">
-                <label class="btn btn-success btn-lg">
-                    <input type="radio" name="options" id="high" autocomplete="off" checked> High
-                </label>
-                &nbsp;
-                <label class="btn btn-success btn-lg">
-                    <input type="radio" name="options" id="medium" autocomplete="off"> Medium
-                </label>
-                &nbsp;
-                <label class="btn btn-success btn-lg">
-                    <input type="radio" name="options" id="low" autocomplete="off"> Low
-                </label>
-            </div>
-            <div data-role="main" class="ui-content" align="right">
-                <button href="#type" class="tablinks" onclick="openCity(event, 'type')">Prev</button>
-                <button href="#capacity" class="tablinks" onclick="openCity(event, 'capacity')">Next</button>
-            </div>
-            <script>
-                jQuery(document).ready(function() {
-                    $("#qualityType :input").change(function() {
-                        var qualityType = this.id;
-                        a[2] = qualityType;
-                        console.log(a[2]); // points to the clicked input button
-                    });
-                });
-            </script>
-        </div>
-
-        <div id="capacity" class="tabcontent">
-            <h3>서비스 수용량 (제공할 서비스 네트워크의 수용량을 선택하세요.)</h3>
-            <div class="btn-group" data-toggle="buttons" id="capacityType">
-                <label class="btn btn-success btn-lg">
-                    <input type="radio" name="options" id="100" autocomplete="off" checked> 100
-                </label>
-                &nbsp;
-                <label class="btn btn-success btn-lg">
-                    <input type="radio" name="options" id="500" autocomplete="off"> 500
-                </label>
-                &nbsp;
-                <label class="btn btn-success btn-lg">
-                    <input type="radio" name="options" id="1000" autocomplete="off"> 1000
-                </label>
-                <label class="btn btn-success btn-lg">
-                    <input type="radio" name="options" id="1111" autocomplete="off"> Over 1000
-                </label>
-            </div>
-            <div data-role="main" class="ui-content" align="right">
-                <button href="#quality" class="tablinks" onclick="openCity(event, 'quality')">Prev</button>
-                <button href="#plan" class="tablinks" onclick="openCity(event, 'plan')">Next</button>
-            </div>
-            <script>
-                jQuery(document).ready(function() {
-                    $("#capacityType :input").change(function() {
-                        var capacityType = this.id;
-                        a[3] = capacityType;
-                        console.log(a[3]); // points to the clicked input button
-                    });
-                });
-            </script>
-        </div>
-
-        <div id="plan" class="tabcontent">
-            <h3>가입 정책 (네트워크 서비스에 가입할 정책을 선택하세요.)</h3>
-            <div data-toggle="buttons" id="planType">
-                <div class="columns">
-                    <ul class="price">
-                        <li class="header">Basic</li>
-                        <li class="grey" style="color:#000000">$ 9.99 / year</li>
-                        <li>500GB Storage</li>
-                        <li>10 Domains</li>
-                        <li>1GB Bandwidth</li>
-                        <li class="grey">
-                            <label class="btn btn-success btn-lg">
-                                <input type="radio" name="options" id="basic" autocomplete="off">Select
-                            </label>
-                        </li>
-                    </ul>
-                </div>
-                <div class="columns">
-                    <ul class="price">
-                        <li class="header" style="background-color:#4CAF50">Pro</li>
-                        <li class="grey" style="color:#000000">$ 24.99 / year</li>
-                        <li>1TB Storage</li>
-                        <li>25 Domains</li>
-                        <li>2GB Bandwidth</li>
-                        <li class="grey">
-                            <label class="btn btn-success btn-lg">
-                                <input type="radio" name="options" id="pro" autocomplete="off">Select
-                            </label>
-                        </li>
-                    </ul>
-                </div>
-                <div class="columns">
-                    <ul class="price">
-                        <li class="header">Premium</li>
-                        <li class="grey" style="color:#000000">$ 49.99 / year</li>
-                        <li>4TB Storage</li>
-                        <li>50 Domains</li>
-                        <li>5GB Bandwidth</li>
-                        <li class="grey">
-                            <label class="btn btn-success btn-lg">
-                                <input type="radio" name="options" id="premium" autocomplete="off" >Select
-                            </label>
-                        </li>
-                    </ul>
-                </div>
-                <div data-role="main" class="ui-content" align="center" data-toggle="buttons" id="creation">
-                    <label class="btn btn-primary btn-lg">
-                        <input type="radio" name="options" id="create" autocomplete="off">Create
-                    </label>
-                </div>
-                <div data-role="main" class="ui-content" align="right">
-                    <button href="#capacity" class="tablinks" onclick="openCity(event, 'capacity')">Prev</button>
-                </div>
-            </div>
-
-            <script>
-                jQuery(document).ready(function() {
-                    $("#planType :input").change(function() {
-                        var planType = this.id;
-                        a[4] = planType;
-                        console.log(a[4]); // points to the clicked input button
-                    });
-                });
-            </script>
-            <script>
-                jQuery(document).ready(function() {
-                    $("#creation :input").change(function() {
-                        console.log(a); // points to the clicked input button
-                        $.ajax({
-                            url : "/networkService",
-                            data : {userId : a[0], type : a[1], quality : a[2], capacity : a[3], plan : a[4]}
-                        });
-                        alert("네트워크 서비스가 생성 되어습니다.");
-                    });
-                });
-            </script>
-            <div data-role="main" class="ui-content" align="right">
-                <button href="#capacity" class="tablinks" onclick="openCity(event, 'capacity')">Prev</button>
-            </div>
-        </div>
-
-
-    </div>
-</section>
-    <script>
-        function openCity(evt, cityName) {
-            // Declare all variables
-            var i, tabcontent, tablinks;
-            // Get all elements with class="tabcontent" and hide them
-            tabcontent = document.getElementsByClassName("tabcontent");
-            for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].style.display = "none";
-            }
-            // Get all elements with class="tablinks" and remove the class "active"
-            tablinks = document.getElementsByClassName("tablinks");
-            for (i = 0; i < tablinks.length; i++) {
-                tablinks[i].className = tablinks[i].className.replace(" active", "");
-            }
-            // Show the current tab, and add an "active" class to the link that opened the tab
-            document.getElementById(cityName).style.display = "block";
-            evt.currentTarget.className += " active";
-        }
-        document.getElementById("defaultOpen").click();
-    </script>
-</sec:authorize>
 <!-- Four -->
 <!--
 <section id="four" class="main style2 special">
