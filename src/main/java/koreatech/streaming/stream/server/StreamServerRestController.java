@@ -64,7 +64,7 @@ public class StreamServerRestController {
         else if(registrar.equals("locator")) {
             ResponseEntity<String> responseEntity = restTemplate.getForEntity(REST_SERVICE_URI + "/update/" + registrar
                                                                                                 + "?orchid=" + orchid
-                                                                                                + "&locator=218.150.181.113:8100", String.class);
+                                                                                                + "&locator=127.0.0.1:8100", String.class);
             String receivedOrchid = responseEntity.getBody();
             if (responseEntity.getStatusCode() == HttpStatus.OK) {
                 System.out.println("Successful update (orchid): " + receivedOrchid);
