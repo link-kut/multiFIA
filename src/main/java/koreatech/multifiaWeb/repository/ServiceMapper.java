@@ -26,18 +26,6 @@ public interface ServiceMapper {
     @Select("SELECT * FROM fia.USERS WHERE ID = #{id}")
     User findOne(@Param("id") int id);
 
-    @Select("SELECT * FROM fia.USERS WHERE EMAIL = #{email}")
-    User findByEmail(@Param("email") String email);
-
-    @Select("SELECT max(id) FROM fia.USERS")
-    Integer findMaxId();
-
-    @Delete("DELETE FROM fia.USERS WHERE ID = #{id}")
-    void delete(@Param("id") int id);
-
-    @SelectProvider(type = UserSqlProvider.class, method = "findAllByProvider")
-    List<User> findByProvider(Searchable searchable);
-
     @Select("<script>"
             + "SELECT * FROM fia.USERS"
             + "<if test='name != null'> WHERE NAME = #{name}</if>"

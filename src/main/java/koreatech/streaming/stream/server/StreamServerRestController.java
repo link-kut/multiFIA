@@ -1,5 +1,6 @@
 package koreatech.streaming.stream.server;
 
+import koreatech.multifiaWeb.repository.RegistrarMapper;
 import koreatech.streaming.service.OrchidService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,17 +19,14 @@ public class StreamServerRestController {
     private OrchidService orchidService = new OrchidService();
     public static String fileSeparator = System.getProperty("file.separator");
     StreamPlayer streamPlayer = null;
+    RestTemplate restTemplate = new RestTemplate();
 
     @RequestMapping(value="/init", method= RequestMethod.GET, produces = "application/json")
     public ResponseEntity<String> init(@RequestParam(required=false, defaultValue = "rtp") String content) throws Exception{
-        //Registrar에게 Identifier - Context ID, Name, Scheme, Locator 정보를 POST 형식으로 등록
-        //OrchidService.contextIdForContentName - 'multifia/spiderman.mp4' - 'RTP'
-        //OrchidService.contextIdForHostName - 'Jack's Desktop' - 'FTP'
-
-        RestTemplate restTemplate = new RestTemplate();
         String contentName = "multifia/Spiderman.mp4";
         String orchid = orchidService.getOrchidContentName(contentName);
         System.out.println(OrchidService.contextIdForContentName);
+        System.out.println(orchid);
 
         ResponseEntity<String> responseEntity = restTemplate.getForEntity(REST_SERVICE_URI + "/registration?contextId=" + OrchidService.contextIdForContentName
                                                                                             + "&name=" + contentName
