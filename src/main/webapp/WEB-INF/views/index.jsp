@@ -252,6 +252,10 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                         <input type="radio" name="options" id="1111" autocomplete="off"> Over 1000
                     </label>
                 </div>
+                <div>
+                    <iframe src="http://www.google.com" width="80%"></iframe>
+                </div>
+
                 <br/><br/>
                 <div data-role="main" class="ui-content row" align="right">
                     <div class="col-md-6 align-left">
@@ -293,7 +297,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                             <li class="header" style="background-color:#4CAF50">Pro</li>
                             <li class="grey" style="color:#000000">$ 999.99 / year</li>
                             <li>1TB Storage</li>
-                            <li>Backup Support</li>
+                            <li>Edge Computing Support</li>
                             <li class="grey">
                                 <label class="btn btn-success btn-lg">
                                     <input type="radio" name="options" id="pro" autocomplete="off" style="margin-left: -2.0em">Select</input>
@@ -306,7 +310,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                             <li class="header" style="background-color:#aa0921">Premium</li>
                             <li class="grey" style="color:#000000">$ 1499.99 / year</li>
                             <li>4TB Storage</li>
-                            <li>Backup Support</li>
+                            <li>Edge Computing Support</li>
                             <li class="grey">
                                 <label class="btn btn-success btn-lg">
                                     <input type="radio" name="options" id="premium" autocomplete="off" style="margin-left: -2.0em">Select</input>
@@ -357,11 +361,6 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                 </div>
             </div>
 
-            <div id="init" style="margin-top: 2.0em" align="center">
-                <label class="btn btn-danger btn-lg">
-                    <a href="movie">컨텐츠 등록</a>
-                </label>
-            </div>
             <!--
             <div id="init" style="margin-top: 2.0em" data-toggle="buttons">
                 <div class="col-md-6 align-center">
@@ -420,10 +419,32 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
         }
         document.getElementById("defaultOpen").click();
     </script>
+
+    <section id="three" class="main style1">
+        <div class="container">
+            <header class="major special">
+                <h2>응용 예제</h2>
+            </header>
+            <div class="row">
+                <div class="col-md-6">
+                    동영상 컨텐츠 제공 (서버)
+
+                    <div id="init" style="margin-top: 2.0em" align="center">
+                        <label class="btn btn-danger btn-lg">
+                            <a href="movie">컨텐츠 등록</a>
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    동영상 컨텐츠 보기 (클라이언트)
+                </div>
+            </div>
+        </div>
+    </section>
 </sec:authorize>
 
 <!-- Three -->
-<section id="three" class="main style1">
+<section id="three" class="main style2">
     <div class="container">
         <header class="major">
             <h2>참여 연구원</h2>

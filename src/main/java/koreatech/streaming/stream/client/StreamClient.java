@@ -73,10 +73,10 @@ public class StreamClient extends VlcjCommon {
         ResponseEntity<String> responseEntity = restTemplate.getForEntity(REST_REGISTRAR_URI + "/lookup/" + orchid, String.class);
         String lookupResult = responseEntity.getBody();
 
-        String[] result;
-        result = lookupResult.split("#");
-        String[] target;
-        target = result[0].split(":"); //target address & port
+        System.out.println("lookupResult = " + lookupResult);
+
+        String[] result = lookupResult.split("#");
+        String[] target = result[1].split(":"); //target address & port
 
         String streamUrl = result[0] + "://" + result[1];
 
