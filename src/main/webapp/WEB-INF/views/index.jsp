@@ -157,7 +157,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
     <section id="serviceCreation" class="main style2">
         <div class="container">
             <header class="major special">
-                <h2>서비스 생성</h2>
+                <h2>네트워크 서비스 생성</h2>
             </header>
             <script>
                 var a = new Array();
@@ -356,6 +356,13 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                     <button href="#capacity" class="tablinks" onclick="openCity(event, 'capacity')">Prev</button>
                 </div>
             </div>
+
+            <div id="init" style="margin-top: 2.0em" align="center">
+                <label class="btn btn-danger btn-lg">
+                    <a href="movie">컨텐츠 등록</a>
+                </label>
+            </div>
+            <!--
             <div id="init" style="margin-top: 2.0em" data-toggle="buttons">
                 <div class="col-md-6 align-center">
                     <a href="movie?title=Spiderman.mp4"><img src="../resources/images/Spiderman.jpeg" alt="" width="186" height="269" /></a>
@@ -390,6 +397,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                     });
                 </script>
             </div>
+            -->
         </div>
     </section>
     <script>

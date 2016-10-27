@@ -22,3 +22,15 @@ CREATE TABLE IF NOT EXISTS SERVICE_PROVIDERS (
   service_capacity  VARCHAR(100),
   plan              VARCHAR(100)
 );
+
+CREATE TABLE IF NOT EXISTS IDENTIFIER_REGISTRAR (
+  orchid            VARCHAR(100),
+  context_id        VARCHAR(100),
+  name              VARCHAR(100),
+  scheme            VARCHAR(30)
+);
+
+CREATE TABLE IF NOT EXISTS LOCATOR_REGISTRAR (
+  orchid            VARCHAR(100),
+  locator           VARCHAR(100)
+);
