@@ -32,25 +32,6 @@ public class HomeController {
         model.addAttribute("network", serviceProvider);
         model.addAttribute("maxId", serviceMapper.findMaxuserId());
 
-        //서버 등록
-        RestTemplate restTemplate = new RestTemplate();
-        String orchid1 = orchidService.getOrchidContentName("218.150.181.113");
-        ResponseEntity<String> responseEntity1 = restTemplate.getForEntity("http://127.0.0.1:8100/registrar" + "/registration?contextId=" + OrchidService.contextIdForHostName
-                + "&name=218.150.181.113"
-                + "&orchid=" + orchid1
-                + "&locator=218.150.181.113"
-                + "&scheme=server", String.class);
-        System.out.println(responseEntity1);
-
-        //클라이언트
-        String orchid2 = orchidService.getOrchidContentName("127.0.0.1");
-        ResponseEntity<String> responseEntity2 = restTemplate.getForEntity("http://127.0.0.1:8100/registrar" + "/registration?contextId=" + OrchidService.contextIdForHostName
-                + "&name=127.0.0.1"
-                + "&orchid=" + orchid2
-                + "&locator=127.0.0.1"
-                + "&scheme=server", String.class);
-        System.out.println(responseEntity2);
-
         return "index";
     }
 

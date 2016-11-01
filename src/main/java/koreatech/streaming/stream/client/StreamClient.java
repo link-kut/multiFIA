@@ -64,9 +64,18 @@ public class StreamClient extends VlcjCommon {
             System.out.println("Specify a single media URL");
             System.exit(1);
         }
+        RestTemplate restTemplate = new RestTemplate();
+
+        //클라이언트 info Update
+        String orchid2 = orchidService.getOrchidIPv4Addr("127.0.0.1");
+        ResponseEntity<String> responseEntity2 = restTemplate.getForEntity("http://127.0.0.1:8100/registrar" + "/registration?contextId=" + OrchidService.contextIdForIPv4Addr
+                + "&name=127.0.0.1"
+                + "&orchid=" + orchid2
+                + "&locator=127.0.0.1"
+                + "&scheme=*", String.class);
+        System.out.println(responseEntity2);
 
         //프로그램 실행시 기본정보를 registrar에서 불러옴
-        RestTemplate restTemplate = new RestTemplate();
         String contentName = "multifia/Spiderman.mp4";
         String orchid = orchidService.getOrchidContentName(contentName);
 
@@ -76,6 +85,8 @@ public class StreamClient extends VlcjCommon {
         System.out.println("lookupResult = " + lookupResult);
 
         String[] result = lookupResult.split("#");
+        System.out.println(result[0]);
+        System.out.println(result[1]);
         String[] target = result[1].split(":"); //target address & port
 
         String streamUrl = result[0] + "://" + result[1];
@@ -102,6 +113,7 @@ public class StreamClient extends VlcjCommon {
                 //버튼 추가
                 JPanel panel = new JPanel();
                 panel.setBackground(Color.BLACK);
+                JButton regitButton = new JButton("Registration");
                 JButton startButton = new JButton("Start");
                 JButton stopButton = new JButton("Stop");
                 JButton pauseButton = new JButton("pause");
@@ -109,6 +121,23 @@ public class StreamClient extends VlcjCommon {
                 JButton highButton = new JButton("High");
                 JButton lowButton = new JButton("Low");
                 JButton mediumButton = new JButton("Medium");
+
+                regitButton.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        try {
+                            //클라이언트 정보 등록
+                           RestTemplate restTemplate = new RestTemplate();
+                            String orchid2 = orchidService.getOrchidIPv4Addr("127.0.0.1");
+                            ResponseEntity<String> responseEntity2 = restTemplate.getForEntity("http://127.0.0.1:8100/registrar" + "/registration?contextId=" + OrchidService.contextIdForIPv4Addr
+                                    + "&name=127.0.0.1"
+                                    + "&orchid=" + orchid2
+                                    + "&locator=127.0.0.1"
+                                    + "&scheme=*", String.class);
+                            System.out.println(responseEntity2);
+                        } catch (Exception x) {}
+                    }
+                });
 
                 startButton.addActionListener(new ActionListener() {
                     @Override
@@ -187,6 +216,7 @@ public class StreamClient extends VlcjCommon {
                 //frame.getContentPane().setLayout(new BorderLayout());
                 //frame.getContentPane().add(imagePane, BorderLayout.CENTER);
 
+                panel.add(regitButton);
                 panel.add(startButton);
                 panel.add(stopButton);
                 panel.add(pauseButton);

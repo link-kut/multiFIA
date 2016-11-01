@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
 </head>
 <body>
-    <div id="init" style="margin-top: 2.0em" class="btn-group" data-toggle="buttons">
+    <div style="margin-top: 2.0em" class="btn-group" data-toggle="buttons" id="contents">
         <div class="col-md-6 align-center">
             <a href="movie?title=Spiderman.mp4"><img src="../resources/images/Spiderman.jpeg" alt="" width="186" height="269" /></a>
             <p style="margin-top: 2.0em">ContentName : multifia/Spiderman.mp4</p>
@@ -45,13 +45,34 @@
         </div>
         <script>
             jQuery(document).ready(function() {
-                $("#init :input").change(function() {
+                $("#contents :input").change(function() {
                     var regit = this.id;
                     console.log(regit); // points to the clicked input button
-                    $.ajax({
-                        url : "/streaming/init"
-                    });
-                    alert("registration");
+                    if(regit == "spiderman") {
+                        $.ajax({
+                            url: "http://localhost:8100/registrar/registration",
+                            data: {
+                                contextId: '292D05A61D8C335FA3411EBB5BAABE77',
+                                name: 'multifia/Spiderman.mp4',
+                                orchid: '5BEE0F5007E6915B32B4EF55',
+                                locator: '127.0.0.1',
+                                scheme: 'rtp'
+                            }
+                        });
+                        alert("해당 컨텐츠가 등록 되었습니다");
+                    } else if(regit == "batman") {
+                        $.ajax({
+                            url: "http://localhost:8100/registrar/registration",
+                            data: {
+                                contextId: '292D05A61D8C335FA3411EBB5BAABE77',
+                                name: 'multifia/Batman.mp4',
+                                orchid: '4754D4627C1E8A7BDFB1F67E',
+                                locator: '127.0.0.1',
+                                scheme: 'rtp'
+                            }
+                        });
+                        alert("해당 컨텐츠가 등록 되었습니다");
+                    }
                 });
             });
         </script>

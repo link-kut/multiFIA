@@ -26,16 +26,13 @@ public class RegistrarRestController {
                                                @RequestParam(required=false, defaultValue = "127.0.0.1") String locator,
                                                @RequestParam(required=false, defaultValue = "rtp") String scheme) throws Exception {
 
-        System.out.println("111111111111");
         System.out.println(registrarMapper.findByOrchid(orchid));
         if(orchid.equals(registrarMapper.findByOrchid(orchid))) {
             registrarMapper.locatorDelete(orchid);
             registrarMapper.identifierDelete(orchid);
         }
-        System.out.println("22222222222");
         registrarMapper.identifierInsert(orchid, contextId, name, scheme);  //identifier 레지스트라 등록
         registrarMapper.locatorInsert(orchid, locator);                     //locator 레지스트라 등록
-        System.out.println("3333333333333");
         return new ResponseEntity<String>(orchid, HttpStatus.OK);
     }
 

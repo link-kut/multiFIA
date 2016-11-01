@@ -21,7 +21,7 @@ public class TransferServerRestController {
     public ResponseEntity<String> init() throws Exception {
         RestTemplate restTemplate = new RestTemplate();
         String hostName = "Jack's Desktop";
-        String orchid = orchidService.getOrchidContentName(hostName);
+        String orchid = orchidService.getOrchidHostName(hostName);
 
         ResponseEntity<String> responseEntity = restTemplate.getForEntity(REST_SERVICE_URI + "/registration?contextId=" + OrchidService.contextIdForHostName
                                                                                                                         + "&name=" + hostName
@@ -41,7 +41,7 @@ public class TransferServerRestController {
     public ResponseEntity<String> update(@PathVariable("registrar") String registrar) throws Exception {
         RestTemplate restTemplate = new RestTemplate();
         String hostName = "Jack's Desktop";
-        String orchid = orchidService.getOrchidContentName(hostName);
+        String orchid = orchidService.getOrchidHostName(hostName);
 
         if (registrar.equals("identifier")) {
             ResponseEntity<String> responseEntity = restTemplate.getForEntity(REST_SERVICE_URI + "/update/" + registrar
@@ -70,7 +70,7 @@ public class TransferServerRestController {
     public ResponseEntity<String> lookup(@PathVariable("id") String id) throws Exception {
         RestTemplate restTemplate = new RestTemplate();
         String hostName = "Jack's Desktop";
-        String orchid = orchidService.getOrchidContentName(hostName);
+        String orchid = orchidService.getOrchidHostName(hostName);
 
         ResponseEntity<String> responseEntity = restTemplate.getForEntity(REST_SERVICE_URI + "/lookup/" + orchid, String.class);
         String lookupResult = responseEntity.getBody();
@@ -96,7 +96,7 @@ public class TransferServerRestController {
         String hostName = "Jack's Desktop";
 
         RestTemplate restTemplate = new RestTemplate();
-        String orchid = orchidService.getOrchidContentName(hostName);
+        String orchid = orchidService.getOrchidHostName(hostName);
 
         ResponseEntity<String> lookupResponseEntity = restTemplate.getForEntity(REST_REGISTRAR_URI + "/lookup/" + orchid, String.class);
         String lookupResult = lookupResponseEntity.getBody();
@@ -107,7 +107,7 @@ public class TransferServerRestController {
         int port = Integer.parseInt(target[1]);
 
         // 관리중인 컨텐츠 ID인지 판단
-        String compareId = orchidService.getOrchidContentName(hostName);
+        String compareId = orchidService.getOrchidHostName(hostName);
         try {
             if (compareId.equals(id)) {
                 if (transferServer == null) {

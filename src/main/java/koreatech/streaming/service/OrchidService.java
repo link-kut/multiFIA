@@ -15,6 +15,9 @@ public class OrchidService {
     final public static byte[] contextIdForHostName
             = DatatypeConverter.parseHexBinary("1AF52BA93BA24026CAF34D783DC12A09");
 
+    final public static byte[] contextIdForIPv4Addr
+            = DatatypeConverter.parseHexBinary("1AF52BA93BA24026CAF34D783DC12A09");
+
     public String getOrchidContentName(String ContentName) throws Exception {
         MessageDigest md = MessageDigest.getInstance("SHA-256");
         String name = ContentName;
@@ -22,6 +25,40 @@ public class OrchidService {
 
         ByteBuffer bb = ByteBuffer.allocate(contextIdForContentName.length + nameBytes.length);
         bb.put(contextIdForContentName);
+        bb.put(nameBytes);
+        byte[] concatenatedNameBytes = bb.array();  // concatenate
+
+        md.update(concatenatedNameBytes);
+        byte[] digest = md.digest(); // sha256
+        digest = Arrays.copyOf(digest, 12); // Truncate_96 (note: 12 * 8 = 96  24개의 16진수)
+
+        return DatatypeConverter.printHexBinary(digest);
+    }
+
+    public String getOrchidHostName(String HostName) throws Exception {
+        MessageDigest md = MessageDigest.getInstance("SHA-256");
+        String name = HostName;
+        byte[] nameBytes = name.getBytes("UTF-8");
+
+        ByteBuffer bb = ByteBuffer.allocate(contextIdForHostName.length + nameBytes.length);
+        bb.put(contextIdForHostName);
+        bb.put(nameBytes);
+        byte[] concatenatedNameBytes = bb.array();  // concatenate
+
+        md.update(concatenatedNameBytes);
+        byte[] digest = md.digest(); // sha256
+        digest = Arrays.copyOf(digest, 12); // Truncate_96 (note: 12 * 8 = 96  24개의 16진수)
+
+        return DatatypeConverter.printHexBinary(digest);
+    }
+
+    public String getOrchidIPv4Addr(String IPv4Addr) throws Exception {
+        MessageDigest md = MessageDigest.getInstance("SHA-256");
+        String name = IPv4Addr;
+        byte[] nameBytes = name.getBytes("UTF-8");
+
+        ByteBuffer bb = ByteBuffer.allocate(contextIdForIPv4Addr.length + nameBytes.length);
+        bb.put(contextIdForIPv4Addr);
         bb.put(nameBytes);
         byte[] concatenatedNameBytes = bb.array();  // concatenate
 

@@ -167,7 +167,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
             <ul class="tab">
                 <li><a href="#type" class="tablinks" onclick="openCity(event, 'type')" id="defaultOpen">Service Type</a></li>
                 <li><a href="#quality" class="tablinks" onclick="openCity(event, 'quality')">Quality</a></li>
-                <li><a href="#capacity" class="tablinks" onclick="openCity(event, 'capacity')">Capacity</a></li>
+                <li><a href="#region" class="tablinks" onclick="openCity(event, 'region')">Region</a></li>
                 <li><a href="#plan" class="tablinks" onclick="openCity(event, 'plan')">Plan</a></li>
             </ul>
 
@@ -220,7 +220,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                         <button href="#type" class="tablinks" onclick="openCity(event, 'type')">Prev</button>
                     </div>
                     <div class="col-md-6 align-right">
-                        <button href="#capacity" class="tablinks" onclick="openCity(event, 'capacity')">Next</button>
+                        <button href="#region" class="tablinks" onclick="openCity(event, 'region')">Next</button>
                     </div>
                 </div>
                 <script>
@@ -234,8 +234,8 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                 </script>
             </div>
 
-            <div id="capacity" class="tabcontent">
-                <h3>서비스 수용량 (제공할 서비스 네트워크의 수용량을 선택하세요.)</h3>
+            <div id="region" class="tabcontent">
+                <h3>서비스 제공 지역 (서비스를 제공할 지역을 선택하세요.)</h3>
                 <div class="btn-group" data-toggle="buttons" id="capacityType">
                     <label class="btn btn-success btn-lg">
                         <input type="radio" name="options" id="100" autocomplete="off" checked> 100
@@ -253,7 +253,13 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                     </label>
                 </div>
                 <div>
-                    <iframe src="http://www.google.com" width="80%"></iframe>
+                    <iframe
+                            width="600"
+                            height="450"
+                            frameborder="0" style="border:0"
+                            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyD_nPIsxP-46Qpm5FeDagCmTyq4PPAdQXo
+                                &q=Space+Needle,Seattle+WA" allowfullscreen>
+                    </iframe>
                 </div>
 
                 <br/><br/>
@@ -342,22 +348,22 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                                 data : {userId : a[0], type : a[1], quality : a[2], capacity : a[3], plan : a[4]}
                             });
                             if(a[1] == "vod") {
-                                alert("네트워크 서비스가 생성 되어습니다.\n" + "ContextID : 292D05A61D8C335FA3411EBB5BAABE77");
-                                $("#init").show();
+                                alert("네트워크 서비스가 생성 되어습니다.\n" + "ServiceID : 292D05A61D8C335FA3411EBB5BAABE77");
+                                $("#contents").show();
                             }
                             else {
-                                alert("네트워크 서비스가 생성 되어습니다.\n" + "ContextID : 1AF52BA93BA24026CAF34D783DC12A09");
-                                $("#init").show();
+                                alert("네트워크 서비스가 생성 되어습니다.\n" + "ServiceID : 1AF52BA93BA24026CAF34D783DC12A09");
+                                $("#contents").show();
                             }
                         });
                     });
 
                     jQuery(document).ready(function() {
-                        $("#init").hide();
+                        $("#contents").hide();
                     });
                 </script>
                 <div data-role="main" class="ui-content" align="left">
-                    <button href="#capacity" class="tablinks" onclick="openCity(event, 'capacity')">Prev</button>
+                    <button href="#region" class="tablinks" onclick="openCity(event, 'region')">Prev</button>
                 </div>
             </div>
 
@@ -429,10 +435,68 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                 <div class="col-md-6">
                     동영상 컨텐츠 제공 (서버)
 
-                    <div id="init" style="margin-top: 2.0em" align="center">
-                        <label class="btn btn-danger btn-lg">
-                            <a href="movie">컨텐츠 등록</a>
-                        </label>
+                    <div style="margin-top: 2.0em" class="btn-group" data-toggle="buttons" id="contents">
+                        <div class="col-md-6 align-left">
+                            <a href="movie?title=Spiderman.mp4"><img src="../resources/images/Spiderman.jpeg" alt="" width="186" height="269" /></a>
+                            <p style="margin-top: 2.0em">ContentName: multifia/Spiderman.mp4</p>
+                            <p>ORCHIDv2: 5BEE0F5007E6915B32B4EF55</p>
+                            <p>Scheme: rtp</p>
+                            <label class="btn btn-warning btn-lg">
+                                <input type="radio" name="options" id="spiderman" autocomplete="off" style="margin-left: -2.0em">Registration
+                            </label>
+                        </div>
+                        <div class="col-md-6 align-left">
+                            <a href="movie?title=Darkknight.mp4"><img src="../resources/images/darkknight.jpg" alt="" width="186" height="269" /></a>
+                            <p style="margin-top: 2.0em">ContentName: multifia/Batman.mp4</p>
+                            <p>ORCHIDv2: 4754D4627C1E8A7BDFB1F67E</p>
+                            <p>Scheme: rtp</p>
+                            <label class="btn btn-warning btn-lg">
+                                <input type="radio" name="options" id="batman" autocomplete="off" style="margin-left: -2.0em">Registration
+                            </label>
+                        </div>
+                        <script>
+                            jQuery(document).ready(function() {
+                                $("#contents :input").change(function() {
+                                    var regit = this.id;
+                                    console.log(regit); // points to the clicked input button
+                                    if(regit == "spiderman") {
+                                        $.ajax({
+                                            url: "/registrar/registration",
+                                            data: {
+                                                contextId: '292D05A61D8C335FA3411EBB5BAABE77',
+                                                name: 'multifia/Spiderman.mp4',
+                                                orchid: '5BEE0F5007E6915B32B4EF55',
+                                                locator: '127.0.0.1:8100',
+                                                scheme: 'rtp'
+                                            }
+                                        });
+                                        alert("해당 컨텐츠가 등록 되었습니다");
+                                    } else if(regit == "batman") {
+                                        $.ajax({
+                                            url: "http://localhost:8100/registrar/registration",
+                                            data: {
+                                                contextId: '292D05A61D8C335FA3411EBB5BAABE77',
+                                                name: 'multifia/Batman.mp4',
+                                                orchid: '4754D4627C1E8A7BDFB1F67E',
+                                                locator: '127.0.0.1:8100',
+                                                scheme: 'rtp'
+                                            }
+                                        });
+                                        alert("해당 컨텐츠가 등록 되었습니다");
+                                    }
+                                    $.ajax({
+                                        url: "/registrar/registration",
+                                        data: {
+                                            contextId: '1AF52BA93BA24026CAF34D783DC12A09',
+                                            name: '127.0.0.1',
+                                            orchid: '719F97B8ACA6CE8EBC029AA8',
+                                            locator: '127.0.0.1',
+                                            scheme: '*'
+                                        }
+                                    });
+                                });
+                            });
+                        </script>
                     </div>
                 </div>
                 <div class="col-md-6">
