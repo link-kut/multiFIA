@@ -349,17 +349,17 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                             });
                             if(a[1] == "vod") {
                                 alert("네트워크 서비스가 생성 되어습니다.\n" + "ServiceID : 292D05A61D8C335FA3411EBB5BAABE77");
-                                $("#contents").show();
+                                $("#contentsService").show();
                             }
                             else {
                                 alert("네트워크 서비스가 생성 되어습니다.\n" + "ServiceID : 1AF52BA93BA24026CAF34D783DC12A09");
-                                $("#contents").show();
+                                $("#contentsService").show();
                             }
                         });
                     });
 
                     jQuery(document).ready(function() {
-                        $("#contents").hide();
+                        $("#contentsService").hide();
                     });
                 </script>
                 <div data-role="main" class="ui-content" align="left">
@@ -431,76 +431,14 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
             <header class="major special">
                 <h2>응용 예제</h2>
             </header>
-            <div class="row">
-                <div class="col-md-6">
-                    동영상 컨텐츠 제공 (서버)
-
-                    <div style="margin-top: 2.0em" class="btn-group" data-toggle="buttons" id="contents">
-                        <div class="col-md-6 align-left">
-                            <a href="movie?title=Spiderman.mp4"><img src="../resources/images/Spiderman.jpeg" alt="" width="186" height="269" /></a>
-                            <p style="margin-top: 2.0em">ContentName: multifia/Spiderman.mp4</p>
-                            <p>ORCHIDv2: 5BEE0F5007E6915B32B4EF55</p>
-                            <p>Scheme: rtp</p>
-                            <label class="btn btn-warning btn-lg">
-                                <input type="radio" name="options" id="spiderman" autocomplete="off" style="margin-left: -2.0em">Registration
-                            </label>
-                        </div>
-                        <div class="col-md-6 align-left">
-                            <a href="movie?title=Darkknight.mp4"><img src="../resources/images/darkknight.jpg" alt="" width="186" height="269" /></a>
-                            <p style="margin-top: 2.0em">ContentName: multifia/Batman.mp4</p>
-                            <p>ORCHIDv2: 4754D4627C1E8A7BDFB1F67E</p>
-                            <p>Scheme: rtp</p>
-                            <label class="btn btn-warning btn-lg">
-                                <input type="radio" name="options" id="batman" autocomplete="off" style="margin-left: -2.0em">Registration
-                            </label>
-                        </div>
-                        <script>
-                            jQuery(document).ready(function() {
-                                $("#contents :input").change(function() {
-                                    var regit = this.id;
-                                    console.log(regit); // points to the clicked input button
-                                    if(regit == "spiderman") {
-                                        $.ajax({
-                                            url: "/registrar/registration",
-                                            data: {
-                                                contextId: '292D05A61D8C335FA3411EBB5BAABE77',
-                                                name: 'multifia/Spiderman.mp4',
-                                                orchid: '5BEE0F5007E6915B32B4EF55',
-                                                locator: '127.0.0.1:8100',
-                                                scheme: 'rtp'
-                                            }
-                                        });
-                                        alert("해당 컨텐츠가 등록 되었습니다");
-                                    } else if(regit == "batman") {
-                                        $.ajax({
-                                            url: "http://localhost:8100/registrar/registration",
-                                            data: {
-                                                contextId: '292D05A61D8C335FA3411EBB5BAABE77',
-                                                name: 'multifia/Batman.mp4',
-                                                orchid: '4754D4627C1E8A7BDFB1F67E',
-                                                locator: '127.0.0.1:8100',
-                                                scheme: 'rtp'
-                                            }
-                                        });
-                                        alert("해당 컨텐츠가 등록 되었습니다");
-                                    }
-                                    $.ajax({
-                                        url: "/registrar/registration",
-                                        data: {
-                                            contextId: '1AF52BA93BA24026CAF34D783DC12A09',
-                                            name: '127.0.0.1',
-                                            orchid: '719F97B8ACA6CE8EBC029AA8',
-                                            locator: '127.0.0.1',
-                                            scheme: '*'
-                                        }
-                                    });
-                                });
-                            });
-                        </script>
-                    </div>
+            <div class="row" data-toggle="buttons" id="contentsService">
+                <div class="col-md-6" align="center">
+                    <h3>VoD 서비스 제공</h3>
+                    <a href="http://www.google.com" class="btn btn-info" role="button">OPEN</a>
                 </div>
-                <div class="col-md-6">
-                    동영상 컨텐츠 보기 (클라이언트)
+                <div class="col-md-6" align="center">
+                    <h3>VoD 서비스 이용</h3>
+                    <a href="/regit" class="btn btn-info" role="button">OPEN</a>
                 </div>
             </div>
         </div>

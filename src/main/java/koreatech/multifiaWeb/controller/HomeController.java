@@ -35,9 +35,14 @@ public class HomeController {
         return "index";
     }
 
-    @RequestMapping(value = "/movie", method = RequestMethod.GET)
-    public String movie() throws Exception{
-        return "movie";
+    @RequestMapping(value = "/regit", method = RequestMethod.GET)
+    public String regit() throws Exception{
+        return "regit";
+    }
+
+    @RequestMapping(value = "/stream", method = RequestMethod.GET)
+    public String stream() throws Exception{
+        return "stream";
     }
 
     @RequestMapping(value="/networkService", method = RequestMethod.GET)
