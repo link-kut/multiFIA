@@ -25,20 +25,20 @@
 <div class="container">
     <div align="center">
         <h3>동영상 컨텐츠 제공 (서버)</h3>
-        <div style="margin-top: 2.0em" class="btn-group" data-toggle="buttons" id="contents">
-            <div class="col-md-6 align-center">
+        <div class="btn-group" data-toggle="buttons" id="contents" width="800" style="display: inline">
+            <div class="col-md-6">
                 <a href="movie?title=Spiderman.mp4"><img src="../resources/images/Spiderman.jpeg" alt="" width="186" height="269" /></a>
                 <p style="margin-top: 2.0em">ContentName: multifia/Spiderman.mp4</p>
-                <p>ORCHIDv2: 5BEE0F5007E6915B32B4EF55</p>
+                <p>ORCHID: 5BEE0F5007E6915B32B4EF55</p>
                 <p>Scheme: rtp</p>
                 <label class="btn btn-warning btn-lg">
                     <input type="radio" name="options" id="spiderman" autocomplete="off" style="margin-left: -2.0em">Registration
                 </label>
             </div>
-            <div class="col-md-6 align-center">
+            <div class="col-md-6">
                 <a href="movie?title=Darkknight.mp4"><img src="../resources/images/darkknight.jpg" alt="" width="186" height="269" /></a>
                 <p style="margin-top: 2.0em">ContentName: multifia/Batman.mp4</p>
-                <p>ORCHIDv2: 4754D4627C1E8A7BDFB1F67E</p>
+                <p>ORCHID: 4754D4627C1E8A7BDFB1F67E</p>
                 <p>Scheme: rtp</p>
                 <label class="btn btn-warning btn-lg">
                     <input type="radio" name="options" id="batman" autocomplete="off" style="margin-left: -2.0em">Registration
@@ -56,7 +56,7 @@
                                     contextId: '292D05A61D8C335FA3411EBB5BAABE77',
                                     name: 'multifia/Spiderman.mp4',
                                     orchid: '5BEE0F5007E6915B32B4EF55',
-                                    locator: '127.0.0.1:8100',
+                                    locator: '10.1.5.3:8100',
                                     scheme: 'rtp'
                                 }
                             });
@@ -68,7 +68,7 @@
                                     contextId: '292D05A61D8C335FA3411EBB5BAABE77',
                                     name: 'multifia/Batman.mp4',
                                     orchid: '4754D4627C1E8A7BDFB1F67E',
-                                    locator: '127.0.0.1:8100',
+                                    locator: '10.1.5.3:8100',
                                     scheme: 'rtp'
                                 }
                             });
@@ -78,9 +78,9 @@
                             url: "/registrar/registration",
                             data: {
                                 contextId: '1AF52BA93BA24026CAF34D783DC12A09',
-                                name: '127.0.0.1',
-                                orchid: '719F97B8ACA6CE8EBC029AA8',
-                                locator: '127.0.0.1',
+                                name: '10.1.5.3',
+                                orchid: ${client_orchid},
+                                locator: '10.1.5.3',
                                 scheme: '*'
                             }
                         });

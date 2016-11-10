@@ -343,23 +343,29 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                     jQuery(document).ready(function() {
                         $("#creation :input").change(function() {
                             console.log(a); // points to the clicked input button
+                            if(a[1] == 'vod') {
+                                a[5] = "292D05A61D8C335FA3411EBB5BAABE77";
+                            }
+                            if(a[1] =='ft') {
+                                a[5] = "1AF52BA93BA24026CAF34D783DC12A09";
+                            }
                             $.ajax({
                                 url : "/networkService",
-                                data : {userId : a[0], type : a[1], quality : a[2], capacity : a[3], plan : a[4]}
+                                data : {userId : a[0], type : a[1], quality : a[2], capacity : a[3], plan : a[4], contextId : a[5]}
                             });
                             if(a[1] == "vod") {
                                 alert("네트워크 서비스가 생성 되어습니다.\n" + "ServiceID : 292D05A61D8C335FA3411EBB5BAABE77");
-                                $("#contentsService").show();
+                                //$("#contentsService").show();
                             }
                             else {
                                 alert("네트워크 서비스가 생성 되어습니다.\n" + "ServiceID : 1AF52BA93BA24026CAF34D783DC12A09");
-                                $("#contentsService").show();
+                                //$("#contentsService").show();
                             }
                         });
                     });
 
                     jQuery(document).ready(function() {
-                        $("#contentsService").hide();
+                        //$("#contentsService").hide();
                     });
                 </script>
                 <div data-role="main" class="ui-content" align="left">
@@ -431,14 +437,14 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
             <header class="major special">
                 <h2>응용 예제</h2>
             </header>
-            <div class="row" data-toggle="buttons" id="contentsService">
+            <div class="row">
                 <div class="col-md-6" align="center">
                     <h3>VoD 서비스 제공</h3>
-                    <a href="http://www.google.com" class="btn btn-info" role="button">OPEN</a>
+                    <a href="/regit" class="btn btn-info btn-lg" role="button" aria-pressed="true">OPEN</a>
                 </div>
                 <div class="col-md-6" align="center">
                     <h3>VoD 서비스 이용</h3>
-                    <a href="/regit" class="btn btn-info" role="button">OPEN</a>
+                    <a href="/stream" class="btn btn-info btn-lg" role="button" aria-pressed="true">OPEN</a>
                 </div>
             </div>
         </div>

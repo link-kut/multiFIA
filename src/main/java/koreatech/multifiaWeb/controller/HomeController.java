@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 import javax.inject.Inject;
+import java.net.InetAddress;
 
 @Controller
 @RequestMapping("/")
@@ -36,12 +37,18 @@ public class HomeController {
     }
 
     @RequestMapping(value = "/regit", method = RequestMethod.GET)
-    public String regit() throws Exception{
+    public String regit(Model model) throws Exception {
+        String orchid = orchidService.getOrchidIPv4Addr("10.1.7.2");
+        model.addAttribute("client_orchid", orchid);
         return "regit";
     }
 
     @RequestMapping(value = "/stream", method = RequestMethod.GET)
-    public String stream() throws Exception{
+    public String stream(Model model) throws Exception{
+        InetAddress local = InetAddress.getLocalHost();
+        String ip = local.getHostAddress();
+        model.addAttribute("latest_quality", serviceMapper.findLatestQuality());
+        model.addAttribute("ip", ip);
         return "stream";
     }
 
@@ -50,8 +57,9 @@ public class HomeController {
                                @RequestParam String type,
                                @RequestParam String quality,
                                @RequestParam String capacity,
-                               @RequestParam String plan) {
-        serviceMapper.insert(userId, type, quality, capacity, plan);
+                               @RequestParam String plan,
+                               @RequestParam String contextId) {
+        serviceMapper.insert(userId, type, quality, capacity, plan, contextId);
         return "redirect:/";
     }
 

@@ -67,11 +67,11 @@ public class StreamClient extends VlcjCommon {
         RestTemplate restTemplate = new RestTemplate();
 
         //클라이언트 info Update
-        String orchid2 = orchidService.getOrchidIPv4Addr("127.0.0.1");
-        ResponseEntity<String> responseEntity2 = restTemplate.getForEntity("http://127.0.0.1:8100/registrar" + "/registration?contextId=" + OrchidService.contextIdForIPv4Addr
-                + "&name=127.0.0.1"
+        String orchid2 = orchidService.getOrchidIPv4Addr("10.1.7.2");
+        ResponseEntity<String> responseEntity2 = restTemplate.getForEntity(REST_REGISTRAR_URI + "/registration?contextId=" + OrchidService.contextIdForIPv4Addr
+                + "&name=10.1.7.2"
                 + "&orchid=" + orchid2
-                + "&locator=127.0.0.1"
+                + "&locator=10.1.7.2"
                 + "&scheme=*", String.class);
         System.out.println(responseEntity2);
 
@@ -128,11 +128,11 @@ public class StreamClient extends VlcjCommon {
                         try {
                             //클라이언트 정보 등록
                            RestTemplate restTemplate = new RestTemplate();
-                            String orchid2 = orchidService.getOrchidIPv4Addr("127.0.0.1");
-                            ResponseEntity<String> responseEntity2 = restTemplate.getForEntity("http://127.0.0.1:8100/registrar" + "/registration?contextId=" + OrchidService.contextIdForIPv4Addr
-                                    + "&name=127.0.0.1"
+                            String orchid2 = orchidService.getOrchidIPv4Addr("10.1.7.2");
+                            ResponseEntity<String> responseEntity2 = restTemplate.getForEntity("http://127.0.0.1:8100/registrar" + "/registration?contextId=1AF52BA93BA24026CAF34D783DC12A09"
+                                    + "&name=10.1.7.2"
                                     + "&orchid=" + orchid2
-                                    + "&locator=127.0.0.1"
+                                    + "&locator=10.1.7.2"
                                     + "&scheme=*", String.class);
                             System.out.println(responseEntity2);
                         } catch (Exception x) {}

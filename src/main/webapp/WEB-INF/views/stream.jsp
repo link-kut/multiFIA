@@ -26,11 +26,268 @@
     <div align="center">
         <h3>VoD 서비스 이용</h3>
         <div style="margin-top: 2.0em" class="btn-group" data-toggle="buttons" id="stream">
-            <video width="320" height="240" controls autoplay>
+            <span class="image fit"><img src="../resources/images/temp_video.png" alt="" /></span>
+            <!--<video width="320" height="240" controls autoplay>
                 <source src="../resources/videos/Darkknight.mp4">
                 Your browser does not support the video tag.
-            </video>
+            </video>-->
         </div>
+        <c:choose>
+            <c:when test="${latest_quality == 'high'}">
+                <div data-toggle="buttons" id="streaming">
+                    <label class="btn btn-primary">
+                        <input type="radio" name="options" id="high_start" autocomplete="off" checked> Start
+                    </label>
+                    &nbsp;
+                    <label class="btn btn-danger">
+                        <input type="radio" name="options" id="high_stop" autocomplete="off"> Stop
+                    </label>
+                    &nbsp;
+                    <label class="btn btn-success">
+                        <input type="radio" name="options" id="high_160" autocomplete="off"> 160p
+                    </label>
+                    <label class="btn btn-success">
+                        <input type="radio" name="options" id="high_640" autocomplete="off"> 640p
+                    </label>
+                    <label class="btn btn-success">
+                        <input type="radio" name="options" id="high_1280" autocomplete="off"> 1280p
+                    </label>
+                    <label class="btn btn-success">
+                        <input type="radio" name="options" id="high_2560" autocomplete="off"> 2560p
+                    </label>
+                    <label class="btn btn-success">
+                        <input type="radio" name="options" id="high_3600" autocomplete="off"> 3600p
+                    </label>
+                    <label class="btn btn-success">
+                        <input type="radio" name="options" id="high_4900" autocomplete="off"> 4900p
+                    </label>
+                    <script>
+                        jQuery(document).ready(function() {
+                            $("#streaming :input").change(function() {
+                                var play = this.id;
+                                console.log(play); // points to the clicked input button
+                                if(play == "high_start") {
+                                    $.ajax({
+                                        url: "/streaming/start/5BEE0F5007E6915B32B4EF55",
+                                        data: {
+                                            quality: '640',
+                                            targetAddress: '127.0.0.1',
+                                            protocol: 'rtp',
+                                            targetPort: 5555
+                                        }
+                                    });
+                                } else if(play == "high_stop") {
+                                    $.ajax({
+                                        url: "/streaming/stop/5BEE0F5007E6915B32B4EF55",
+                                        data: {
+                                            address: '127.0.0.1',
+                                            port: 5555
+                                        }
+                                    });
+                                } else if(play == "high_160") {
+                                    $.ajax({
+                                        url: "/streaming/start/5BEE0F5007E6915B32B4EF55",
+                                        data: {
+                                            quality: '160',
+                                            targetAddress: '127.0.0.1',
+                                            protocol: 'rtp',
+                                            targetPort: 5555
+                                        }
+                                    });
+                                } else if(play == "high_640") {
+                                    $.ajax({
+                                        url: "/streaming/start/5BEE0F5007E6915B32B4EF55",
+                                        data: {
+                                            quality: '640',
+                                            targetAddress: '127.0.0.1',
+                                            protocol: 'rtp',
+                                            targetPort: 5555
+                                        }
+                                    });
+                                }else if(play == "high_1280") {
+                                    $.ajax({
+                                        url: "/streaming/start/5BEE0F5007E6915B32B4EF55",
+                                        data: {
+                                            quality: '1280',
+                                            targetAddress: '127.0.0.1',
+                                            protocol: 'rtp',
+                                            targetPort: 5555
+                                        }
+                                    });
+                                }else if(play == "high_2560") {
+                                    $.ajax({
+                                        url: "/streaming/start/5BEE0F5007E6915B32B4EF55",
+                                        data: {
+                                            quality: '2560',
+                                            targetAddress: '127.0.0.1',
+                                            protocol: 'rtp',
+                                            targetPort: 5555
+                                        }
+                                    });
+                                }else if(play == "high_3600") {
+                                    $.ajax({
+                                        url: "/streaming/start/5BEE0F5007E6915B32B4EF55",
+                                        data: {
+                                            quality: '3600',
+                                            targetAddress: '127.0.0.1',
+                                            protocol: 'rtp',
+                                            targetPort: 5555
+                                        }
+                                    });
+                                }else if(play == "high_4900") {
+                                    $.ajax({
+                                        url: "/streaming/start/5BEE0F5007E6915B32B4EF55",
+                                        data: {
+                                            quality: '4900',
+                                            targetAddress: '127.0.0.1',
+                                            protocol: 'rtp',
+                                            targetPort: 5555
+                                        }
+                                    });
+                                }
+                            });
+                        });
+                    </script>
+                </div>
+            </c:when>
+            <c:when test="${latest_quality == 'medium'}">
+                <div data-toggle="buttons" id="streaming">
+                    <label class="btn btn-primary">
+                        <input type="radio" name="options" id="medium_start" autocomplete="off" checked> Start
+                    </label>
+                    &nbsp;
+                    <label class="btn btn-danger">
+                        <input type="radio" name="options" id="medium_stop" autocomplete="off"> Stop
+                    </label>
+                    &nbsp;
+                    <label class="btn btn-success">
+                        <input type="radio" name="options" id="medium_160" autocomplete="off"> 160p
+                    </label>
+                    <label class="btn btn-success">
+                        <input type="radio" name="options" id="medium_640" autocomplete="off"> 640p
+                    </label>
+                    <label class="btn btn-success">
+                        <input type="radio" name="options" id="medium_1280" autocomplete="off"> 1280p
+                    </label>
+                    <label class="btn btn-success">
+                        <input type="radio" name="options" id="medium_2560" autocomplete="off"> 2560p
+                    </label>
+                    <script>
+                        jQuery(document).ready(function() {
+                            $("#streaming :input").change(function() {
+                                var play = this.id;
+                                console.log(play); // points to the clicked input button
+                                if(play == "medium_start") {
+                                    $.ajax({
+                                        url: "/streaming/start/5BEE0F5007E6915B32B4EF55",
+                                        data: {
+                                            quality: '640',
+                                            targetAddress: '127.0.0.1',
+                                            protocol: 'rtp',
+                                            targetPort: 5555
+                                        }
+                                    });
+                                } else if(play == "medium_stop") {
+                                    $.ajax({
+                                        url: "/streaming/stop/5BEE0F5007E6915B32B4EF55",
+                                        data: {
+                                            address: '127.0.0.1',
+                                            port: 5555
+                                        }
+                                    });
+                                } else if(play == "medium_1280") {
+                                    $.ajax({
+                                        url: "/streaming/start/5BEE0F5007E6915B32B4EF55",
+                                        data: {
+                                            quality: '1280',
+                                            targetAddress: '127.0.0.1',
+                                            protocol: 'rtp',
+                                            targetPort: 5555
+                                        }
+                                    });
+                                } else if(play == "medium_2560") {
+                                    $.ajax({
+                                        url: "/streaming/start/5BEE0F5007E6915B32B4EF55",
+                                        data: {
+                                            quality: '2560',
+                                            targetAddress: '127.0.0.1',
+                                            protocol: 'rtp',
+                                            targetPort: 5555
+                                        }
+                                    });
+                                }
+                            });
+                        });
+                    </script>
+                </div>
+            </c:when>
+            <c:otherwise>
+                <div data-toggle="buttons" id="streaming">
+                    <label class="btn btn-primary">
+                        <input type="radio" name="options" id="low_start" autocomplete="off" checked> Start
+                    </label>
+                    &nbsp;
+                    <label class="btn btn-danger">
+                        <input type="radio" name="options" id="low_stop" autocomplete="off"> Stop
+                    </label>
+                    &nbsp;
+                    <label class="btn btn-success">
+                        <input type="radio" name="options" id="low_160" autocomplete="off"> 160p
+                    </label>
+                    <label class="btn btn-success">
+                        <input type="radio" name="options" id="low_640" autocomplete="off"> 640p
+                    </label>
+                    <script>
+                        jQuery(document).ready(function() {
+                            $("#streaming :input").change(function() {
+                                var play = this.id;
+                                console.log(play); // points to the clicked input button
+                                if(play == "low_start") {
+                                    $.ajax({
+                                        url: "/streaming/start/5BEE0F5007E6915B32B4EF55",
+                                        data: {
+                                            quality: '640',
+                                            targetAddress: '127.0.0.1',
+                                            protocol: 'rtp',
+                                            targetPort: 5555
+                                        }
+                                    });
+                                } else if(play == "low_stop") {
+                                    $.ajax({
+                                        url: "/streaming/stop/5BEE0F5007E6915B32B4EF55",
+                                        data: {
+                                            address: '127.0.0.1',
+                                            port: 5555
+                                        }
+                                    });
+                                } else if(play == "low_160") {
+                                    $.ajax({
+                                        url: "/streaming/start/5BEE0F5007E6915B32B4EF55",
+                                        data: {
+                                            quality: '160',
+                                            targetAddress: '127.0.0.1',
+                                            protocol: 'rtp',
+                                            targetPort: 5555
+                                        }
+                                    });
+                                } else if(play == "low_640") {
+                                    $.ajax({
+                                        url: "/streaming/start/5BEE0F5007E6915B32B4EF55",
+                                        data: {
+                                            quality: '640',
+                                            targetAddress: '127.0.0.1',
+                                            protocol: 'rtp',
+                                            targetPort: 5555
+                                        }
+                                    });
+                                }
+                            });
+                        });
+                    </script>
+                </div>
+            </c:otherwise>
+        </c:choose>
+
     </div>
 </div>
 </body>

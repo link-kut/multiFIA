@@ -11,4 +11,5 @@ public class ServiceProvider {
     private String serviceQuality;
     private String serviceCapacity;
     private String plan;
+    private String contextId;
 }
