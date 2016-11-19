@@ -40,7 +40,7 @@ public class StreamPlayer {
             String media = mediaFolder + fileSeparator + contentName;
             String options = null;
             if (protocol.equals("http")) {
-                options = vlcService.formatHttpStream(targetAddress, Integer.parseInt(targetPort));
+                options = vlcService.formatHttpStream(targetAddress, Integer.parseInt(targetPort), quality);
                 mediaPlayer.playMedia(media, options);
             } else if (protocol.equals("rtp")) {
                 options = vlcService.formatRtpStream(targetAddress, Integer.parseInt(targetPort), quality);

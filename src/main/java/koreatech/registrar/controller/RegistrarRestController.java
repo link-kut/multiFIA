@@ -23,6 +23,7 @@ public class RegistrarRestController {
     public ResponseEntity<String> registration(@RequestParam(required=false, defaultValue = "292D05A61D8C335FA3411EBB5BAABE77") String contextId,
                                                @RequestParam(required=false, defaultValue = "multifia/Spiderman.mp4") String name,
                                                @RequestParam(required=false, defaultValue = "2FD07DE569C3AD37A83480D3") String orchid,
+                                               @RequestParam(required=false, defaultValue = "1DGEC4CQ6QCFQIO6") String tnid,
                                                @RequestParam(required=false, defaultValue = "127.0.0.1") String locator,
                                                @RequestParam(required=false, defaultValue = "rtp") String scheme) throws Exception {
 
@@ -31,8 +32,8 @@ public class RegistrarRestController {
             registrarMapper.locatorDelete(orchid);
             registrarMapper.identifierDelete(orchid);
         }
-        registrarMapper.identifierInsert(orchid, contextId, name, scheme);  //identifier 레지스트라 등록
-        registrarMapper.locatorInsert(orchid, locator);                     //locator 레지스트라 등록
+        registrarMapper.identifierInsert(orchid, tnid, contextId, name, scheme);  //identifier 레지스트라 등록
+        registrarMapper.locatorInsert(orchid, tnid, locator);                     //locator 레지스트라 등록
         return new ResponseEntity<String>(orchid, HttpStatus.OK);
     }
 
@@ -41,6 +42,7 @@ public class RegistrarRestController {
                                          @RequestParam(required=false, defaultValue = "292D05A61D8C335FA3411EBB5BAABE77") String contextId,
                                          @RequestParam(required=false, defaultValue = "multifia/Spiderman.mp4") String name,
                                          @RequestParam(required=false, defaultValue = "2FD07DE569C3AD37A83480D3") String orchid,
+                                         @RequestParam(required=false, defaultValue = "1DGEC4CQ6QCFQIO6") String tnid,
                                          @RequestParam(required=false, defaultValue = "127.0.0.1") String locator,
                                          @RequestParam(required=false, defaultValue = "rtp") String scheme) throws Exception {
 

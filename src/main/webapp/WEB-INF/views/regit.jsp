@@ -56,7 +56,7 @@
                                     contextId: '292D05A61D8C335FA3411EBB5BAABE77',
                                     name: 'multifia/Spiderman.mp4',
                                     orchid: '5BEE0F5007E6915B32B4EF55',
-                                    locator: '10.1.5.3:8100',
+                                    locator: '127.0.0.1:8100',
                                     scheme: 'rtp'
                                 }
                             });

@@ -18,20 +18,19 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
     <title>Photon by HTML5 UP</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="../resources/assets/js/jquery.min.js"></script>
+    <script src="../resources/assets/js/jquery.scrolly.min.js"></script>
     <!--[if lte IE 8]><script src="../resources/assets/js/ie/html5shiv.js"></script><![endif]-->
     <link rel="stylesheet" href="../resources/assets/css/main.css" />
     <!--[if lte IE 8]><link rel="stylesheet" href="../resources/assets/css/ie8.css" /><![endif]-->
     <!--[if lte IE 9]><link rel="stylesheet" href="../resources/assets/css/ie9.css" /><![endif]-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
-
-    <script src="../resources/assets/js/jquery.min.js"></script>
-    <script src="../resources/assets/js/jquery.scrolly.min.js"></script>
     <script src="../resources/assets/js/skel.min.js"></script>
     <script src="../resources/assets/js/util.js"></script>
     <!--[if lte IE 8]><script src="../resources/assets/js/ie/respond.min.js"></script><![endif]-->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <script src="../resources/assets/js/main.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
     <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
 </head>
 <body>
@@ -68,7 +67,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 <section id="one" class="main style1">
     <div class="container">
         <div class="row 150%">
-            <div class="6u 12u$(medium)">
+            <div class="6u 18u$(medium)">
                 <header class="major">
                     <h3>다양한 네트워킹 개체 ID 처리</h3>
                 </header>
@@ -84,8 +83,13 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                     다양한 ID 유형 기반의 여러가지 응용/서비스 요구사항을 처리하기 위하여 통합되고 추상화된 표현기법과 응용/서비스 주도형 요구사항 표현
                     기법을 연구 및 구현
                 </p>
+                </br></br></br>
+                <header class="major">
+                    <h3>다양성 지원 네트워크 API 사용성</h3>
+                </header>
+                <a href="/kistiAPI" class="btn btn-warning" role="button" aria-pressed="true">API Information</a>
             </div>
-            <div class="6u 12u$(medium)">
+            <div class="6u 18u$(medium)">
                 <header class="major">
                     <h3>서비스별 최적화 Orchestration</h3>
                 </header>
@@ -98,9 +102,14 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                     <h3>프로그래머블 인프라 기반 End-to-End Software-Defined Control 방식</h3>
                 </header>
                 <p>
-                    Software-Defined Orchestration Control이 가능한 단말/네트워크/클라우드의 통합적인 자원 표현 기법, 소프트웨어 기반의
+                    Software-Defined Orchestration Control이 가능한 단말/네트워크/클라우드의 통합 자원 표현 기법, 소프트웨어 기반의
                     제어를 위한 API 기반의 프로그래머블 인프라 구현
                 </p>
+                </br></br>
+                <header class="major">
+                    <h3>Mapping Registrar 및 REST 기반 Mapping API</h3>
+                </header>
+                <a href="/koreatechAPI" class="btn btn-warning" role="button" aria-pressed="true">API Information</a>
             </div>
             <!--
             <div class="6u$ 12u$(medium) important(medium)">
@@ -161,13 +170,13 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
             </header>
             <script>
                 var a = new Array();
+                //a[0] = 0;
                 a[0] = ${maxId + 1};
             </script>
 
             <ul class="tab">
                 <li><a href="#type" class="tablinks" onclick="openCity(event, 'type')" id="defaultOpen">Service Type</a></li>
                 <li><a href="#quality" class="tablinks" onclick="openCity(event, 'quality')">Quality</a></li>
-                <li><a href="#region" class="tablinks" onclick="openCity(event, 'region')">Region</a></li>
                 <li><a href="#plan" class="tablinks" onclick="openCity(event, 'plan')">Plan</a></li>
             </ul>
 
@@ -220,7 +229,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                         <button href="#type" class="tablinks" onclick="openCity(event, 'type')">Prev</button>
                     </div>
                     <div class="col-md-6 align-right">
-                        <button href="#region" class="tablinks" onclick="openCity(event, 'region')">Next</button>
+                        <button href="#region" class="tablinks" onclick="openCity(event, 'plan')">Next</button>
                     </div>
                 </div>
                 <script>
@@ -234,6 +243,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                 </script>
             </div>
 
+            <!--
             <div id="region" class="tabcontent">
                 <h3>서비스 제공 지역 (서비스를 제공할 지역을 선택하세요.)</h3>
                 <div class="btn-group" data-toggle="buttons" id="capacityType">
@@ -281,6 +291,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                     });
                 </script>
             </div>
+            -->
 
             <div id="plan" class="tabcontent">
                 <h3>가입 정책 (네트워크 서비스에 가입할 정책을 선택하세요.)</h3>
@@ -328,8 +339,8 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                         jQuery(document).ready(function() {
                             $("#planType :input").change(function() {
                                 var planType = this.id;
-                                a[4] = planType;
-                                console.log(a[4]); // points to the clicked input button
+                                a[3] = planType;
+                                console.log(a[3]); // points to the clicked input button
                             });
                         });
                     </script>
@@ -339,26 +350,21 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                         <input type="radio" name="options" id="create" autocomplete="off">Create
                     </label>
                 </div>
+                ${tenant_id}
                 <script>
                     jQuery(document).ready(function() {
                         $("#creation :input").change(function() {
                             console.log(a); // points to the clicked input button
-                            if(a[1] == 'vod') {
-                                a[5] = "292D05A61D8C335FA3411EBB5BAABE77";
-                            }
-                            if(a[1] =='ft') {
-                                a[5] = "1AF52BA93BA24026CAF34D783DC12A09";
-                            }
                             $.ajax({
                                 url : "/networkService",
-                                data : {userId : a[0], type : a[1], quality : a[2], capacity : a[3], plan : a[4], contextId : a[5]}
+                                data : {userId : a[0], type : a[1], quality : a[2], plan : a[3]}
                             });
                             if(a[1] == "vod") {
-                                alert("네트워크 서비스가 생성 되어습니다.\n" + "ServiceID : 292D05A61D8C335FA3411EBB5BAABE77");
+                                alert("네트워크 서비스가 생성 되어습니다.\n" + "ServiceID: 292D05A61D8C335FA3411EBB5BAABE77");
                                 //$("#contentsService").show();
                             }
                             else {
-                                alert("네트워크 서비스가 생성 되어습니다.\n" + "ServiceID : 1AF52BA93BA24026CAF34D783DC12A09");
+                                alert("네트워크 서비스가 생성 되어습니다.\n" + "ServiceID: 1AF52BA93BA24026CAF34D783DC12A09");
                                 //$("#contentsService").show();
                             }
                         });
@@ -369,7 +375,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                     });
                 </script>
                 <div data-role="main" class="ui-content" align="left">
-                    <button href="#region" class="tablinks" onclick="openCity(event, 'region')">Prev</button>
+                    <button href="#region" class="tablinks" onclick="openCity(event, 'quality')">Prev</button>
                 </div>
             </div>
 

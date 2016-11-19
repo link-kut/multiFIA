@@ -22,7 +22,7 @@ public class StreamClientRestController {
         target = result[1].split(":");
 
         try {
-            ResponseEntity<String> responseEntity = restTemplate.getForEntity(REST_SERVICE_URI + "/start/" + orchid + "?targetAddress=" + target[0], String.class);
+            ResponseEntity<String> responseEntity = restTemplate.getForEntity(REST_SERVICE_URI + "/start/" + orchid + "?targetAddress=" + target[0] + "&protocol=http", String.class);
             String receivedOrchid = responseEntity.getBody();
             if (receivedOrchid.equals(orchid)) {
                 System.out.println("Success");
@@ -44,7 +44,7 @@ public class StreamClientRestController {
         target = result[1].split(":");
 
         try {
-            ResponseEntity<String> responseEntity = restTemplate.getForEntity(REST_SERVICE_URI + "/stop/" + orchid + "?targetAddress=" + target[0], String.class);
+            ResponseEntity<String> responseEntity = restTemplate.getForEntity(REST_SERVICE_URI + "/stop/" + orchid + "?targetAddress=" + target[0] + "&protocol=http", String.class);
             String receivedOrchid = responseEntity.getBody();
             if (receivedOrchid.equals(orchid)) {
                 System.out.println("Success");
@@ -66,7 +66,7 @@ public class StreamClientRestController {
         target = result[1].split(":");
 
         try {
-            ResponseEntity<String> responseEntity = restTemplate.getForEntity(REST_SERVICE_URI + "/pause/" + orchid + "?targetAddress=" + target[0], String.class);
+            ResponseEntity<String> responseEntity = restTemplate.getForEntity(REST_SERVICE_URI + "/pause/" + orchid + "?targetAddress=" + target[0] + "&protocol=http", String.class);
             String receivedOrchid = responseEntity.getBody();
             if (receivedOrchid.equals(orchid)) {
                 System.out.println("Success");
@@ -88,7 +88,7 @@ public class StreamClientRestController {
         target = result[1].split(":");
 
         try {
-            ResponseEntity<String> responseEntity = restTemplate.getForEntity(REST_SERVICE_URI + "/resume/" + orchid + "?tagetAddress=" + target[0], String.class);
+            ResponseEntity<String> responseEntity = restTemplate.getForEntity(REST_SERVICE_URI + "/resume/" + orchid + "?tagetAddress=" + target[0] + "&protocol=http", String.class);
             String receivedOrchid = responseEntity.getBody();
             if (receivedOrchid.equals(orchid)) {
                 System.out.println("Success");

@@ -9,14 +9,14 @@ import java.util.List;
 
 @Repository
 public interface RegistrarMapper {
-    @Insert("INSERT INTO fia.IDENTIFIER_REGISTRAR (ORCHID, CONTEXT_ID, NAME, SCHEME) " +
-            "VALUES (#{orchid}, #{contextId}, #{name}, #{scheme})")
-    void identifierInsert(@Param("orchid") String orchid, @Param("contextId") String contextId, @Param("name") String name,
+    @Insert("INSERT INTO fia.IDENTIFIER_REGISTRAR (ORCHID, TNID, CONTEXT_ID, NAME, SCHEME) " +
+            "VALUES (#{orchid}, #{tnid}, #{contextId}, #{name}, #{scheme})")
+    void identifierInsert(@Param("orchid") String orchid, @Param("tnid") String tnid, @Param("contextId") String contextId, @Param("name") String name,
                 @Param("scheme") String scheme);
 
-    @Insert("INSERT INTO fia.LOCATOR_REGISTRAR (ORCHID, LOCATOR) " +
-            "VALUES (#{orchid}, #{locator})")
-    void locatorInsert(@Param("orchid") String orchid, @Param("locator") String locator);
+    @Insert("INSERT INTO fia.LOCATOR_REGISTRAR (ORCHID, TNID, LOCATOR) " +
+            "VALUES (#{orchid}, #{tnid}, #{locator})")
+    void locatorInsert(@Param("orchid") String orchid,@Param("tnid") String tnid, @Param("locator") String locator);
 
     @Select("SELECT * FROM fia.IDENTIFIER_REGISTRAR")
     IdentifierRegistrar findByAllIdentifier();

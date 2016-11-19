@@ -12,10 +12,10 @@ import java.util.List;
 
 @Repository
 public interface ServiceMapper {
-    @Insert("INSERT INTO fia.SERVICE_PROVIDERS (USER_ID, SERVICE_TYPE, NETWORK_QUALITY, SERVICE_CAPACITY, PLAN, CONTEXT_ID) " +
-            "VALUES (#{userId}, #{type}, #{quality}, #{capacity}, #{plan}, #{contextId})")
+    @Insert("INSERT INTO fia.SERVICE_PROVIDERS (USER_ID, SERVICE_TYPE, NETWORK_QUALITY, PLAN, TNID) " +
+            "VALUES (#{userId}, #{type}, #{quality}, #{plan}, #{tnid})")
     void insert(@Param("userId") int userId, @Param("type") String type, @Param("quality") String quality,
-                @Param("capacity") String capacity, @Param("plan") String plan, @Param("contextId") String contextId);
+                @Param("plan") String plan, @Param("tnid") String tnid);
 
     @Select("SELECT max(USER_ID) FROM fia.SERVICE_PROVIDERS")
     Integer findMaxuserId();
@@ -28,6 +28,9 @@ public interface ServiceMapper {
 
     @Select("SELECT NETWORK_QUALITY FROM  fia.SERVICE_PROVIDERS WHERE USER_ID = (SELECT max(USER_ID) FROM fia.SERVICE_PROVIDERS)")
     String findLatestQuality();
+
+    @Select("SELECT TNID FROM  fia.SERVICE_PROVIDERS WHERE USER_ID = (SELECT max(USER_ID) FROM fia.SERVICE_PROVIDERS)")
+    String findByTNID();
 
     @Select("<script>"
             + "SELECT * FROM fia.USERS"

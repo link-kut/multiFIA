@@ -19,6 +19,11 @@
     <!--[if lte IE 8]><script src="../resources/assets/js/ie/respond.min.js"></script><![endif]-->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <script src="../resources/assets/js/main.js"></script>
+
+    <link href="http://vjs.zencdn.net/5.8.8/video-js.css" rel="stylesheet">
+
+    <!-- If you'd like to support IE8 -->
+    <script src="http://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
     <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
 </head>
 <body>
@@ -26,11 +31,30 @@
     <div align="center">
         <h3>VoD 서비스 이용</h3>
         <div style="margin-top: 2.0em" class="btn-group" data-toggle="buttons" id="stream">
-            <span class="image fit"><img src="../resources/images/temp_video.png" alt="" /></span>
-            <!--<video width="320" height="240" controls autoplay>
-                <source src="../resources/videos/Darkknight.mp4">
-                Your browser does not support the video tag.
-            </video>-->
+            <object classid="clsid:9BE31822-FDAD-461B-AD51-BE1D1C159921" codebase="http://download.videolan.org/pub/videolan/vlc/last/win32/axvlc.cab" id="vlc">
+                <embed type="application/x-vlc-plugin" pluginspage="http://www.videolan.org" name="vlc" />
+            </object>
+            <!--<video id="myVideo" class="video-js" controls>
+                <source src="http://localhost:8100/resources/videos/Darkknight.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+                <source src="http://localhost:8100/resources/videos/Spiderman.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+
+                <p class="vjs-no-js">
+                    To view this video please enable JavaScript, and consider upgrading to a web browser that
+                    <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+                </p>
+            </video>
+            </br>
+            <button type="button" onclick="vid_play_pause()">Play/Pause</button>
+            <script>
+                function vid_play_pause() {
+                    var myVideo = document.getElementById("myVideo");
+                    if (myVideo.paused) {
+                        myVideo.play();
+                    } else {
+                        myVideo.pause();
+                    }
+                }
+            </script>-->
         </div>
         <c:choose>
             <c:when test="${latest_quality == 'high'}">
@@ -72,7 +96,7 @@
                                         data: {
                                             quality: '640',
                                             targetAddress: '127.0.0.1',
-                                            protocol: 'rtp',
+                                            protocol: 'http',
                                             targetPort: 5555
                                         }
                                     });
@@ -90,7 +114,7 @@
                                         data: {
                                             quality: '160',
                                             targetAddress: '127.0.0.1',
-                                            protocol: 'rtp',
+                                            protocol: 'http',
                                             targetPort: 5555
                                         }
                                     });
@@ -100,7 +124,7 @@
                                         data: {
                                             quality: '640',
                                             targetAddress: '127.0.0.1',
-                                            protocol: 'rtp',
+                                            protocol: 'http',
                                             targetPort: 5555
                                         }
                                     });
@@ -110,7 +134,7 @@
                                         data: {
                                             quality: '1280',
                                             targetAddress: '127.0.0.1',
-                                            protocol: 'rtp',
+                                            protocol: 'http',
                                             targetPort: 5555
                                         }
                                     });
@@ -120,7 +144,7 @@
                                         data: {
                                             quality: '2560',
                                             targetAddress: '127.0.0.1',
-                                            protocol: 'rtp',
+                                            protocol: 'http',
                                             targetPort: 5555
                                         }
                                     });
@@ -130,7 +154,7 @@
                                         data: {
                                             quality: '3600',
                                             targetAddress: '127.0.0.1',
-                                            protocol: 'rtp',
+                                            protocol: 'http',
                                             targetPort: 5555
                                         }
                                     });
@@ -140,7 +164,7 @@
                                         data: {
                                             quality: '4900',
                                             targetAddress: '127.0.0.1',
-                                            protocol: 'rtp',
+                                            protocol: 'http',
                                             targetPort: 5555
                                         }
                                     });
@@ -183,7 +207,7 @@
                                         data: {
                                             quality: '640',
                                             targetAddress: '127.0.0.1',
-                                            protocol: 'rtp',
+                                            protocol: 'http',
                                             targetPort: 5555
                                         }
                                     });
@@ -201,7 +225,7 @@
                                         data: {
                                             quality: '1280',
                                             targetAddress: '127.0.0.1',
-                                            protocol: 'rtp',
+                                            protocol: 'http',
                                             targetPort: 5555
                                         }
                                     });
@@ -211,7 +235,7 @@
                                         data: {
                                             quality: '2560',
                                             targetAddress: '127.0.0.1',
-                                            protocol: 'rtp',
+                                            protocol: 'http',
                                             targetPort: 5555
                                         }
                                     });
@@ -248,7 +272,7 @@
                                         data: {
                                             quality: '640',
                                             targetAddress: '127.0.0.1',
-                                            protocol: 'rtp',
+                                            protocol: 'http',
                                             targetPort: 5555
                                         }
                                     });
@@ -266,7 +290,7 @@
                                         data: {
                                             quality: '160',
                                             targetAddress: '127.0.0.1',
-                                            protocol: 'rtp',
+                                            protocol: 'http',
                                             targetPort: 5555
                                         }
                                     });
@@ -276,7 +300,7 @@
                                         data: {
                                             quality: '640',
                                             targetAddress: '127.0.0.1',
-                                            protocol: 'rtp',
+                                            protocol: 'http',
                                             targetPort: 5555
                                         }
                                     });

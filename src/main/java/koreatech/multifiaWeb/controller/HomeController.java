@@ -3,6 +3,7 @@ package koreatech.multifiaWeb.controller;
 import koreatech.multifiaWeb.domain.ServiceProvider;
 import koreatech.multifiaWeb.repository.ServiceMapper;
 import koreatech.streaming.service.OrchidService;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -30,9 +31,11 @@ public class HomeController {
     @RequestMapping
     public String home(Model model) throws Exception{
         ServiceProvider serviceProvider = new ServiceProvider();
+        String tenant_id = serviceMapper.findByTNID();
+        System.out.println(tenant_id);
         model.addAttribute("network", serviceProvider);
         model.addAttribute("maxId", serviceMapper.findMaxuserId());
-
+        model.addAttribute("tnid", tenant_id);
         return "index";
     }
 
@@ -52,14 +55,23 @@ public class HomeController {
         return "stream";
     }
 
+    @RequestMapping(value = "/kistiAPI", method = RequestMethod.GET)
+    public String kistiAPI(Model model) throws Exception{
+        return "kistiAPI";
+    }
+
+    @RequestMapping(value = "/koreatechAPI", method = RequestMethod.GET)
+    public String koreatechAPI(Model model) throws Exception{
+        return "koreatechAPI";
+    }
+
     @RequestMapping(value="/networkService", method = RequestMethod.GET)
     public String registration(@RequestParam int userId,
                                @RequestParam String type,
                                @RequestParam String quality,
-                               @RequestParam String capacity,
-                               @RequestParam String plan,
-                               @RequestParam String contextId) {
-        serviceMapper.insert(userId, type, quality, capacity, plan, contextId);
+                               @RequestParam String plan) {
+        String tnid = RandomStringUtils.randomAlphanumeric(16).toUpperCase();
+        serviceMapper.insert(userId, type, quality, plan, tnid);
         return "redirect:/";
     }
 
