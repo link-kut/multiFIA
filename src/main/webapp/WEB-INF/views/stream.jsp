@@ -31,11 +31,8 @@
     <div align="center">
         <h3>VoD 서비스 이용</h3>
         <div style="margin-top: 2.0em" class="btn-group" data-toggle="buttons" id="stream">
-            <object classid="clsid:9BE31822-FDAD-461B-AD51-BE1D1C159921" codebase="http://download.videolan.org/pub/videolan/vlc/last/win32/axvlc.cab" id="vlc">
-                <embed type="application/x-vlc-plugin" pluginspage="http://www.videolan.org" name="vlc" />
-            </object>
-            <!--<video id="myVideo" class="video-js" controls>
-                <source src="http://localhost:8100/resources/videos/Darkknight.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+            <video id="myVideo" class="video-js" controls>
+                <source src="http://127.0.0.1:5555" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
                 <source src="http://localhost:8100/resources/videos/Spiderman.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
 
                 <p class="vjs-no-js">
@@ -54,7 +51,7 @@
                         myVideo.pause();
                     }
                 }
-            </script>-->
+            </script>
         </div>
         <c:choose>
             <c:when test="${latest_quality == 'high'}">

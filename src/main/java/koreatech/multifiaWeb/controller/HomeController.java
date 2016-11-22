@@ -32,7 +32,6 @@ public class HomeController {
     public String home(Model model) throws Exception{
         ServiceProvider serviceProvider = new ServiceProvider();
         String tenant_id = serviceMapper.findByTNID();
-        System.out.println(tenant_id);
         model.addAttribute("network", serviceProvider);
         model.addAttribute("maxId", serviceMapper.findMaxuserId());
         model.addAttribute("tnid", tenant_id);
