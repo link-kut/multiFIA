@@ -19,13 +19,12 @@
     <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
 </head>
 <body>
+<!--
 <section id="headerBar">
     <div class="inner">
         <%@ include file="headerBar.jsp" %>
     </div>
 </section>
-
-<!-- Header -->
 <section id="header">
     <div class="inner">
         <span class="icon major fa-cloud"></span>
@@ -40,7 +39,7 @@
             <li><a href="#doc" class="button scrolly">다양성 자원 API</a></li>
         </ul>
     </div>
-</section>
+</section>-->
 <section id="doc" class="main style1 special">
     <div class="container">
         <header class="major">
@@ -49,6 +48,7 @@
         <table>
             <caption>표 1. openAIP의 평가모델에 기반한 1단계</caption>
             <th><strong>Level 1: All find (4)</strong></th>
+            <th> </th>
             <tr>
                 <td>From a single source (the portal), are all of the information or links to them available? </td>
                 <td>yes</td>
@@ -70,8 +70,9 @@
         <table>
             <caption>표 2. openAPI의 평가모델에 기반한 2단계 중 일부</caption>
             <th><strong>Level 2: All use (5)</strong></th>
+            <th> </th>
             <tr>
-                <td>Does it support the use of JSON and/or XML?</td>
+                <td width="1060">Does it support the use of JSON and/or XML?</td>
                 <td>yes</td>
             </tr>
         </table>
@@ -82,17 +83,19 @@
         <figure>
             <img src="../resources/images/nrc_structure.png">
             <figcaption>그림 1. NRC 구조도</figcaption>
-        </figure>
-        <p>NRC는 네트워크 자원을 제어하는 것으로, 네트워크 토폴로지를 구성하는 호스트, 네트워크 링크, 그리고 자원제어를 담당하는 3가지 API를 구성하고 있다.</p>
+        </figure><br/>
+        <div align="left">
+            <p>NRC는 네트워크 자원을 제어하는 것으로, 네트워크 토폴로지를 구성하는 호스트, 네트워크 링크, 그리고 자원제어를 담당하는 3가지 API를 구성하고 있다.</p>
+        </div>
 
         <figure>
             <img src="../resources/images/NRC_API_abstract.png">
             <figcaption>그림 2. NRC 제공 API 요약</figcaption>
-        </figure>
+        </figure><br/>
         <div align="left">
-            <p>HOST API는 네트워크 토폴로지에서 호스트 정보를 전달하는 GET방식의 API로써, host MAC, host PORT, switch ID 정보를 포함하고 있다.</p>
-            <p>LINK API는 네트워크 토폴로지에서 네트워크 링크 정보를 전달하는 GET방식의 API로써, 출발지 switch ID, 출발지 switch PORT, 목적지 switch ID, 목적지 switch PORT 정보를 포함하고 있다.</p>
-            <p>POST API는 네트워크 토폴로지에서 출발지와 목적지 호스트간의 네트워크 링크를 할당하는 POST 방식의 API로써, 출발지 host 정보, 경유 링크 정보, 목적지 host 정보를 포함하고 있다.</p>
+            <p>(1) HOST API는 네트워크 토폴로지에서 호스트 정보를 전달하는 GET방식의 API로써, host MAC, host PORT, switch ID 정보를 포함하고 있다.</p>
+            <p>(2) LINK API는 네트워크 토폴로지에서 네트워크 링크 정보를 전달하는 GET방식의 API로써, 출발지 switch ID, 출발지 switch PORT, 목적지 switch ID, 목적지 switch PORT 정보를 포함하고 있다.</p>
+            <p>(3) POST API는 네트워크 토폴로지에서 출발지와 목적지 호스트간의 네트워크 링크를 할당하는 POST 방식의 API로써, 출발지 host 정보, 경유 링크 정보, 목적지 host 정보를 포함하고 있다.</p>
         </div>
         <table>
             <caption>표 3. NRC 제공 API spec</caption>
@@ -114,19 +117,19 @@
         <figure>
             <img src="../resources/images/link_info_api.png">
             <figcaption>그림 3. LINK_info API</figcaption>
-        </figure>
+        </figure><br/>
         <figure>
             <img src="../resources/images/get%20link_info.png">
             <figcaption>그림 4. GET LINK_info via cur</figcaption>
-        </figure>
+        </figure><br/>
         <figure>
             <img src="../resources/images/get%20link_info_RESTAPI.png">
             <figcaption>그림 5. GET LINK_info via REST API</figcaption>
-        </figure>
+        </figure><br/>
         <figure>
             <img src="../resources/images/LINK_info_Requestmsg.png">
             <figcaption>그림 6. LINK_info 응답 메시지</figcaption>
-        </figure>
+        </figure><br/>
         <br/><br/>
         <header class="major">
             <h3>(2) Host_info API</h3>
@@ -134,19 +137,19 @@
         <figure>
             <img src="../resources/images/host_info_api.png">
             <figcaption>그림 7. HOST_info API</figcaption>
-        </figure>
+        </figure><br/>
         <figure>
             <img src="../resources/images/get%20host_info.png">
             <figcaption>그림 8. GET HOST_info via REST</figcaption>
-        </figure>
+        </figure><br/>
         <figure>
             <img src="../resources/images/get%20host_info_cur.png">
             <figcaption>그림 9. GET HOST_info via cur</figcaption>
-        </figure>
+        </figure><br/>
         <figure>
             <img src="../resources/images/host_info_reqmsg.png">
             <figcaption>그림 10. HOST_info 응답 메시지</figcaption>
-        </figure>
+        </figure><br/>
         <br/><br/>
         <header class="major">
             <h3>(3) POST API</h3>
@@ -154,19 +157,19 @@
         <figure>
             <img src="../resources/images/post_api.png">
             <figcaption>그림 11. POST API</figcaption>
-        </figure>
+        </figure><br/>
         <figure>
             <img src="../resources/images/post_curl.png">
             <figcaption>그림 12. POST via cur</figcaption>
-        </figure>
+        </figure><br/>
         <figure>
             <img src="../resources/images/post_example1.png">
             <figcaption>그림 13. 에지클라우드와 터미널 노드 간의 POST</figcaption>
-        </figure>
+        </figure><br/>
         <figure>
             <img src="../resources/images/post_error_example.png">
             <figcaption>그림 14. POST에러 사용 예: 에러코드 400</figcaption>
-        </figure>
+        </figure><br/>
         <br/><br/>
         <table>
             <caption>표 4. 예시 제시</caption>

@@ -19,13 +19,12 @@
     <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
 </head>
 <body>
+<!--
 <section id="headerBar">
     <div class="inner">
         <%@ include file="headerBar.jsp" %>
     </div>
 </section>
-
-<!-- Header -->
 <section id="header">
     <div class="inner">
         <span class="icon major fa-cloud"></span>
@@ -40,7 +39,7 @@
             <li><a href="#doc" class="button scrolly">REST 기반 Mapping API</a></li>
         </ul>
     </div>
-</section>
+</section>-->
 
 <section id="doc" class="main style1 special">
     <header class="major">

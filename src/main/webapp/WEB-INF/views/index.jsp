@@ -120,47 +120,23 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
     </div>
 </section>
 
-<!-- Two -->
-<!--
-<section id="two" class="main style2">
-    <div class="container">
-        <div class="row 150%">
-            <div class="6u 12u$(medium)">
-                <ul class="major-icons">
-                    <li><span class="icon style1 major fa-code"></span></li>
-                    <li><span class="icon style2 major fa-bolt"></span></li>
-                    <li><span class="icon style3 major fa-camera-retro"></span></li>
-                    <li><span class="icon style4 major fa-cog"></span></li>
-                    <li><span class="icon style5 major fa-desktop"></span></li>
-                    <li><span class="icon style6 major fa-calendar"></span></li>
-                </ul>
-            </div>
-            <div class="6u$ 12u$(medium)">
-                <header class="major">
-                    <h2>Lorem ipsum dolor adipiscing<br />
-                        amet dolor consequat</h2>
-                </header>
-                <p>Adipiscing a commodo ante nunc accumsan interdum mi ante adipiscing. A nunc lobortis non nisl amet vis volutpat aclacus nascetur ac non. Lorem curae eu ante amet sapien in tempus ac. Adipiscing id accumsan adipiscing ipsum.</p>
-                <p>Blandit faucibus proin. Ac aliquam integer adipiscing enim non praesent vis commodo nunc phasellus cubilia ac risus accumsan. Accumsan blandit. Lobortis phasellus non lobortis dit varius mi varius accumsan lobortis. Blandit ante aliquam lacinia lorem lobortis semper morbi col faucibus vitae integer placerat accumsan orci eu mi odio tempus adipiscing adipiscing adipiscing curae consequat feugiat etiam dolore.</p>
-                <p>Adipiscing a commodo ante nunc accumsan interdum mi ante adipiscing. A nunc lobortis non nisl amet vis volutpat aclacus nascetur ac non. Lorem curae eu ante amet sapien in tempus ac. Adipiscing id accumsan adipiscing ipsum.</p>
-            </div>
-        </div>
-    </div>
-</section>
--->
-<!--
-<section id="four" class="main style1 special">
+<!--공개 소프트웨어-->
+<section id="two" class="main style2 special">
     <div class="container">
         <header class="major">
-            <h2>What's the movie you want to watch?</h2>
+            <h2>multiFIA NRC/CSRC 개발 SW 공개</h2>
         </header>
-        <p>예고편</p>
-        <a href="movie?title=Spiderman.mp4"><img src="../resources/images/Spiderman.jpeg" alt="" width="186" height="269" /></a>
-        <a href="movie?title=Darkknight.mp4"><img src="../resources/images/darkknight.jpg" alt="" width="186" height="269" /></a>
-        <a href="movie?title=Punisher.mp4"><img src="../resources/images/Punisher.jpg" alt="" width="186" height="269" /></a>
+        <ul class="actions uniform">
+            <li>
+                <a href=" https://github.com/syedasifraza/project-app" role="button" class="btn btn-lg btn-default" aria-pressed="true">
+                <span class="glyphicon glyphicon-link"></span> LINK
+                </a>
+            </li>
+        </ul>
     </div>
 </section>
--->
+
+
 <!-- ServiceCreation -->
 <sec:authorize access="isAuthenticated()">
     <section id="serviceCreation" class="main style2">
@@ -458,7 +434,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 </sec:authorize>
 
 <!-- Three -->
-<section id="three" class="main style2">
+<section id="three" class="main style1">
     <div class="container">
         <header class="major">
             <h2>참여 연구원</h2>
